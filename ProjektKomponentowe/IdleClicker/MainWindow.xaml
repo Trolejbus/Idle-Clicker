@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <local:SceneController x:Name="sceneController" Margin="0,0,201,96" />
     </Grid>
 </Window>

@@ -16,14 +16,16 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Scene.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public abstract partial class Scene : UserControl
     {
-        public MainWindow()
+        public Scene()
         {
             InitializeComponent();
-           
         }
+
+        public abstract void Load();
+        public abstract void Close();
     }
 }
