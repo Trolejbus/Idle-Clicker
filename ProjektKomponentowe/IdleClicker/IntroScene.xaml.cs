@@ -18,22 +18,33 @@ namespace IdleClicker
     /// <summary>
     /// Interaction logic for IntroScene.xaml
     /// </summary>
-    public partial class IntroScene : Scene
+    public partial class IntroScene : UserControl, IScene
     {
+        SceneController sceneController;
+
         public IntroScene()
         {
             InitializeComponent();
         }
 
-        public override void Load()
+        public void Close()
         {
-
+            
         }
 
-        public override void Close()
+        public void Load()
         {
-
+            
         }
 
+        public void SetSceneController(SceneController sc)
+        {
+            sceneController = sc;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            sceneController.LoadScene<MainMenuScene>(new MainMenuScene());
+        }
     }
 }

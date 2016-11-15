@@ -16,16 +16,30 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for Scene.xaml
+    /// Interaction logic for MainMenuScene.xaml
     /// </summary>
-    public abstract partial class Scene : UserControl
+    public partial class MainMenuScene : UserControl, IScene
     {
-        public Scene()
+        SceneController sceneController;
+
+        public MainMenuScene()
         {
             InitializeComponent();
         }
 
-        public abstract void Load();
-        public abstract void Close();
+        public void Close()
+        {
+            
+        }
+
+        public void Load()
+        {
+            
+        }
+
+        public void SetSceneController(SceneController sc)
+        {
+            sceneController = sc;
+        }
     }
 }
