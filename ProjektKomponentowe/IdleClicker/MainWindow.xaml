@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IdleClicker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" MinWidth="640" MinHeight="480">
     <Grid>
-        <local:SceneController x:Name="sceneController" Margin="0,0,201,96" />
+        <local:SceneController x:Name="sceneController" />
     </Grid>
 </Window>

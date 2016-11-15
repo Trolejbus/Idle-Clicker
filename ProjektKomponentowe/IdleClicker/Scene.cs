@@ -14,13 +14,8 @@ namespace IdleClicker
         {
             sceneController = sc;
         }
-        public virtual void Load()
-        {
-            throw new NotImplementedException();
-        }
-        public virtual void Close()
-        {
-            throw new NotImplementedException();
-        }
+
+        public virtual void Load() { }
+        public virtual void Close() { }
     }
 }

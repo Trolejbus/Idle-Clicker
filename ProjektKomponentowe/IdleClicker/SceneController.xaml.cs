@@ -21,7 +21,7 @@ namespace IdleClicker
     public partial class SceneController : UserControl
     {
         public Scene CurrentScene { get; set; }
-        private Scene InitialScene = new IntroScene(); // Przy zmianie sceny początkowej należy w metodzie LoadInitialScene zmienić przekazywany typ ogólny
+        private Scene InitialScene = new IntroScene(); 
 
         public SceneController()
         {

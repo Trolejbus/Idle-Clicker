@@ -34,10 +34,5 @@ namespace IdleClicker
         {
             
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }

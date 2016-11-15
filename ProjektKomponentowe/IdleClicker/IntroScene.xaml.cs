@@ -23,6 +23,14 @@ namespace IdleClicker
         public IntroScene()
         {
             InitializeComponent();
+
+            mediaElement.Source = new Uri(Config.ApplicationExecutablePath + @"\data\Intro.avi");
+            mediaElement.MediaEnded += MediaElement_MediaEnded;           
+        }
+
+        private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
+        {
+            sceneController.LoadScene(new MainMenuScene());
         }
 
         public override void Close()
@@ -32,12 +40,7 @@ namespace IdleClicker
 
         public override void Load()
         {
-            
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            sceneController.LoadScene(new MainMenuScene());
+            mediaElement.Play();
         }
     }
 }

@@ -7,7 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="#FF2AA8F0">
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="118,139,0,0" TextWrapping="Wrap" Text="A to jest menu" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="118,160,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
+
     </Grid>
 </local:Scene>
