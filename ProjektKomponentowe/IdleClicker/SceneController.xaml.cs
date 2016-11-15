@@ -20,8 +20,8 @@ namespace IdleClicker
     /// </summary>
     public partial class SceneController : UserControl
     {
-        public object CurrentScene { get; set; }
-        private IntroScene InitialScene = new IntroScene(); // Przy zmianie sceny początkowej należy w metodzie LoadInitialScene zmienić przekazywany typ ogólny
+        public Scene CurrentScene { get; set; }
+        private Scene InitialScene = new IntroScene(); // Przy zmianie sceny początkowej należy w metodzie LoadInitialScene zmienić przekazywany typ ogólny
 
         public SceneController()
         {
@@ -29,22 +29,22 @@ namespace IdleClicker
             LoadInitialScene();
         }
 
-        public void LoadScene<T>(IScene scene) where T : UserControl, IScene
+        public void LoadScene(Scene scene)
         {
             if (CurrentScene != null)
             {
-                grid.Children.Remove((UserControl)CurrentScene);
-                ((IScene)CurrentScene).Close();
+                grid.Children.Remove(CurrentScene);
+                CurrentScene.Close();
             }
             CurrentScene = scene;
-            ((IScene)CurrentScene).SetSceneController(this);
-            grid.Children.Add((UserControl)CurrentScene);
+            CurrentScene.SetSceneController(this);
+            grid.Children.Add(CurrentScene);
             scene.Load();
         }
 
         private void LoadInitialScene()
         {
-            LoadScene<IntroScene>(InitialScene);          
+            LoadScene(InitialScene);          
         }
     }
 }

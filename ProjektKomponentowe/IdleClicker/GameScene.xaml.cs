@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for MainMenuScene.xaml
+    /// Interaction logic for GameScene.xaml
     /// </summary>
-    public partial class MainMenuScene : Scene
+    public partial class GameScene : Scene
     {
-        public MainMenuScene()
+        public GameScene()
         {
             InitializeComponent();
-        }
-
-        public override void Close()
-        {
-            
-        }
-
-        public override void Load()
-        {
-            
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }
