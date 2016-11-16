@@ -25,7 +25,7 @@ namespace IdleClicker
             InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void backButton_Click(object sender, RoutedEventArgs e)
         {
             sceneController.LoadScene(new MainMenuScene());
         }
