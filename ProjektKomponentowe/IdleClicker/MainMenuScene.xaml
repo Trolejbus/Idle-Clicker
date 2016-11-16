@@ -25,19 +25,19 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="grid" Background="#FF6E2617">
+        <Image x:Name="image" Stretch="Fill" Source="Resources/Images/main_menu_image.png"/>
         <StackPanel x:Name="stackPanel" Background="#FFE4B57B" HorizontalAlignment="Center" Width="150" Height="200" VerticalAlignment="Center" Opacity="0">
             <local:mainButton x:Name="playButton" Content="Graj" Margin="10,10,10,0" Height="32" Click="button_Click"/>
             <local:mainButton x:Name="optionsButton" Content="Opcje" Margin="10,10,10,0" Height="25"/>
             <local:mainButton x:Name="rankButton" Content="Ranking" Margin="10,10,10,0" Height="25"/>
             <local:mainButton x:Name="authorsButton" Content="Autorzy" Margin="10,10,10,0" Height="25" Click="authorsButton_Click"/>
             <local:mainButton x:Name="exitButton" Content="Koniec Gry" Margin="10,10,10,0" Height="32"/>
-           </StackPanel>
+        </StackPanel>
         <Grid x:Name="grid1" Background="#FFE4B57B" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="317" Margin="0,-40,0,0">
             <Label x:Name="label" Content="GAME TITLE" FontFamily="Kristen ITC" FontSize="18" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF492412"/>
         </Grid>
         <Grid x:Name="grid2" Margin="0,0,10,-30" Background="#FFE4B57B" Height="30" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Label x:Name="label1" Content="Version 1.0&#xA;" FontSize="10" FontFamily="Kristen ITC" Foreground="#FF492412" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,5" d:LayoutOverrides="Width"/>
         </Grid>
-
     </Grid>
 </local:Scene>
