@@ -134,8 +134,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Fonts\Eczar-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Eczar-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Eczar-Regular.ttf" />
     <None Include="Resources\image02.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\old_well.png" />
+    <Resource Include="Resources\Images\old_house.png" />
+    <Resource Include="Resources\Images\tree.png" />
+    <Resource Include="Resources\Fonts\OFL.txt" />
+    <Content Include="Resources\Music\click_sound.mp3" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
