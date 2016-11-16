@@ -26,7 +26,7 @@
     </UserControl.Triggers>
     <Grid x:Name="grid" Background="#FF6E2617">
         <StackPanel x:Name="stackPanel" Background="#FFE4B57B" HorizontalAlignment="Center" Width="150" Height="200" VerticalAlignment="Center" Opacity="0">
-            <local:mainButton x:Name="playButton" Content="Graj" Margin="10,10,10,0" Height="32"/>
+            <local:mainButton x:Name="playButton" Content="Graj" Margin="10,10,10,0" Height="32" Click="button_Click"/>
             <local:mainButton x:Name="optionsButton" Content="Opcje" Margin="10,10,10,0" Height="25"/>
             <local:mainButton x:Name="rankButton" Content="Ranking" Margin="10,10,10,0" Height="25"/>
             <local:mainButton x:Name="authorsButton" Content="Autorzy" Margin="10,10,10,0" Height="25" Click="authorsButton_Click"/>
