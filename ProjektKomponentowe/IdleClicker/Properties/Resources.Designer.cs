@@ -61,12 +61,12 @@ namespace IdleClicker.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static byte[] Intro {
+        internal static System.Drawing.Bitmap image02 {
             get {
-                object obj = ResourceManager.GetObject("Intro", resourceCulture);
-                return ((byte[])(obj));
+                object obj = ResourceManager.GetObject("image02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

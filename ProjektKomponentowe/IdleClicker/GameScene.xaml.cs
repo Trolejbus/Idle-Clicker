@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,8 @@ namespace IdleClicker
         public GameScene()
         {
             InitializeComponent();
+            Uri oUri = new Uri(@"/IdleClicker;component/image02.png", UriKind.Relative);
+            VillageImage.Source = BitmapFrame.Create(oUri);
         }
     }
 }

@@ -34,5 +34,10 @@ namespace IdleClicker
         {
             
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            sceneController.LoadScene(new GameScene());
+        }
     }
 }
