@@ -30,7 +30,7 @@ namespace IdleClicker
 
         private void MediaElement_MediaEnded(object sender, RoutedEventArgs e)
         {
-            sceneController.LoadScene(new MainMenuScene());
+            sceneController.LoadScene(new MainMenuScene());            
         }
 
         public override void Close()

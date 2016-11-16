@@ -56,6 +56,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuthorsScene.xaml.cs">
+      <DependentUpon>AuthorsScene.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Config.cs" />
     <Compile Include="GameScene.xaml.cs">
       <DependentUpon>GameScene.xaml</DependentUpon>
@@ -70,6 +73,10 @@
     <Compile Include="SceneController.xaml.cs">
       <DependentUpon>SceneController.xaml</DependentUpon>
     </Compile>
+    <Page Include="AuthorsScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GameScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
