@@ -65,6 +65,9 @@
     <Compile Include="IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mainButton.xaml.cs">
+      <DependentUpon>mainButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="IntroScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
