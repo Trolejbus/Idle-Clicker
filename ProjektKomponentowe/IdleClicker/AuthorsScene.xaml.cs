@@ -16,27 +16,18 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for MainMenuScene.xaml
+    /// Interaction logic for AuthorsScene.xaml
     /// </summary>
-    public partial class MainMenuScene : Scene
+    public partial class AuthorsScene : Scene
     {
-        public MainMenuScene()
+        public AuthorsScene()
         {
             InitializeComponent();
         }
 
-        public override void Close()
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            
-        }
-
-        public override void Load()
-        {
-        }
-
-        private void button_Copy2_Click(object sender, RoutedEventArgs e)
-        {
-            sceneController.LoadScene(new AuthorsScene());
+            sceneController.LoadScene(new MainMenuScene());
         }
     }
 }
