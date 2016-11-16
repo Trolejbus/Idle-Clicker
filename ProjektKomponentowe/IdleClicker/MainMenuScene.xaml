@@ -38,9 +38,6 @@
         <Grid x:Name="grid2" Margin="0,0,10,-30" Background="#FFE4B57B" Height="30" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Label x:Name="label1" Content="Version 1.0&#xA;" FontSize="10" FontFamily="Kristen ITC" Foreground="#FF492412" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,5" d:LayoutOverrides="Width"/>
         </Grid>
-        <Image x:Name="image2" HorizontalAlignment="Left" Height="293" Margin="464,-21,-73,28" VerticalAlignment="Bottom" Width="171" Source="Resources/Images/tree.png" Panel.ZIndex="-1"/>
-        <Image x:Name="image1" HorizontalAlignment="Right" Height="119" Margin="0,0,165,0" VerticalAlignment="Bottom" Width="156" Source="Resources/Images/old_well.png" Panel.ZIndex="-1"/>
-        <Image x:Name="image" HorizontalAlignment="Left" Height="267" VerticalAlignment="Bottom" Width="413" Source="Resources/Images/old_house.png" Panel.ZIndex="-1"/>
 
     </Grid>
 </local:Scene>

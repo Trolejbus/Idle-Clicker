@@ -147,10 +147,8 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Images\old_well.png" />
-    <Resource Include="Resources\Images\old_house.png" />
-    <Resource Include="Resources\Images\tree.png" />
     <Resource Include="Resources\Fonts\OFL.txt" />
+    <Resource Include="Resources\Images\main_menu_image.png" />
     <Content Include="Resources\Music\click_sound.mp3" />
   </ItemGroup>
   <ItemGroup />
