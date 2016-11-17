@@ -60,15 +60,24 @@
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
+    <Compile Include="Game\Action.cs" />
+    <Compile Include="Game\ActionList.cs" />
+    <Compile Include="Game\SortLinkedList.cs" />
+    <Compile Include="Game\GameEngine.cs" />
     <Compile Include="GameScene.xaml.cs">
       <DependentUpon>GameScene.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Game\InsertBySimpleMethod.cs" />
     <Compile Include="IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MoveableControl.xaml.cs">
+      <DependentUpon>MoveableControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MoveThumb.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneController.xaml.cs">
       <DependentUpon>SceneController.xaml</DependentUpon>
@@ -101,6 +110,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MoveableControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SceneController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,7 +147,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\image02.png" />
+    <Resource Include="Resources\image02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -24,8 +24,22 @@ namespace IdleClicker
         public GameScene()
         {
             InitializeComponent();
-            Uri oUri = new Uri(@"/IdleClicker;component/image02.png", UriKind.Relative);
-            VillageImage.Source = BitmapFrame.Create(oUri);
+
+            GameEngine gameEngine = new GameEngine();
+            gameEngine.Enabled = true;
+
+            Action action = new Action(5);
+            action.Actions += Action_Actions;
+            Action action1 = new Action(2);
+            action1.Actions += Action_Actions;
+
+            gameEngine.ActionList.AddAction(action);
+            gameEngine.ActionList.AddAction(action1);
+        }
+
+        private void Action_Actions()
+        {
+            MessageBox.Show("Działa!");
         }
     }
 }

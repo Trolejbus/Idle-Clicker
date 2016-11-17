@@ -81,7 +81,7 @@
     </UserControl.Triggers>
     <Grid x:Name="grid" Background="#FF6E2617">
         <StackPanel x:Name="stackPanel" Background="#FFE4B57B" HorizontalAlignment="Center" Width="150" Height="200" VerticalAlignment="Center" Opacity="0">
-            <Button x:Name="button" Content="Graj" Height="32" BorderThickness="0" Margin="10,10,10,0" FontFamily="Kristen ITC" FontSize="14" Foreground="#FFE4B57B" Background="#FF492412" OpacityMask="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
+            <Button x:Name="button" Content="Graj" Height="32" BorderThickness="0" Margin="10,10,10,0" FontFamily="Kristen ITC" FontSize="14" Foreground="#FFE4B57B" Background="#FF492412" OpacityMask="Black" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="button_Click_1"/>
             <Button x:Name="button_Copy" Content="Opcje" Height="25" BorderThickness="0" Margin="10,10,10,0" Background="#FF492412" FontFamily="Kristen ITC" FontSize="14" Foreground="#FFE4B57B" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
             <Button x:Name="button_Copy1" Content="Ranking" Height="25" BorderThickness="0" Margin="10,10,10,0" Background="#FF492412" FontFamily="Kristen ITC" FontSize="14" Foreground="#FFE4B57B" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold"/>
             <Button x:Name="button_Copy2" Content="Autorzy" Height="25" BorderThickness="0" Margin="10,10,10,0" Background="#FF492412" FontFamily="Kristen ITC" FontSize="14" Foreground="#FFE4B57B" Style="{DynamicResource ButtonStyle1}" FontWeight="Bold" Click="button_Copy2_Click"/>
