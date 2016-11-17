@@ -60,24 +60,18 @@
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Config.cs" />
-    <Compile Include="Game\Action.cs" />
-    <Compile Include="Game\ActionList.cs" />
-    <Compile Include="Game\SortLinkedList.cs" />
-    <Compile Include="Game\GameEngine.cs" />
     <Compile Include="GameScene.xaml.cs">
       <DependentUpon>GameScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Game\InsertBySimpleMethod.cs" />
     <Compile Include="IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="mainButton.xaml.cs">
+      <DependentUpon>mainButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MoveableControl.xaml.cs">
-      <DependentUpon>MoveableControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MoveThumb.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="SceneController.xaml.cs">
       <DependentUpon>SceneController.xaml</DependentUpon>
@@ -91,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="IntroScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mainButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,10 +108,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MoveableControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SceneController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,8 +141,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\image02.png" />
+    <Resource Include="Resources\Fonts\Eczar-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Eczar-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Eczar-Regular.ttf" />
+    <None Include="Resources\image02.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\OFL.txt" />
+    <Resource Include="Resources\Images\main_menu_image.png" />
+    <Content Include="Resources\Music\click_sound.mp3" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

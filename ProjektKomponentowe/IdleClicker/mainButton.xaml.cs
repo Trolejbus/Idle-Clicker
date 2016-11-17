@@ -16,18 +16,13 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for AuthorsScene.xaml
+    /// Interaction logic for mainButton.xaml
     /// </summary>
-    public partial class AuthorsScene : Scene
+    public partial class mainButton : Button
     {
-        public AuthorsScene()
+        public mainButton()
         {
             InitializeComponent();
-        }
-
-        private void backButton_Click(object sender, RoutedEventArgs e)
-        {
-            sceneController.LoadScene(new MainMenuScene());
         }
     }
 }

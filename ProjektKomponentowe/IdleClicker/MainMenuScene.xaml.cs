@@ -25,16 +25,7 @@ namespace IdleClicker
             InitializeComponent();
         }
 
-        public override void Close()
-        {
-            
-        }
-
-        public override void Load()
-        {
-        }
-
-        private void button_Copy2_Click(object sender, RoutedEventArgs e)
+        private void authorsButton_Click(object sender, RoutedEventArgs e)
         {
             sceneController.LoadScene(new AuthorsScene());
         }
