@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Background="Red">
-        <local:MoveableControl Margin="82,45,62,89" Panel.ZIndex="1"></local:MoveableControl>
+       <!-- <local:MoveableControl Margin="82,45,62,89" Panel.ZIndex="1"></local:MoveableControl> -->
         <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
     </Grid>
 </local:Scene>

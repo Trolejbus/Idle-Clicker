@@ -9,9 +9,9 @@
     <UserControl.Resources>
 
         <!-- MoveThumb Template -->
-        <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type local:MoveThumb}">
+        <!--<ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type local:MoveThumb}">
             <Rectangle Fill="Transparent"/>
-        </ControlTemplate>
+        </ControlTemplate>-->
 
         <!-- Designer Item Template
         <ControlTemplate x:Key="DesignerItemTemplate" TargetType="ContentControl">
@@ -23,8 +23,8 @@
 
     </UserControl.Resources>
     <Grid Background="Magenta">
-        <local:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
-        <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+        <!--<local:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
+        <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>-->
         <!--<Canvas>
             <ContentControl Width="130"
                     MinWidth="50"
