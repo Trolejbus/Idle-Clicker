@@ -70,7 +70,7 @@ namespace IdleClicker
             set
             {
                 enabled = value;
-                // Odpowiednio zatrzymuje lub wznawia zegar
+                // Odpowiednio zatrzymuje lub wznawia pracę zegara
                 if (value)
                     gameTimer.Start();
                 else
@@ -94,7 +94,7 @@ namespace IdleClicker
         }
 
         /// <summary>
-        /// Zwraca ilośc ticków
+        /// Zwraca ilość ticków
         /// </summary>
         public long Ticks
         {

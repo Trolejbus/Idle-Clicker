@@ -13,7 +13,7 @@ namespace IdleClicker
     {
         /// <summary>
         /// Metoda wywoływana. Sprawdza czy obiekt nie jest większy niż ostatni element (wtedy wyjątkowo musi wstawić po ostatnim
-        /// elemencie) i jeżeli nie wywołuję właściwą metodą umieszczającą.
+        /// elemencie) i jeżeli nie, to wywołuje właściwą metodą umieszczającą.
         /// </summary>
         /// <typeparam name="T">Typ danych (IComparable)</typeparam>
         /// <param name="values">LinkedList</param>

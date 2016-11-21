@@ -17,20 +17,20 @@ namespace IdleClicker
     class Action : IComparable<Action>
     {     
         /// <summary>
-        /// Zdarzenia które mają się wykonać
+        /// Zdarzenia, które mają się wykonać
         /// </summary>
         public event ActionDelegate Actions;
 
         /// <summary>
         /// Numer Ticku, w którym mają się wykonać. UWAGA! Wartość musi być zwiększona o ilość ticków w momencie wykonania
-        /// zdarzenia! (ToDo: Dorobić możliwość zmiany ilości ticków na bierząco)
+        /// zdarzenia! (ToDo: Dorobić możliwość zmiany ilości ticków na bieżąco)
         /// </summary>
         public long Tick { private set; get; }
 
         /// <summary>
         /// Konstruktor klasy
         /// </summary>
-        /// <param name="tick">Wartość za ile ticków ma się wykonać zdarzenie</param>
+        /// <param name="tick">Wartość, która mówi, że "za ile ticków ma się wykonać zdarzenie"</param>
         public Action(long tick = 0)
         {
             Tick = tick;
@@ -54,10 +54,10 @@ namespace IdleClicker
         }
 
         /// <summary>
-        /// Implementacja interfacu IComparable. Służy do porównywania dwóch zdarzeń biorąc pod uwagę wartośc Tick
+        /// Implementacja interfacu IComparable. Służy do porównywania dwóch zdarzeń biorąc pod uwagę wartość Tick
         /// </summary>
         /// <param name="obj">Drugie zdarzenie</param>
-        /// <returns> mniejsze od 0 jeśli mniejsze, równe 0 jeśli takie samo, większe 0 jeżeli większe</returns>
+        /// <returns> mniejsze od 0 jeśli mniejsze, równe 0 jeśli takie samo, większe od 0 jeżeli większe</returns>
         public int CompareTo(Action obj)
         {
             if (!(obj is Action))
