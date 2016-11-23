@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace IdleClicker
 {
@@ -11,6 +12,10 @@ namespace IdleClicker
     /// </summary>
     class Material
     {
+        /// <summary>
+        /// Ikona jako graficzna reprezentacja surowca.
+        /// </summary>
+        Image icon;
         /// <summary>
         /// Silnik gry.
         /// </summary>
@@ -35,6 +40,17 @@ namespace IdleClicker
         public Material(GameEngine ge)
         {
             gameEngine = ge;
+        }
+
+        /// <summary>
+        /// Właściwość, która umożliwia pobranie icony danego surowca; 
+        /// </summary>
+        public Image Icon
+        {
+            get
+            {
+                return icon;
+            }
         }
 
         /// <summary>
