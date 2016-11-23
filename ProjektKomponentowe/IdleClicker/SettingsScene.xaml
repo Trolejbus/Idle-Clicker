@@ -1,0 +1,73 @@
+﻿<local:Scene x:Class="IdleClicker.SettingsScene"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IdleClicker"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <Storyboard x:Key="OnLoaded1">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid1">
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="157.5,0,165.5,0"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid2">
+                <EasingThicknessKeyFrame KeyTime="0" Value="-280,95.75,368,63.25"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,95.75,0,63.25"/>
+            </ThicknessAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid2">
+                <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="mainButton">
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="44,0,0,28"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource OnLoaded1}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <Grid x:Name="grid" Background="#FF6E2617">
+        <Grid x:Name="grid1" Background="#FFE4B57B" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="317" Margin="157.5,-40,165.5,0">
+            <Label x:Name="label" Content="OPCJE" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="20" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF492412"/>
+        </Grid>
+        <Grid x:Name="grid2" Margin="-280,95.5,0,63" Height="290" HorizontalAlignment="Center" Width="544">
+            <StackPanel Margin="0.5,0.5,0,-0.5" Height="290" d:LayoutOverrides="Width" Width="272" HorizontalAlignment="Left">
+                <local:mainButton x:Name="btnSound" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="DŹWIĘK" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0" Click="changeGrid"/>
+                <local:mainButton x:Name="btnGraphic" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="GRAFIKA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
+                <local:mainButton x:Name="btnGame" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="GRA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
+                <local:mainButton x:Name="btnUpdate" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="AKTUALIZACJA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
+            </StackPanel>
+            <Grid x:Name="gridSound" Margin="0,0.5,-1,-0.5" Background="#FF8A4A27" Height="290" HorizontalAlignment="Right" Width="272" Visibility="Hidden">
+                <TextBlock x:Name="textBlock" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B"><Run Text="Głośność muzyki"/><LineBreak/><Run/></TextBlock>
+                <TextBlock x:Name="textBlock_Copy" Margin="0,94.973,0,0" TextWrapping="Wrap" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" TextAlignment="Center" Height="28.92" VerticalAlignment="Top" Foreground="#FFE4B57B"><Run Text="Głośność dźwięku"/><LineBreak/><Run/></TextBlock>
+                <Slider x:Name="musicSlider" Margin="40,39.973,40,0" VerticalAlignment="Top" Width="200" Foreground="#00E5E5E5" Value="50" Background="Transparent" Maximum="100" ValueChanged="musicSlider_ValueChanged"/>
+                <Slider x:Name="soundSlider" Margin="40,123.893,40,0" VerticalAlignment="Top" Width="200" Value="50" Maximum="100" ValueChanged="soundSlider_ValueChanged"/>
+                <TextBlock x:Name="musicValueTextBlock" Margin="0,57.973,0,0" TextWrapping="Wrap" Text="50%" VerticalAlignment="Top" d:LayoutOverrides="Width" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B"/>
+                <TextBlock x:Name="soundValueTextBlock" Margin="0,141.893,0,135.807" TextWrapping="Wrap" Text="50%" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B" d:LayoutOverrides="Width, Height"/>
+            </Grid>
+            <Grid x:Name="gridGraphic" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272" Background="#FF8A4A27" Height="290" Visibility="Hidden">
+                <TextBlock x:Name="textBlock1" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Rozdzielczość"/>
+                <RadioButton x:Name="radioRes640480" Content="" Margin="62.5,61.946,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="13.5" Height="17.96" GroupName="resolution"/>
+                <RadioButton x:Name="radioRes1024768" Content="" Margin="136,61.946,122.5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="17.96" GroupName="resolution"/>
+                <RadioButton x:Name="radioRes12801024" Content="" Margin="0,61.946,63.5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="13.5" Height="17.96" GroupName="resolution"/>
+                <TextBlock x:Name="textBlock1_Copy" Margin="34.5,42.973,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="640x480" d:LayoutOverrides="VerticalAlignment, Width" Width="70" HorizontalAlignment="Left"/>
+                <TextBlock x:Name="textBlock1_Copy1" Margin="104.5,42.973,105.5,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="1024x768" Width="70" d:LayoutOverrides="VerticalAlignment"/>
+                <TextBlock x:Name="textBlock1_Copy2" Margin="0,42.973,35.5,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="1280x1024" Width="70" HorizontalAlignment="Right" d:LayoutOverrides="VerticalAlignment, Width"/>
+                <local:mainButton x:Name="btnApplyGraphicChanges" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="20" Width="95" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Content="Zastosuj"/>
+            </Grid>
+            <Grid x:Name="gridGame" Margin="0,0.5,-1,-0.5" Background="#FF8A4A27" Height="290" Width="272" HorizontalAlignment="Right" d:LayoutOverrides="Width" Visibility="Hidden">
+                <TextBlock x:Name="textBlock2" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Nazwa użytkownika"/>
+                <TextBox x:Name="textBox" Height="23" Margin="76,44.973,76,0" TextWrapping="Wrap" Text="Użytkownik" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" TextAlignment="Center" BorderBrush="{x:Null}" Background="#FFE4B57B" Foreground="#FF492412"/>
+                <local:mainButton Width="95" Height="20" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" FontSize="12" Content="Zmień"></local:mainButton>
+            </Grid>
+            <Grid x:Name="gridUpdate" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272" Background="#FF8A4A27" Height="290" Visibility="Hidden">
+                <TextBlock x:Name="textBlock3" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Aktualna wersja:"/>
+                <TextBlock x:Name="textBlock3_Copy" Margin="0,39.973,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="25" Height="39.306" TextAlignment="Center" Foreground="#FFE4B57B" Text="1.0" d:LayoutOverrides="VerticalAlignment"/>
+                <local:mainButton Width="130" Height="20" FontSize="12" Content="Sprawdź aktualizacje" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"></local:mainButton>
+            </Grid>
+        </Grid>
+        <local:mainButton x:Name="mainButton" HorizontalAlignment="Left" Margin="-130,0,0,28" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" Content="POWRÓT" FontSize="16" Click="mainButton_Click"></local:mainButton>
+    </Grid>
+</local:Scene>

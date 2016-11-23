@@ -85,6 +85,9 @@
     <Compile Include="SceneController.xaml.cs">
       <DependentUpon>SceneController.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SettingsScene.xaml.cs">
+      <DependentUpon>SettingsScene.xaml</DependentUpon>
+    </Compile>
     <Page Include="AuthorsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +125,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="SceneController.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
