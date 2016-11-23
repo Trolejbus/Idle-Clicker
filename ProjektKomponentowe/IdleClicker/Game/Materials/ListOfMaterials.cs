@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//w klasie listasurowców ma być przychowywana lista surowców
-//metoda dodaj surowiec
-namespace IdleClicker.Game.Materials
+namespace IdleClicker
 {
     /// <summary>
     /// Klasa przechowująca listę surowców dostępnych w grze
