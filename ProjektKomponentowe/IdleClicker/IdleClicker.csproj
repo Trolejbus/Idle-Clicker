@@ -67,6 +67,7 @@
     <Compile Include="Game\ActionList.cs" />
     <Compile Include="Game\GameEngine.cs" />
     <Compile Include="Game\InsertBySimpleMethod.cs" />
+    <Compile Include="Game\Materials\ListOfMaterials.cs" />
     <Compile Include="Game\SortLinkedList.cs" />
     <Compile Include="IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
