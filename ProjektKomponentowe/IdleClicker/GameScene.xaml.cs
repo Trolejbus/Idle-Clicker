@@ -21,25 +21,24 @@ namespace IdleClicker
     /// </summary>
     public partial class GameScene : Scene
     {
+        GameEngine gameEngine;
+
         public GameScene()
         {
             InitializeComponent();
 
-            GameEngine gameEngine = new GameEngine();
+            gameEngine = new GameEngine();
             gameEngine.Enabled = true;
 
-            Action action = new Action(5);
-            action.Actions += Action_Actions;
-            Action action1 = new Action(2);
-            action1.Actions += Action_Actions;
+            Action naszaAkcja = new Action(5);
+            naszaAkcja.Actions += NaszaAkcja;
 
-            gameEngine.ActionList.AddAction(action);
-            gameEngine.ActionList.AddAction(action1);
+            gameEngine.ActionList.AddAction(naszaAkcja);
         }
 
-        private void Action_Actions()
+        public void NaszaAkcja()
         {
-            MessageBox.Show("Działa!");
+            MessageBox.Show("aaa");
         }
     }
 }

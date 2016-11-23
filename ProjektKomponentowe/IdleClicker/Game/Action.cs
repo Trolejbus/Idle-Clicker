@@ -31,18 +31,18 @@ namespace IdleClicker
         /// Konstruktor klasy
         /// </summary>
         /// <param name="tick">Wartość, która mówi, że "za ile ticków ma się wykonać zdarzenie"</param>
-        public Action(long tick = 0)
+        public Action(long ticksToExecute = 0)
         {
-            Tick = tick;
+            Tick = ticksToExecute;
         }
 
         /// <summary>
         /// Przy dodawaniu zdarzenia do listy ta metoda zwiększa ilość ticków w tym zdarzeniu o ilość ticków w silniku gry
         /// </summary>
         /// <param name="tickValue"></param>
-        public void UpdateTick(long tickValue)
+        public void UpdateTick(long gameEngineTicks)
         {
-            Tick += tickValue;
+            Tick += gameEngineTicks;
         }
 
         /// <summary>
