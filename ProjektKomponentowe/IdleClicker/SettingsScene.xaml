@@ -11,15 +11,15 @@
                 <EasingThicknessKeyFrame KeyTime="0:0:1" Value="157.5,0,165.5,0"/>
             </ThicknessAnimationUsingKeyFrames>
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid2">
-                <EasingThicknessKeyFrame KeyTime="0" Value="-280,95.75,368,63.25"/>
-                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,95.75,0,63.25"/>
+                <EasingThicknessKeyFrame KeyTime="0" Value="-280,90,368,63.25"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,90,0,63.25"/>
             </ThicknessAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid2">
                 <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="mainButton">
-                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="44,0,0,28"/>
+                <EasingThicknessKeyFrame KeyTime="0:0:1" Value="44,0,0,20"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>
@@ -32,7 +32,7 @@
         <Grid x:Name="grid1" Background="#FFE4B57B" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="317" Margin="157.5,-40,165.5,0">
             <Label x:Name="label" Content="OPCJE" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="20" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF492412"/>
         </Grid>
-        <Grid x:Name="grid2" Margin="-280,95.5,0,63" Height="290" HorizontalAlignment="Center" Width="544">
+        <Grid x:Name="grid2" Margin="-92,90,188,60" HorizontalAlignment="Center" Width="544">
             <StackPanel Margin="0.5,0.5,0,-0.5" Height="290" d:LayoutOverrides="Width" Width="272" HorizontalAlignment="Left">
                 <local:mainButton x:Name="btnSound" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="DŹWIĘK" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0" Click="changeGrid"/>
                 <local:mainButton x:Name="btnGraphic" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="GRAFIKA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
@@ -68,6 +68,6 @@
                 <local:mainButton Width="130" Height="20" FontSize="12" Content="Sprawdź aktualizacje" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"></local:mainButton>
             </Grid>
         </Grid>
-        <local:mainButton x:Name="mainButton" HorizontalAlignment="Left" Margin="-130,0,0,28" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" Content="POWRÓT" FontSize="16" Click="mainButton_Click"></local:mainButton>
+        <local:mainButton x:Name="mainButton" HorizontalAlignment="Left" Margin="-130,0,0,20" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" Content="POWRÓT" FontSize="16" Click="mainButton_Click"></local:mainButton>
     </Grid>
 </local:Scene>
