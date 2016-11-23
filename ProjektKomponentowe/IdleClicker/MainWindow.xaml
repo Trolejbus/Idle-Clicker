@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:IdleClicker"
         mc:Ignorable="d"
         Title="MainWindow" Height="480" Width="640"  MinWidth="640" MinHeight="480">
+    
     <Grid>
         <local:SceneController x:Name="sceneController" />
     </Grid>

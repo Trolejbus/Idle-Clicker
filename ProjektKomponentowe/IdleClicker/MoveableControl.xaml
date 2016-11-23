@@ -6,38 +6,15 @@
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-
-        <!-- MoveThumb Template -->
-        <!--<ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type local:MoveThumb}">
-            <Rectangle Fill="Transparent"/>
-        </ControlTemplate>-->
-
-        <!-- Designer Item Template
-        <ControlTemplate x:Key="DesignerItemTemplate" TargetType="ContentControl">
-            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-                
-                
-            </Grid>
-        </ControlTemplate>-->
-
-    </UserControl.Resources>
-    <Grid Background="Magenta">
-        <!--<local:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
-        <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>-->
-        <!--<Canvas>
-            <ContentControl Width="130"
-                    MinWidth="50"
-                    Height="130"
-                    MinHeight="50"
-                    Canvas.Top="150"
-                    Canvas.Left="150"
-                    Template="{StaticResource DesignerItemTemplate}">
-                <Path Fill="Blue"
-            Data="M 0,5 5,0 10,5 5,10 Z"
-            Stretch="Fill"
-            IsHitTestVisible="False"/>
-            </ContentControl>
-        </Canvas>-->
+    <Grid x:Name="grid"  Background="Magenta" MouseLeftButtonDown="Grid_MouseDown" MouseMove="Grid_MouseMove" MouseLeftButtonUp="Grid_MouseUp">
+        <!--<Border Background="{DynamicResource PopupBackground}"
+        BorderBrush="{DynamicResource PopupBorder}"
+        BorderThickness="5,5,5,0"
+        MouseLeftButtonDown="Grid_MouseLeftButtonDown"
+        MouseLeftButtonUp="Grid_MouseLeftButtonUp"
+        MouseMove="Grid_MouseMove"
+        Name="TitleBorder">
+            
+        </Border>-->
     </Grid> 
 </UserControl>

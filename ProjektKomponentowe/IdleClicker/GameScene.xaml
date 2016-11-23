@@ -6,8 +6,33 @@
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="Red">
-       <!-- <local:MoveableControl Margin="82,45,62,89" Panel.ZIndex="1"></local:MoveableControl> -->
+    <local:Scene.Resources>
+        <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type local:MoveThumb}">
+            <Rectangle Fill="Transparent"/>
+        </ControlTemplate>
+        <!-- Designer Item Template-->
+        <ControlTemplate x:Key="DesignerItemTemplate" TargetType="ContentControl">
+            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
+                <local:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
+                <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
+            </Grid>
+        </ControlTemplate>
+    </local:Scene.Resources>
+    <Grid Background="Blue">
+        <Canvas>
+            <local:MoveableControl Width="100" Height="100" />
+            <ContentControl Width="130"
+                    MinWidth="50"
+                    Height="130"
+                    MinHeight="50"
+                    Canvas.Top="74"
+                    Canvas.Left="100"
+                    Template="{StaticResource DesignerItemTemplate}">
+                <Ellipse Fill="Red"
+               IsHitTestVisible="False"/>
+            </ContentControl>
+        </Canvas>
+        <!-- <local:MoveableControl Margin="82,45,62,89" Panel.ZIndex="1"></local:MoveableControl> -->
         <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
     </Grid>
 </local:Scene>
