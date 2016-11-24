@@ -90,6 +90,12 @@
     <Compile Include="SettingsScene.xaml.cs">
       <DependentUpon>SettingsScene.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Slot.xaml.cs">
+      <DependentUpon>Slot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SlotScene.xaml.cs">
+      <DependentUpon>SlotScene.xaml</DependentUpon>
+    </Compile>
     <Page Include="AuthorsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +137,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SettingsScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Slot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SlotScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
