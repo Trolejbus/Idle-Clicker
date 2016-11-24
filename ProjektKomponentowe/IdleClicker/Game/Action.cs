@@ -26,23 +26,42 @@ namespace IdleClicker
         /// zdarzenia! (ToDo: Dorobić możliwość zmiany ilości ticków na bieżąco)
         /// </summary>
         public long Tick { private set; get; }
+        public long TickToExecute { private set; get; }
+        public int ExecuteTimes { get; set; }
+        public long FrequencyTick { get; private set; }
 
         /// <summary>
         /// Konstruktor klasy
         /// </summary>
-        /// <param name="tick">Wartość, która mówi, że "za ile ticków ma się wykonać zdarzenie"</param>
-        public Action(long ticksToExecute = 0)
+        /// <param name="tickToExecute">Wartość, która mówi, że "za ile ticków ma się wykonać zdarzenie"</param>
+        /// <param name="executeTimes">Wartość, która mówi "ile razy ma się wykonać zdarzenie"</param>
+        /// <param name="frequencyTicks">Wartość, która mówi "co ile ma się wykonywać zdarzenie"</param>
+        public Action(long ticksToExecute = 0, int executeTimes = 1, long frequencyTicks = 1)
         {
             Tick = ticksToExecute;
+            TickToExecute = ticksToExecute;
+            // przechowuje częstotliwość z jaką jest wykonywana akcja
+            FrequencyTick = frequencyTicks;
+            ExecuteTimes = executeTimes;
         }
 
         /// <summary>
         /// Przy dodawaniu zdarzenia do listy ta metoda zwiększa ilość ticków w tym zdarzeniu o ilość ticków w silniku gry
         /// </summary>
-        /// <param name="tickValue"></param>
+        /// <param name="gameEngineTicks">Tiki zegara gry</param>
         public void UpdateTick(long gameEngineTicks)
         {
+            if (TickToExecute == 0)
+            { 
+                Tick = gameEngineTicks + FrequencyTick;
+                return;
+            }
+
             Tick += gameEngineTicks;
+
+            // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
+            TickToExecute = 0;
+            return;
         }
 
         /// <summary>
