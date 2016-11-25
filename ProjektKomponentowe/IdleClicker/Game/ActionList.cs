@@ -19,7 +19,6 @@ namespace IdleClicker
         /// </summary>
         GameEngine gameEngine;
 
-
         /// <summary>
         /// Konstruktor klasy.
         /// </summary>

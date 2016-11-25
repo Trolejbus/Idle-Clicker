@@ -19,20 +19,9 @@
         </ControlTemplate>
     </local:Scene.Resources>
     <Grid Background="Blue">
-        <Canvas>
-            <local:MoveableControl Width="100" Height="100" />
-            <ContentControl Width="130"
-                    MinWidth="50"
-                    Height="130"
-                    MinHeight="50"
-                    Canvas.Top="74"
-                    Canvas.Left="100"
-                    Template="{StaticResource DesignerItemTemplate}">
-                <Ellipse Fill="Red"
-               IsHitTestVisible="False"/>
-            </ContentControl>
-        </Canvas>
-        <!-- <local:MoveableControl Margin="82,45,62,89" Panel.ZIndex="1"></local:MoveableControl> -->
         <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
+        <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <local:AboutMoveablePanel HorizontalAlignment="Left" Height="143" Margin="90,58,0,0" VerticalAlignment="Top" Width="143"/>
+        </Canvas>
     </Grid>
 </local:Scene>

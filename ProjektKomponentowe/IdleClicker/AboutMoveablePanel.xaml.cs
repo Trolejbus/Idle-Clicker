@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,18 +16,14 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for GameScene.xaml
+    /// Interaction logic for aboutMoveablePanel.xaml
     /// </summary>
-    public partial class GameScene : Scene
+    public partial class AboutMoveablePanel : UserControl
     {
-        GameEngine gameEngine;
-
-        public GameScene()
+        public AboutMoveablePanel()
         {
             InitializeComponent();
-
-            gameEngine = new GameEngine();
-            gameEngine.Enabled = true;
+            mp.UserControlParent = this;
         }
     }
 }

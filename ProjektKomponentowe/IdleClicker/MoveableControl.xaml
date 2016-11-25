@@ -5,16 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid x:Name="grid"  Background="Magenta" MouseLeftButtonDown="Grid_MouseDown" MouseMove="Grid_MouseMove" MouseLeftButtonUp="Grid_MouseUp">
-        <!--<Border Background="{DynamicResource PopupBackground}"
-        BorderBrush="{DynamicResource PopupBorder}"
-        BorderThickness="5,5,5,0"
+             d:DesignHeight="100" d:DesignWidth="100">
+    <Canvas SizeChanged="canvas_SizeChanged" x:Name="canvas" Background="Magenta">
+        <Grid x:Name="TopPanel"       
+        Background="Gold"
+        MinWidth="50"
+        Height="20"
         MouseLeftButtonDown="Grid_MouseLeftButtonDown"
         MouseLeftButtonUp="Grid_MouseLeftButtonUp"
-        MouseMove="Grid_MouseMove"
-        Name="TitleBorder">
-            
-        </Border>-->
-    </Grid> 
+        MouseMove="Grid_MouseMove">
+        </Grid>
+        
+       
+    </Canvas> 
 </UserControl>
