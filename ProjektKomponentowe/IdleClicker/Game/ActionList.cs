@@ -54,11 +54,24 @@ namespace IdleClicker
         private void CheckActions()
         {
             if(actions.List.Count > 0)
-            while (actions.List.Count > 0 && actions.List.First.Value.Tick <= gameEngine.Ticks)
             {
-                actions.List.First.Value.Execute();
-                actions.List.RemoveFirst();
+                Action copyAction;
+                while (actions.List.Count > 0 && actions.List.First.Value.Tick <= gameEngine.Ticks)
+                {
+                    actions.List.First.Value.Execute();
+                    if(actions.List.First.Value.ExecuteTimes > 1)
+                    {
+                        copyAction = actions.List.First.Value;
+                        copyAction.ExecuteTimes--;
+                        actions.List.RemoveFirst();
+                        AddAction(copyAction);
+                    }
+                    else
+                        actions.List.RemoveFirst();
+
+                }
             }
+            
         }
     }
 }
