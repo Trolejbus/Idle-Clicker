@@ -31,7 +31,7 @@ namespace IdleClicker
             gameEngine.Enabled = true;
 
             // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
-            Action naszaAkcja = new Action(0,3,10);
+            Action naszaAkcja = new Action(2,3,1);
             //Action naszaAkcja = new Action(0,10);
             naszaAkcja.Actions += NaszaAkcja;
 
