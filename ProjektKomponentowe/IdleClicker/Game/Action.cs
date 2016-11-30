@@ -38,10 +38,12 @@ namespace IdleClicker
         /// <param name="frequencyTicks">Wartość, która mówi "co ile ma się wykonywać zdarzenie"</param>
         public Action(long ticksToExecute = 0, int executeTimes = 1, long frequencyTicks = 1)
         {
-            Tick = ticksToExecute;
+            //Tick = ticksToExecute;
             TickToExecute = ticksToExecute;
             // przechowuje częstotliwość z jaką jest wykonywana akcja
             FrequencyTick = frequencyTicks;
+
+            // ile razy ma się wykonać akcja
             ExecuteTimes = executeTimes;
         }
 
@@ -52,15 +54,17 @@ namespace IdleClicker
         public void UpdateTick(long gameEngineTicks)
         {
             if (TickToExecute == 0)
-            { 
-                Tick = gameEngineTicks + FrequencyTick;
-                return;
+            {
+                Tick = gameEngineTicks;
+            }
+            else if(TickToExecute > 0)
+            {
+                Tick = gameEngineTicks + TickToExecute;
             }
 
-            Tick += gameEngineTicks;
 
             // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
-            TickToExecute = 0;
+            TickToExecute = FrequencyTick;
             return;
         }
 
