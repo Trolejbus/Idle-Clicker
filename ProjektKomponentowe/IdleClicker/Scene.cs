@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 namespace IdleClicker
 {
+    /// <summary>
+    /// Klasa określająca budowę obiektu Scene. Każda utworzona przez nas Scena dziedziczy właśnie po tej klasie
+    /// </summary>
     public class Scene : UserControl
     {
         protected SceneController sceneController;
@@ -15,7 +18,14 @@ namespace IdleClicker
             sceneController = sc;
         }
 
+        /// <summary>
+        /// Metoda odpowiedzialna za wczytanie sceny
+        /// </summary>
         public virtual void Load() { }
+
+        /// <summary>
+        /// Metoda odpowiedzialna za zamknięcie sceny
+        /// </summary>
         public virtual void Close() { }
     }
 }
