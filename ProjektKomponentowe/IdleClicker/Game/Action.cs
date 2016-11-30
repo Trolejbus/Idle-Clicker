@@ -29,6 +29,7 @@ namespace IdleClicker
         public long TickToExecute { private set; get; }
         public int ExecuteTimes { get; set; }
         public long FrequencyTick { get; private set; }
+        public bool FirstExecute { get; private set; }
 
         /// <summary>
         /// Konstruktor klasy
@@ -39,6 +40,7 @@ namespace IdleClicker
         public Action(long ticksToExecute = 0, int executeTimes = 1, long frequencyTicks = 1)
         {
             Tick = ticksToExecute;
+            FirstExecute = true;
             TickToExecute = ticksToExecute;
             // przechowuje częstotliwość z jaką jest wykonywana akcja
             FrequencyTick = frequencyTicks;
@@ -52,14 +54,22 @@ namespace IdleClicker
         public void UpdateTick(long gameEngineTicks)
         {
             if (TickToExecute == 0)
-            { 
-                Tick = gameEngineTicks + FrequencyTick;
+            {
+                if (!FirstExecute)
+                    Tick = gameEngineTicks + FrequencyTick;
+                else
+                {
+                    Tick = gameEngineTicks;
+                    FirstExecute = false;
+                }
+                    
                 return;
             }
 
             Tick += gameEngineTicks;
 
             // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
+            
             TickToExecute = 0;
             return;
         }

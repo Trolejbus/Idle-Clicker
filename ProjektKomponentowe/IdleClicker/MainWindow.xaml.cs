@@ -22,7 +22,7 @@ namespace IdleClicker
     {        
         public MainWindow()
         {
-            InitializeComponent();            
+            InitializeComponent();    
         }
     }
 }

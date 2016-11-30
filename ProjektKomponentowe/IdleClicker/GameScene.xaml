@@ -21,7 +21,7 @@
     <Grid Background="Blue">
         <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
         <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <local:AboutMoveablePanel HorizontalAlignment="Left" Height="143" Margin="90,58,0,0" VerticalAlignment="Top" Width="143"/>
+         
         </Canvas>
     </Grid>
 </local:Scene>
