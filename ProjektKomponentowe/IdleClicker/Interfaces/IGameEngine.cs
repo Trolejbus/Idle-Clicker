@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    delegate void OnTickDelegate(long Tick);
-    interface IGameEngine
+    public delegate void OnTickDelegate(long Tick);
+    public interface IGameEngine
     {
         bool Enabled { get; set; }
         void SetActionList(IActionList newActionList);

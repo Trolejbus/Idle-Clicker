@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    interface IActionList
+    public interface IActionList
     {
         void SetGameEngine(IGameEngine ge);
         void AddAction(Action newAction);

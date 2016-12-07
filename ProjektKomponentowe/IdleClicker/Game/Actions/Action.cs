@@ -7,11 +7,6 @@ using System.Threading.Tasks;
 namespace IdleClicker
 {
     /// <summary>
-    /// Delegat zdarzenia (ToDo: Zastanowić się czy potrzebuje parametry wejściowe)
-    /// </summary>
-    public delegate void ActionDelegate();
-
-    /// <summary>
     /// Klasa przechowująca zdarzenie zaplanowane w przyszłości, które ma się wykonać
     /// </summary>
     public class Action : IComparable<Action>
