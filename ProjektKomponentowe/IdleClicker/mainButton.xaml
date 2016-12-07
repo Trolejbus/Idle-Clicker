@@ -62,6 +62,11 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="PreviewMouseDown">
+                    <SoundPlayerAction Source="/Resources/Music/click_sound.wav"/>
+                </EventTrigger>
+            </Style.Triggers>
         </Style>
     </Button.Style>
 </Button>

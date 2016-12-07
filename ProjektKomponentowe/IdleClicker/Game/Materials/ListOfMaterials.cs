@@ -15,7 +15,6 @@ namespace IdleClicker
 
         /// <summary>
         /// Konstruktor klasy ListOfMaterials.
-        /// Tworzę instancję listy z surowcami i ustawiam licznik surowców na zero.
         /// </summary>
         public ListOfMaterials()
         {
