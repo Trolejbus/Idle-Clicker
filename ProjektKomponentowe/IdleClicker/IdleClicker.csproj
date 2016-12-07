@@ -65,6 +65,12 @@
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IActionList.cs" />
     <Compile Include="Interfaces\IGameEngine.cs" />
+    <Compile Include="Controls\MainPanel.xaml.cs">
+      <DependentUpon>MainPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResourceInfo.xaml.cs">
+      <DependentUpon>ResourceInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
@@ -109,6 +115,14 @@
     <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ResourceInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scenes\AuthorsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +214,9 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\food.png" />
+    <Resource Include="Resources\Images\gold.png" />
+    <Resource Include="Resources\Images\wood.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
