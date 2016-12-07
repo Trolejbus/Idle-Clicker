@@ -63,7 +63,6 @@ namespace IdleClicker
                 Tick = gameEngineTicks + TickToExecute;
             }
 
-
             // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
             TickToExecute = FrequencyTick;
             return;
