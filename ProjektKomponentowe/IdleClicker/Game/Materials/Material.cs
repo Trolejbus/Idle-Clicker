@@ -14,6 +14,11 @@ namespace IdleClicker
     public class Material
     {
         /// <summary>
+        /// Nazwa surowca.
+        /// </summary>
+        String key;
+
+        /// <summary>
         /// Ścieżka do ikona jako graficznej reprezentacji surowca.
         /// </summary>
         ImageSource iconSource;
@@ -21,7 +26,7 @@ namespace IdleClicker
         /// <summary>
         /// Silnik gry.
         /// </summary>
-        GameEngine gameEngine;
+        IGameEngine gameEngine;
         /// <summary>
         /// Obecna ilość surowca.
         /// </summary>
@@ -39,11 +44,25 @@ namespace IdleClicker
         /// Konstruktor surowca.
         /// </summary>
         /// <param name="ge">Instancja klasy GameEngine, która zarządza czasem gry.</param>
-        public Material(GameEngine ge)
+        public Material(IGameEngine ge)
         {
             gameEngine = ge;
         }
 
+        /// <summary>
+        /// Właściwość, która umożliwia pobranie lub ustawienie nazwy surowca.
+        /// </summary>
+        public string Key
+        {
+            get
+            {
+                return key;
+            }
+            set
+            {
+                key = value;
+            }
+        }
         /// <summary>
         /// Właściwość, która umożliwia pobranie icony danego surowca; 
         /// </summary>

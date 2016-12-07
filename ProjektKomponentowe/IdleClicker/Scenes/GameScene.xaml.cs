@@ -31,10 +31,6 @@ namespace IdleClicker
             gameEngine.SetActionList(new ActionList());
             gameEngine.Enabled = true;
 
-            ResourceInfo drewno = new ResourceInfo();
-
-            drewno.ResourceIconME.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative));
-            MainPanel.resourcesSP.Children.Add(drewno);
 
             // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
             Action naszaAkcja = new Action(5,3,2);
