@@ -32,15 +32,10 @@ namespace IdleClicker
 
             // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
             //Action naszaAkcja = new Action(5,3,2);
-            Action naszaAkcja = new Action(0,10);
+            /*Action naszaAkcja = new Action(0,10);
             naszaAkcja.Actions += NaszaAkcja;
 
-            gameEngine.ActionList.AddAction(naszaAkcja);
-        }
-
-        public void NaszaAkcja()
-        {
-            MessageBox.Show("Test akcji Adama.");
+            gameEngine.ActionList.AddAction(naszaAkcja);*/
         }
     }
 }

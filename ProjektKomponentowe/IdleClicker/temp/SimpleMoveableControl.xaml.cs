@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for aboutMoveablePanel.xaml
+    /// Interaction logic for MoveableControl.xaml
     /// </summary>
-    public partial class AboutMoveablePanel : UserControl
+    public partial class SimpleMoveableControl : UserControl
     {
-        public AboutMoveablePanel()
+        public SimpleMoveableControl()
         {
             InitializeComponent();
-            mp.UserControlParent = this;
         }
     }
 }

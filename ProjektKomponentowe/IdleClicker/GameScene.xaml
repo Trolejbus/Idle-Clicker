@@ -7,21 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <local:Scene.Resources>
-        <ControlTemplate x:Key="MoveThumbTemplate" TargetType="{x:Type local:MoveThumb}">
-            <Rectangle Fill="Transparent"/>
-        </ControlTemplate>
-        <!-- Designer Item Template-->
-        <ControlTemplate x:Key="DesignerItemTemplate" TargetType="ContentControl">
-            <Grid DataContext="{Binding RelativeSource={RelativeSource TemplatedParent}}">
-                <local:MoveThumb Template="{StaticResource MoveThumbTemplate}" Cursor="SizeAll"/>
-                <ContentPresenter Content="{TemplateBinding ContentControl.Content}"/>
-            </Grid>
-        </ControlTemplate>
+
     </local:Scene.Resources>
     <Grid Background="Blue">
         <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
         <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <local:AboutMoveablePanel HorizontalAlignment="Left" Height="143" Margin="90,58,0,0" VerticalAlignment="Top" Width="143"/>
+            <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
         </Canvas>
     </Grid>
 </local:Scene>
