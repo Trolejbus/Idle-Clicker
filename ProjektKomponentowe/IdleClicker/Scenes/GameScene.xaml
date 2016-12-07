@@ -6,11 +6,7 @@
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <local:Scene.Resources>
-
-    </local:Scene.Resources>
-    <Grid Background="Blue">
-        <Image x:Name="villageImage" Stretch="Fill" Source="/Resources/image02.png"/>
+    <Grid x:Name="grid" Background="Blue">
         <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
         </Canvas>

@@ -7,9 +7,7 @@ using System.Windows.Controls;
 
 namespace IdleClicker
 {
-    delegate void OnTickDelegate(long Tick);
-
-    class GameEngine
+    class GameEngine : IGameEngine
     {
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać
@@ -27,14 +25,9 @@ namespace IdleClicker
         private bool enabled;
 
         /// <summary>
-        /// Ilość ticków wykonanych przez zegar do tej pory
-        /// </summary>
-        private long ticks;
-
-        /// <summary>
         /// Lista akcji
         /// </summary>
-        ActionList actionList;
+        IActionList actionList;
 
         /// <summary>
         /// Konstruktor klasy
@@ -46,9 +39,16 @@ namespace IdleClicker
 
             // Określa wstępną częstotliwość zegara
             gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
+        }
 
-            // Tworzy obiekt listy zdarzeń
-            actionList = new ActionList(this);
+        /// <summary>
+        /// Ustawia instację action listy
+        /// </summary>
+        /// <param name="newActionList"></param>
+        public void SetActionList(IActionList newActionList)
+        {
+            actionList = newActionList;
+            newActionList.SetGameEngine(this);
         }
 
         /// <summary>
@@ -58,12 +58,12 @@ namespace IdleClicker
         /// <param name="e"></param>
         private void GameTimer_Tick(object sender, EventArgs e)
         {
-            ticks++; // Przy każdym ticku zwiększa ticks
-            OnTick(ticks); // Wywołuje zdarzenie
+            Ticks++; // Przy każdym ticku zwiększa ticks
+            OnTick(Ticks); // Wywołuje zdarzenie
         }
 
         /// <summary>
-        /// Właściwość określająca czy gra jest aktywna. Dzięki temu można pauzować grę
+        /// Pauzuje i uruchamia z powrotem grę
         /// </summary>
         public bool Enabled
         {
@@ -85,23 +85,17 @@ namespace IdleClicker
         /// <summary>
         /// Zwraca instancję listy zdarzeń
         /// </summary>
-        public ActionList ActionList
+        public IActionList GetActionList()
         {
-            get
-            {
-                return actionList;
-            }
+            return actionList;
         }
 
         /// <summary>
         /// Zwraca ilość ticków
-        /// </summary>
+        /// </summary>()
         public long Ticks
         {
-            get
-            {
-                return ticks;
-            }
+            get; private set;
         }
     }
 }

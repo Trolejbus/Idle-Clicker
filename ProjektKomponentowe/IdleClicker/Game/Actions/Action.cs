@@ -7,14 +7,9 @@ using System.Threading.Tasks;
 namespace IdleClicker
 {
     /// <summary>
-    /// Delegat zdarzenia (ToDo: Zastanowić się czy potrzebuje parametry wejściowe)
-    /// </summary>
-    public delegate void ActionDelegate();
-
-    /// <summary>
     /// Klasa przechowująca zdarzenie zaplanowane w przyszłości, które ma się wykonać
     /// </summary>
-    class Action : IComparable<Action>
+    class Action : IAction
     {     
         /// <summary>
         /// Zdarzenia, które mają się wykonać
@@ -62,7 +57,6 @@ namespace IdleClicker
             {
                 Tick = gameEngineTicks + TickToExecute;
             }
-
 
             // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
             TickToExecute = FrequencyTick;

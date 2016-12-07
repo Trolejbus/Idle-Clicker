@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    class ActionList
+    class ActionList : IActionList
     {
         /// <summary>
         /// Lista akcji posortowana rosnąca (względem czasu uruchomienia Akcji). Przyspiesza to sprawdzanie czy wykonać daną akcję bo tylko sprawdza akcję, która
@@ -17,13 +17,13 @@ namespace IdleClicker
         /// <summary>
         /// Instancja klasy Game Engine
         /// </summary>
-        GameEngine gameEngine;
+        IGameEngine gameEngine;
 
         /// <summary>
-        /// Konstruktor klasy.
+        /// Ustawia instację game Engine dla listy
         /// </summary>
         /// <param name="ge">Instancja klasy game engine</param>
-        public ActionList(GameEngine ge)
+        public void SetGameEngine(IGameEngine ge)
         {
             gameEngine = ge;
             ge.OnTick += Ge_OnTick;
@@ -68,10 +68,8 @@ namespace IdleClicker
                     }
                     else
                         actions.List.RemoveFirst();
-
                 }
-            }
-            
+            }           
         }
     }
 }
