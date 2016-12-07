@@ -211,6 +211,9 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Images\food.png" />
+    <Resource Include="Resources\Images\gold.png" />
+    <Resource Include="Resources\Images\wood.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
