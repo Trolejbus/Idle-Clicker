@@ -62,6 +62,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\MainPanel.xaml.cs">
+      <DependentUpon>MainPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ResourceInfo.xaml.cs">
+      <DependentUpon>ResourceInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,14 @@
     <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ResourceInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scenes\AuthorsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
