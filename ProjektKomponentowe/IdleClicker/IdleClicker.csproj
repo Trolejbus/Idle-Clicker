@@ -62,13 +62,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AuthorsScene.xaml.cs">
+    <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviours\HiderBehaviour.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Behaviours\DragBehaviour.cs" />
-    <Compile Include="GameScene.xaml.cs">
+    <Compile Include="Scenes\GameScene.xaml.cs">
       <DependentUpon>GameScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Game\Action.cs" />
@@ -78,51 +78,51 @@
     <Compile Include="Game\Materials\ListOfMaterials.cs" />
     <Compile Include="Game\Materials\Material.cs" />
     <Compile Include="Game\SortLinkedList.cs" />
-    <Compile Include="IntroScene.xaml.cs">
+    <Compile Include="Scenes\IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="mainButton.xaml.cs">
+    <Compile Include="Controls\mainButton.xaml.cs">
       <DependentUpon>mainButton.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainMenuScene.xaml.cs">
+    <Compile Include="Scenes\MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Scene.cs" />
-    <Compile Include="SceneController.xaml.cs">
+    <Compile Include="Scenes\Scene.cs" />
+    <Compile Include="Scenes\SceneController.xaml.cs">
       <DependentUpon>SceneController.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SettingsScene.xaml.cs">
+    <Compile Include="Scenes\SettingsScene.xaml.cs">
       <DependentUpon>SettingsScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Slot.xaml.cs">
+    <Compile Include="Controls\Slot.xaml.cs">
       <DependentUpon>Slot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SlotScene.xaml.cs">
+    <Compile Include="Scenes\SlotScene.xaml.cs">
       <DependentUpon>SlotScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="temp\SimpleMoveableControl.xaml.cs">
       <DependentUpon>SimpleMoveableControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TopPanel.xaml.cs">
+    <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
-    <Page Include="AuthorsScene.xaml">
+    <Page Include="Scenes\AuthorsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GameScene.xaml">
+    <Page Include="Scenes\GameScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IntroScene.xaml">
+    <Page Include="Scenes\IntroScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="mainButton.xaml">
+    <Page Include="Controls\mainButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenuScene.xaml">
+    <Page Include="Scenes\MainMenuScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,19 +138,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SceneController.xaml">
+    <Page Include="Scenes\SceneController.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsScene.xaml">
+    <Page Include="Scenes\SettingsScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Slot.xaml">
+    <Page Include="Controls\Slot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SlotScene.xaml">
+    <Page Include="Scenes\SlotScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,7 +158,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TopPanel.xaml">
+    <Page Include="Controls\TopPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
