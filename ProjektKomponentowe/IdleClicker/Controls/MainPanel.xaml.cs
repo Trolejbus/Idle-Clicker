@@ -24,5 +24,19 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Metoda dodająca kontrolkę nowego surowca, jeśli taki zostanie dodany
+        /// </summary>
+        /// <param name="M"></param>
+        public void UpdateKindOfMaterials(Material M)
+        {
+            ResourceInfo newMaterial = new ResourceInfo();
+            newMaterial.ResourceIconME.Source = M.IconSource;
+            newMaterial.ResourceCountTB.Text = M.CurrentAmount.ToString();
+
+            resourcesSP.Children.Add(newMaterial);
+        }
     }
+
 }

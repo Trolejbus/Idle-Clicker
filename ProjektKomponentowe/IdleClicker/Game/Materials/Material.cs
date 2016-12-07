@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Media;
 
 namespace IdleClicker
 {
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
-    class Material
+    public class Material
     {
         /// <summary>
-        /// Ikona jako graficzna reprezentacja surowca.
+        /// Ścieżka do ikona jako graficznej reprezentacji surowca.
         /// </summary>
-        Image icon;
+        ImageSource iconSource;
+
         /// <summary>
         /// Silnik gry.
         /// </summary>
@@ -45,11 +47,15 @@ namespace IdleClicker
         /// <summary>
         /// Właściwość, która umożliwia pobranie icony danego surowca; 
         /// </summary>
-        public Image Icon
+        public ImageSource IconSource
         {
             get
             {
-                return icon;
+                return iconSource;
+            }
+            set
+            {
+                iconSource = value;
             }
         }
 

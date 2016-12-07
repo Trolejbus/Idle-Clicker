@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
+    public delegate void NewMaterialHandler(Material m);
     /// <summary>
     /// Klasa przechowująca listę surowców dostępnych w grze
     /// </summary>
+    /// 
     class ListOfMaterials
     {
         private List<Material> Materials;
+
+        public event NewMaterialHandler NewMaterial;
 
         /// <summary>
         /// Konstruktor klasy ListOfMaterials.
@@ -33,7 +37,9 @@ namespace IdleClicker
             {
                 if (item is T) return (T)item;
             }
+            
             Materials.Add((Material)Activator.CreateInstance(typeof(T), ge));
+            NewMaterial((T)Materials[Materials.Count - 1]);
             return (T)Materials[Materials.Count - 1];
         }
 

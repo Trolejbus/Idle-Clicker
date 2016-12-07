@@ -7,9 +7,9 @@ using System.Windows.Controls;
 
 namespace IdleClicker
 {
-    delegate void OnTickDelegate(long Tick);
+    public delegate void OnTickDelegate(long Tick);
 
-    class GameEngine
+    public class GameEngine
     {
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać

@@ -31,6 +31,7 @@ namespace IdleClicker
             gameEngine.Enabled = true;
 
             ResourceInfo drewno = new ResourceInfo();
+
             drewno.ResourceIconME.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative));
             MainPanel.resourcesSP.Children.Add(drewno);
 
