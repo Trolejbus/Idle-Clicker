@@ -6,16 +6,15 @@
              xmlns:local="clr-namespace:IdleClicker"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" x:Class="IdleClicker.TopPanel"
              mc:Ignorable="d" 
-             d:DesignHeight="20" d:DesignWidth="300">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFBF6913" Offset="1"/>
-                <GradientStop Color="Black" Offset="0.02"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+             d:DesignHeight="20" Width="305.533">
+    <Grid Background="#6E2617">
         <i:Interaction.Behaviors>
             <local:DragBehaviour/>
         </i:Interaction.Behaviors>
+        <local:mainButton x:Name="mainButton" Content="X" Margin="0,2,2,2" HorizontalAlignment="Right" Width="16" Height="16" FontSize="8" Click="mainButton_Click">
+            <i:Interaction.Behaviors>
+                <local:HiderBehaviour/>
+            </i:Interaction.Behaviors>
+        </local:mainButton>
     </Grid>
 </UserControl>

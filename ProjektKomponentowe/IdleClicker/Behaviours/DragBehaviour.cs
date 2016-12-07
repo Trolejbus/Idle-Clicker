@@ -13,7 +13,7 @@ using System.Windows.Media;
 
 namespace IdleClicker
 {
-    class DragBehaviour : Behavior<Grid>
+    class DragBehaviour : Behavior<FrameworkElement>
     {
         Point StartMousePosition = new Point();
         FrameworkElement MoveablePanel;
@@ -44,11 +44,6 @@ namespace IdleClicker
                     PanelPosition = MoveablePanel.Margin;
                 }
             }
-        }
-
-        public void UserControlToDrag(UserControl ControlToDrag)
-        {
-            MoveablePanel = ControlToDrag;
         }
 
         protected override void OnDetaching()

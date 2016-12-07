@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="100">
     <Grid x:Name="canvas" Background="#FF8B5D2F">
-        <local:TopPanel Height="17" VerticalAlignment="Top"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <local:TopPanel VerticalAlignment="Top" Height="20" Width="Auto"/>
     </Grid>
 </UserControl>

@@ -24,5 +24,10 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        private void mainButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
