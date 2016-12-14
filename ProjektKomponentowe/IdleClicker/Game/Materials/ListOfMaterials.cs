@@ -28,20 +28,18 @@ namespace IdleClicker
         /// <summary>
         /// Metoda dodająca nowy surowiec do listy.
         /// </summary>
-        /// <typeparam name="T">Typ ogólny surowca</typeparam>
-        /// <param name="ge">GameEngine - instancja silnika gry podawana dla surowca</param>
-        /// <returns>Zwraca instancję obiektu.</returns>
-        public T AddNewMaterial<T>(GameEngine ge) where T : Material
+        /// <param name="m">Surowiec który chcemy dodać do listy.</param>
+        /// <returns></returns>
+        public Material AddNewMaterial(Material material)
         {
             foreach (Material item in Materials)
             {
-                if (item is T) return (T)item;
+                if (item.Key == material.Key) return (Material)item;
             }
             
-            Materials.Add((Material)Activator.CreateInstance(typeof(T), ge));
-            NewMaterial((T)Materials[Materials.Count - 1]);
-            return (T)Materials[Materials.Count - 1];
+            Materials.Add(material);
+            NewMaterial((Material)Materials[Materials.Count - 1]);
+            return (Material)Materials[Materials.Count - 1];
         }
-
     }
 }
