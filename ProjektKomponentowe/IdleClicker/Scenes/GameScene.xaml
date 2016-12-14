@@ -9,7 +9,7 @@
 
     <Grid x:Name="grid" Background="Blue">
         <local:MainPanel x:Name="MainPanel" Margin="0" VerticalAlignment="Top"/>
-        <Canvas HorizontalAlignment="Stretch" Margin="0,50,0,0">
+        <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,50,0,0">
             <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
         </Canvas>
     </Grid>

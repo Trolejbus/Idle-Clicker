@@ -63,7 +63,31 @@ namespace IdleClicker
             };
 
             gameEngine.GetActionList().AddAction(bonus);
-            
+
+            TownHallPanel ratusz = new TownHallPanel();
+            ratusz.image.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative));
+            ListOfLines surowce = new ListOfLines();
+            surowce.TitleTextBlock.Text = "Aktualny przyrost surowców:";
+            ListOfLines levele = new ListOfLines();
+            levele.TitleTextBlock.Text = "Aktualne poziomy budynków:";
+            LineForPanel line1 = new LineForPanel();
+            LineForPanel line2 = new LineForPanel();
+            LineForPanel line3 = new LineForPanel();
+            line1.TextLineTB.Text = "Złoto";
+            line1.TextNumberTB.Text = "200";
+            line2.TextLineTB.Text = "Leśniczówka";
+            line2.TextNumberTB.Text = "3";
+            line3.TextLineTB.Text = "Farma";
+            line3.TextNumberTB.Text = "999";
+
+            surowce.StackOfLineSP.Children.Add(line1);
+            surowce.StackOfLineSP.Children.Add(line3);
+            levele.StackOfLineSP.Children.Add(line2);
+
+            ratusz.StackOfListsSP.Children.Add(surowce);
+            ratusz.StackOfListsSP.Children.Add(levele);
+
+            canvas.Children.Add(ratusz);
         }
     }
 }
