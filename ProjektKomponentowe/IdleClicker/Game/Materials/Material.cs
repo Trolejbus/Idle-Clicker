@@ -8,11 +8,16 @@ using System.Windows.Media;
 
 namespace IdleClicker
 {
+    public delegate void BoostMaterialHandler(Material m);
+
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
     public class Material
     {
+        public event BoostMaterialHandler onChangeMaterial;
+
+
         /// <summary>
         /// Nazwa surowca.
         /// </summary>
@@ -161,6 +166,7 @@ namespace IdleClicker
         public void BoostMaterial()
         {
             currentAmount += currentIncreaseQuantity;
+            onChangeMaterial(this);
         }
 
         /// <summary>
@@ -170,6 +176,7 @@ namespace IdleClicker
         public void ReduceMaterial(double value)
         {
             currentAmount -= value;
+            onChangeMaterial(this);
         }
 
         

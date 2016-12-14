@@ -9,7 +9,7 @@
         <StackPanel x:Name="resourcesSP" Margin="10,10,0,10" HorizontalAlignment="Left" Height="30" Orientation="Horizontal">
 
         </StackPanel>
-        <TextBlock x:Name="nameTB" Margin="0,10" TextWrapping="Wrap" Text="Tekameikite" FontFamily="/SceneMainMenu;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" FontSize="22" Height="30" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="nameTB" Margin="0,10" TextWrapping="Wrap" Text="Tekameikite" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" FontSize="22" Height="30" HorizontalAlignment="Center"/>
         <local:mainButton x:Name ="MenuButton" Margin="0,7.5,10,7.5" HorizontalAlignment="Right" Width="50" Height="30" Content="Menu"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,10,120,25" TextWrapping="Wrap" Text="Dzień:" Foreground="#FFE4B57B" Height="15" FontSize="10"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Right" Margin="0,10,70,25" TextWrapping="Wrap" Text="Godzina:" Foreground="#FFE4B57B" Height="15" FontSize="10"/>

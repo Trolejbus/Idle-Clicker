@@ -10,7 +10,6 @@ namespace IdleClicker
     /// <summary>
     /// Klasa przechowująca listę surowców dostępnych w grze
     /// </summary>
-    /// 
     class ListOfMaterials
     {
         private List<Material> Materials;
