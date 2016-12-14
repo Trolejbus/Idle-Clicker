@@ -4,22 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Media;
 
 namespace IdleClicker
 {
+    public delegate void BoostMaterialHandler(Material m);
+
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
-    class Material
+    public class Material
     {
+        public event BoostMaterialHandler onChangeMaterial;
+
+
         /// <summary>
-        /// Ikona jako graficzna reprezentacja surowca.
+        /// Nazwa surowca.
         /// </summary>
-        Image icon;
+        String key;
+
+        /// <summary>
+        /// Ścieżka do ikona jako graficznej reprezentacji surowca.
+        /// </summary>
+        ImageSource iconSource;
+
         /// <summary>
         /// Silnik gry.
         /// </summary>
-        GameEngine gameEngine;
+        IGameEngine gameEngine;
         /// <summary>
         /// Obecna ilość surowca.
         /// </summary>
@@ -37,19 +49,37 @@ namespace IdleClicker
         /// Konstruktor surowca.
         /// </summary>
         /// <param name="ge">Instancja klasy GameEngine, która zarządza czasem gry.</param>
-        public Material(GameEngine ge)
+        public Material(IGameEngine ge)
         {
             gameEngine = ge;
         }
 
         /// <summary>
-        /// Właściwość, która umożliwia pobranie icony danego surowca; 
+        /// Właściwość, która umożliwia pobranie lub ustawienie nazwy surowca.
         /// </summary>
-        public Image Icon
+        public string Key
         {
             get
             {
-                return icon;
+                return key;
+            }
+            set
+            {
+                key = value;
+            }
+        }
+        /// <summary>
+        /// Właściwość, która umożliwia pobranie icony danego surowca; 
+        /// </summary>
+        public ImageSource IconSource
+        {
+            get
+            {
+                return iconSource;
+            }
+            set
+            {
+                iconSource = value;
             }
         }
 
@@ -136,6 +166,7 @@ namespace IdleClicker
         public void BoostMaterial()
         {
             currentAmount += currentIncreaseQuantity;
+            onChangeMaterial(this);
         }
 
         /// <summary>
@@ -145,6 +176,7 @@ namespace IdleClicker
         public void ReduceMaterial(double value)
         {
             currentAmount -= value;
+            onChangeMaterial(this);
         }
 
         

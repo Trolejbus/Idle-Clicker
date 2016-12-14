@@ -11,7 +11,7 @@ namespace IdleClicker
     /// </summary>
     public delegate void ActionDelegate();
 
-    interface IAction : IComparable<Action>
+    public interface IAction : IComparable<Action>
     {
         event ActionDelegate Actions;
         long Tick { get; }

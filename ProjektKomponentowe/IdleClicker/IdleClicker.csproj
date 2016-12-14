@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -62,10 +63,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\ArcPanel.cs" />
-    <Compile Include="Controls\UserControl1.xaml.cs">
-      <DependentUpon>UserControl1.xaml</DependentUpon>
+    <Compile Include="Controls\MovablePanels\LineForPanel.xaml.cs">
+      <DependentUpon>LineForPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MovablePanels\ListOfLines.xaml.cs">
+      <DependentUpon>ListOfLines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
+      <DependentUpon>TownHallPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dictionary\Dictionary.cs" />
+    <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IActionList.cs" />
     <Compile Include="Interfaces\IGameEngine.cs" />
@@ -121,6 +129,18 @@
     </Compile>
     <Compile Include="Web\UpdateModule.cs" />
     <Page Include="Controls\MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\LineForPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\ListOfLines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace IdleClicker
 {
-    class GameEngine : IGameEngine
+    public class GameEngine : IGameEngine
     {
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać

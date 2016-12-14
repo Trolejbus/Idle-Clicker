@@ -9,7 +9,7 @@ namespace IdleClicker
     /// <summary>
     /// Klasa przechowująca zdarzenie zaplanowane w przyszłości, które ma się wykonać
     /// </summary>
-    class Action : IAction
+    public class Action : IComparable<Action>
     {     
         /// <summary>
         /// Zdarzenia, które mają się wykonać
