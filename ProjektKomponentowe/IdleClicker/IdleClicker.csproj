@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
@@ -62,6 +63,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\MovablePanels\LineForPanel.xaml.cs">
+      <DependentUpon>LineForPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MovablePanels\ListOfLines.xaml.cs">
+      <DependentUpon>ListOfLines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
+      <DependentUpon>TownHallPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dictionary\Dictionary.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IActionList.cs" />
@@ -117,6 +127,18 @@
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\MainPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\LineForPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\ListOfLines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,9 +244,7 @@
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\MovablePanels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
