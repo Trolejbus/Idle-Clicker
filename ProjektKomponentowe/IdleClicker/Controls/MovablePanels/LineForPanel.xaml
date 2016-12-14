@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="150" Height="10" FontSize="8" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Background="#00000000" Margin="0">
-    <Grid Width="150" Height="10">
-        <TextBlock x:Name="TextLineTB" Margin="5,0,25,0" TextWrapping="Wrap" Text="Tekst:" MaxWidth="120" Height="10" FontSize="8" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" VerticalAlignment="Center" Foreground="#FFE4B57B"/>
-        <TextBlock x:Name="TextNumberTB" Margin="125,0,5,0" TextWrapping="Wrap" Text="000" FontSize="8" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Foreground="#FFE4B57B" Height="10" VerticalAlignment="Center" Background="#00000000" TextAlignment="Right"/>
+             d:DesignHeight="300" d:DesignWidth="300" Width="250" Height="Auto" FontSize="8" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Background="#00000000" Margin="0">
+    <Grid Width="250" Height="Auto">
+        <TextBlock x:Name="TextLineTB" Margin="5,0,0,0" TextAlignment="Left" TextWrapping="Wrap" Text="Teksty:" MaxWidth="200" Height="19" FontSize="14" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" VerticalAlignment="Center" Foreground="#FFE4B57B" HorizontalAlignment="Left" Width="Auto"/>
+        <TextBlock x:Name="TextNumberTB" Margin="0,0,5,0" Width="Auto" MaxWidth="30" TextWrapping="Wrap" Text="000" FontSize="14" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Foreground="#FFE4B57B" Height="19" VerticalAlignment="Center" Background="#00000000" TextAlignment="Right" HorizontalAlignment="Right"/>
     </Grid>
 </UserControl>

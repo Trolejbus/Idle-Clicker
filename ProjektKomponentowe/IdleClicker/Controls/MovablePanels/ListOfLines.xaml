@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="150">
-    <Grid Width="150">
-        <TextBlock x:Name="TitleTextBlock" FontWeight="Bold" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="8" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" Text="Aktualny przyrost surowców: " Width="115" Height="10"/>
-        <StackPanel x:Name="StackOfLineSP" Margin="0,20,0,0" HorizontalAlignment="Left" Width="150"/>
+             d:DesignHeight="300" d:DesignWidth="300" Width="250">
+    <Grid Width="250">
+        <TextBlock x:Name="TitleTextBlock" FontWeight="Bold" MaxWidth="250" HorizontalAlignment="Left" Margin="5,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" Text="Aktualny przyrost surowców: " Width="Auto" Height="Auto"/>
+        <StackPanel x:Name="StackOfLineSP" Margin="0,25,0,0" HorizontalAlignment="Left" Width="250"/>
     </Grid>
 </UserControl>
