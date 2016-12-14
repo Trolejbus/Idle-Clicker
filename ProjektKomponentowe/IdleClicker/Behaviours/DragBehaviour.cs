@@ -92,8 +92,8 @@ namespace IdleClicker
             position.X = PanelPosition.Left + mousePosition.X - StartMousePosition.X; 
             position.Y = PanelPosition.Top + mousePosition.Y - StartMousePosition.Y;
 
-            double Width = ((Canvas)((UserControl)MoveablePanel).Parent).ActualWidth;
-            double Height = ((Canvas)((UserControl)MoveablePanel).Parent).ActualHeight;
+            double Width = ((FrameworkElement)((UserControl)MoveablePanel).Parent).ActualWidth;
+            double Height = ((FrameworkElement)((UserControl)MoveablePanel).Parent).ActualHeight;
             double pWidth = MoveablePanel.ActualWidth;
             double pHeight = MoveablePanel.ActualHeight;
 

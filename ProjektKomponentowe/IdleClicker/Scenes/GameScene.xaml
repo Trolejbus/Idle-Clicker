@@ -1,19 +1,25 @@
-﻿<local:Scene x:Class="IdleClicker.GameScene"
+﻿<local:Scene
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
+             xmlns:Controls="clr-namespace:IdleClicker.Controls" x:Class="IdleClicker.GameScene"
              mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="480">
-    <local:Scene.Resources>
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
 
-    </local:Scene.Resources>
+        <local:MainPanel x:Name="MainPanel" Margin="0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <Grid HorizontalAlignment="Stretch" Margin="1,50,-1,0" Grid.ColumnSpan="3" Grid.RowSpan="2">
 
-    <Grid Background="Blue">
-        <local:MainPanel x:Name="MainPanel" Margin="0" VerticalAlignment="Top"/>
-        <Canvas HorizontalAlignment="Stretch" Margin="0,50,0,0">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClicker;component/Resources/Images/VillageBackground.png"/>
+            </Grid.Background>
+
             <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
-        </Canvas>
+            <Image x:Name="image" Margin="0,0,26,26" Width="48" Height="48" Source="/IdleClicker;component/Resources/Images/BuildButton.png" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            <!--<local:ArcPanel HorizontalAlignment="Right" Height="100" Margin="0,0,48,79" VerticalAlignment="Bottom" Width="100"/>
+            -->
+        </Grid>
     </Grid>
 </local:Scene>

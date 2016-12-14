@@ -62,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\ArcPanel.cs" />
+    <Compile Include="Controls\UserControl1.xaml.cs">
+      <DependentUpon>UserControl1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IActionList.cs" />
     <Compile Include="Interfaces\IGameEngine.cs" />
@@ -115,11 +119,16 @@
     <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Web\UpdateModule.cs" />
     <Page Include="Controls\MainPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ResourceInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,9 +223,12 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\VillageBackground.png" />
     <Resource Include="Resources\Images\food.png" />
     <Resource Include="Resources\Images\gold.png" />
     <Resource Include="Resources\Images\wood.png" />
+    <Resource Include="Resources\Images\VillageBackground.png" />
+    <Resource Include="Resources\Images\BuildButton.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
