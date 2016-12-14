@@ -31,13 +31,39 @@ namespace IdleClicker
             gameEngine.SetActionList(new ActionList());
             gameEngine.Enabled = true;
 
+            ListOfMaterials lista = new ListOfMaterials();
+            lista.NewMaterial += this.MainPanel.UpdateKindOfMaterials;
+
+            Material m = new Material(gameEngine);
+            m.Key = "WOOD";
+            m.IconSource = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative));
+            m.CurrentAmount = 200;
+            m.BeginningIncreaseQuantity = 2;
+            m.CurrentIncreaseQuantity = 2;
+            m.onChangeMaterial += this.MainPanel.UpdateCountOfMaterials;
+
+            lista.AddNewMaterial(m);
+
 
             // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
-            Action naszaAkcja = new Action(5,3,2);
+            Action naszaAkcja = new Action(0,10,2);
             //Action naszaAkcja = new Action(0,10);
-            naszaAkcja.Actions += delegate() { grid.Background = Brushes.White; }; 
+            naszaAkcja.Actions += delegate() 
+            {
+                m.BoostMaterial();
+            };
 
             gameEngine.GetActionList().AddAction(naszaAkcja);
+
+            Action bonus = new Action(10, 1, 0);
+
+            bonus.Actions += delegate ()
+            {
+                m.AddBonusQuantity(1, 1);
+            };
+
+            gameEngine.GetActionList().AddAction(bonus);
+            
         }
     }
 }
