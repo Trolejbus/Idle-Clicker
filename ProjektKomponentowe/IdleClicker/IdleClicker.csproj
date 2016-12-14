@@ -221,7 +221,9 @@
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\MovablePanels\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
