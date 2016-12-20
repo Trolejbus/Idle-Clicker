@@ -45,8 +45,7 @@ namespace IdleClicker
             m.onChangeMaterial += this.MainPanel.UpdateCountOfMaterials;
 
             lista.AddNewMaterial(m);
-
-
+            
             // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
             Action naszaAkcja = new Action(0,10,2);
             //Action naszaAkcja = new Action(0,10);

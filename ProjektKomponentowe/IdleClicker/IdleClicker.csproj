@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Config\Loader.cs" />
     <Compile Include="Controls\MovablePanels\LineForPanel.xaml.cs">
       <DependentUpon>LineForPanel.xaml</DependentUpon>
     </Compile>
@@ -128,6 +129,7 @@
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Web\UpdateModule.cs" />
+    <Compile Include="Web\Version.cs" />
     <Page Include="Controls\MainPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

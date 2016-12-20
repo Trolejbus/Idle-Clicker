@@ -4,29 +4,63 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
-namespace IdleClicker.Web
+namespace IdleClicker
 {
     delegate void OnCheckChangeLogStartDelegate();
     delegate void OnCheckChangeLogStopDelegate(string ChangeLogs);
+    delegate void ErrorhandlerDelegate(string Error);
 
     class UpdateModule
     {
         HttpClient webClient;
         public event OnCheckChangeLogStartDelegate OnCheckChangeLogStart;
         public event OnCheckChangeLogStopDelegate OnCheckChangeLogStop;
+        public event ErrorhandlerDelegate OnError;
 
-        async Task<string> GetChangeLogs()
+        public async Task<string> GetChangeLogs()
         {
-            OnCheckChangeLogStart();
+            try
+            {
+                if (OnCheckChangeLogStart != null)
+                    OnCheckChangeLogStart();
+                if (webClient == null)
+                    webClient = new HttpClient();
+                Task<string> getStringTask = webClient.GetStringAsync("http://localhost/IdleClicker/ChangeLogs.html");
+                await getStringTask;
+                if (OnCheckChangeLogStop != null)
+                    OnCheckChangeLogStop(getStringTask.Result);
 
-            if(webClient == null)
-                webClient = new HttpClient();
-            Task<string> getStringTask = webClient.GetStringAsync("localhost/IdleClicker/ChangeLogs.html");
-            await getStringTask;
-            OnCheckChangeLogStop(getStringTask.Result);
+                return getStringTask.Result;
+            }
+            catch (Exception e)
+            {
+                OnError(e.Message);
+            }
+            return null;
+        }
 
-            return getStringTask.Result;
+        public async Task<List<string>> GetFilesToDownload()
+        {
+            try
+            {
+                if (OnCheckChangeLogStart != null)
+                    OnCheckChangeLogStart();
+                if (webClient == null)
+                    webClient = new HttpClient();
+                Task<string> getStringTask = webClient.GetStringAsync("http://localhost/IdleClicker/ChangeLogs.html");
+                await getStringTask;
+                if (OnCheckChangeLogStop != null)
+                    OnCheckChangeLogStop(getStringTask.Result);
+
+                //return getStringTask.Result;
+            }
+            catch (Exception e)
+            {
+                OnError(e.Message);
+            }
+            return null;
         }
     }
 }
