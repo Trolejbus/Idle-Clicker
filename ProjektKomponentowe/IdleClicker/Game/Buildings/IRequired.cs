@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace IdleClicker
 {
-    interface IRequired
+    public interface IRequired
     {
         ImageSource GetIcon();
         double GetValue();

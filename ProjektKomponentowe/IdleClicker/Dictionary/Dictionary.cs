@@ -19,6 +19,8 @@ namespace IdleClicker
             { "WOOD", "Drewno" },
             { "GOLD", "Złoto" },
             { "FOOD", "Pożywnienie"},
+            { "WOODCUTTER", "Leśniczówka" },
+            { "TOWNHALL", "Ratusz" }
         };
     }
       

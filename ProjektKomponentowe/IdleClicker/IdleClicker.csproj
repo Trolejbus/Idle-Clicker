@@ -64,6 +64,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Config\Loader.cs" />
+    <Compile Include="Controls\BuildingItem.xaml.cs">
+      <DependentUpon>BuildingItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BuildingsPanel.xaml.cs">
+      <DependentUpon>BuildingsPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MovablePanels\LineForPanel.xaml.cs">
       <DependentUpon>LineForPanel.xaml</DependentUpon>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
       <DependentUpon>TownHallPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\OtherRequirementLine.xaml.cs">
+      <DependentUpon>OtherRequirementLine.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dictionary\Dictionary.cs" />
     <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
@@ -136,6 +145,14 @@
     </Compile>
     <Compile Include="Web\UpdateModule.cs" />
     <Compile Include="Web\Version.cs" />
+    <Page Include="Controls\BuildingItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BuildingsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MainPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -149,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\OtherRequirementLine.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

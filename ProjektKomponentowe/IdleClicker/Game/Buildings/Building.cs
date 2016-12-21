@@ -8,9 +8,9 @@ using System.Windows.Media;
 
 namespace IdleClicker
 {
-    delegate void BonusAction(int level);
+    public delegate void BonusAction(int level);
 
-    class Building : IRequired
+    public class Building : IRequired
     {
         public ActionList BonusList { get; private set; }
         public String Key { get; private set; }

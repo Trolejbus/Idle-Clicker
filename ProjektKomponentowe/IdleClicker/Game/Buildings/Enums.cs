@@ -8,6 +8,7 @@ namespace IdleClicker
 {
     public enum RequireType {
         Material = 1,
-        Building = 2
+        Building = 2,
+        BuildingOrMaterial = 3
     };
 }

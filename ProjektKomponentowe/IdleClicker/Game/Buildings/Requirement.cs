@@ -8,10 +8,10 @@ namespace IdleClicker
 {
     public delegate int RequireAlgorithm(int level);
 
-    class Requirement
+    public class Requirement
     {
         public int RequireValue { get; private set; }
-        protected IRequired requiredObject;
+        public IRequired requiredObject;
         public bool CheckIfCompleted()
         {
             return requiredObject.GetValue() >= RequireValue;
@@ -21,5 +21,6 @@ namespace IdleClicker
         {
             RequireValue = requireAlgorithm(level);
         }
+       
     }
 }
