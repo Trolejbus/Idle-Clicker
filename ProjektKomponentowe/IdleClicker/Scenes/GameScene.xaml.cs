@@ -68,6 +68,14 @@ namespace IdleClicker
             ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999","Leśniczówka", "600" );
             
             canvas.Children.Add(ratusz);
+
+            // AK: Dodawanie budynków w celach testowych
+            List<Building> listOfBuildings = new List<Building>();
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings[1].AddRequirement(100, m);
+            listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
+            // ----------------------------------------
         }
     }
 }
