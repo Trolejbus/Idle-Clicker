@@ -41,7 +41,7 @@ namespace IdleClicker
         private void GameTimer_OnTick(long Tick)
         {
             DayTB.Text = GameEngine.GameTimer.GameDate.Day.ToString();
-            HourTB.Text = GameEngine.GameTimer.GameDate.ToString("hh:mm");
+            HourTB.Text = GameEngine.GameTimer.GameDate.ToString("HH:mm");
         }       
     }
 }

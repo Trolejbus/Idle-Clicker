@@ -8,7 +8,7 @@ namespace IdleClicker
 {
     public class GameTimer
     {
-        System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
+        protected System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
         bool enabled;
         public DateTime GameDate { get; private set; }
 
@@ -34,7 +34,7 @@ namespace IdleClicker
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             Ticks++;
-            GameDate = GameDate.AddSeconds(1);
+            GameDate = GameDate.AddMinutes(1);
             if (OnTick != null)
                 OnTick(Ticks);
         }
