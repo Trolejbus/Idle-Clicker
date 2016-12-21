@@ -9,7 +9,7 @@ namespace IdleClicker
     /// <summary>
     /// Klasa przechowująca zdarzenie zaplanowane w przyszłości, które ma się wykonać
     /// </summary>
-    public class Action : IComparable<Action>
+    public class Action : IAction,IComparable<IAction>
     {
         /// <summary>
         /// Zdarzenia, które mają się wykonać
@@ -43,6 +43,11 @@ namespace IdleClicker
             ExecuteTimes = executeTimes;
         }
 
+        public virtual void OnAdd()
+        {
+            // Nic nie wykonuje, ale musi być żeby spełnić interface
+        }
+
         /// <summary>
         /// Wykonuje zdarzenia zapisane w tej klasie
         /// </summary>
@@ -56,7 +61,7 @@ namespace IdleClicker
         /// </summary>
         /// <param name="obj">Drugie zdarzenie</param>
         /// <returns> mniejsze od 0 jeśli mniejsze, równe 0 jeśli takie samo, większe od 0 jeżeli większe</returns>
-        public int CompareTo(Action obj)
+        public int CompareTo(IAction obj)
         {
             return Convert.ToInt32(TriggerValue - obj.TriggerValue);
         }

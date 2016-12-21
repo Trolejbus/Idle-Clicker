@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public class GameTimer
+    public class GameTimer : IGameTimer
     {
         protected System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
         bool enabled;
@@ -36,7 +36,7 @@ namespace IdleClicker
             Ticks++;
             GameDate = GameDate.AddMinutes(1);
             if (OnTick != null)
-                OnTick(Ticks);
+                OnTick(new TickEventArgs(Ticks,GameDate));
         }
 
         public bool Enabled

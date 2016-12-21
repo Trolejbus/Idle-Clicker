@@ -42,9 +42,8 @@ namespace IdleClicker
                 for (int i = 0; i < item.Requirements.Count; i++)
                 {
                     // MP: Może nie działać
-                    if (item.Requirements[i].requiredObject.RequireType.HasFlag(RequireType.BuildingOrMaterial))
+                    if ((item.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
-
                         newResourceInfo = new ResourceInfo();
                         newResourceInfo.ResourceIconME.Source = item.Requirements[i].requiredObject.GetIcon();
                         newResourceInfo.ResourceCountTB.Text = item.Requirements[i].RequireValue.ToString();
@@ -60,12 +59,13 @@ namespace IdleClicker
                         line.ResourceTextTB.Text = item.Requirements[i].RequireValue.ToString();
                         if (item.Requirements[i].requiredObject.GetIcon() != null)
                         {
-                            line.ResourceTextTB.Text = item.Requirements[i].RequireValue.ToString();
+                            line.ResourceIconME.Source = item.Requirements[i].requiredObject.GetIcon();
                         }
                         else
                         {
                             line.ResourceIconME.Visibility = Visibility.Hidden;
                         }
+                        newItem.BuildingOtherRequirements.Children.Add(line);
                     }
                 }
 

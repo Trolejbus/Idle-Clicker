@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public class ActionList
+    public class ActionList : IActionList
     {
         /// <summary>
         /// Lista akcji posortowana rosnąca (względem czasu uruchomienia Akcji). Przyspiesza to sprawdzanie czy wykonać daną akcję bo tylko sprawdza akcję, która
         /// ma się wykonać najwcześniej czyli pierwszą na liście.
         /// </summary>
-        SortLinkedList<Action> actions = new SortLinkedList<Action>();
+        SortLinkedList<IAction> actions = new SortLinkedList<IAction>();
 
         /// <summary>
         /// Metoda, która wykonuje się za każym tickiem zegara
@@ -27,11 +27,10 @@ namespace IdleClicker
         /// Metoda dodająca akcję do listy. Przy dodawaniu zwiększa ilość ticków akcji aby zmienić ilość ticków z "Do wykonania" na "Kiedy wykonać"
         /// </summary>
         /// <param name="newAction"></param>
-        public void AddAction(Action newAction)
+        public void AddAction(IAction newAction)
         {
-            if(newAction is TickAction)
-                ((TickAction)newAction).UpdateTick(GameEngine.GameTimer.Ticks);
-            actions.AddItem((Action)newAction, InsertBySimpleMethod.Insert);
+            newAction.OnAdd();
+            actions.AddItem(newAction, InsertBySimpleMethod.Insert);           
         }
 
         /// <summary>
@@ -41,7 +40,7 @@ namespace IdleClicker
         {
             if(actions.List.Count > 0)
             {
-                Action copyAction;
+                IAction copyAction;
                 while (actions.List.Count > 0 && actions.List.First.Value.TriggerValue <= triggerValue)
                 {
                     actions.List.First.Value.Execute();

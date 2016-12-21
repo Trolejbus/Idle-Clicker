@@ -41,27 +41,22 @@ namespace IdleClicker
             m.BeginningIncreaseQuantity = 2;
             m.CurrentIncreaseQuantity = 2;
             m.onChangeMaterial += this.MainPanel.UpdateCountOfMaterials;
-
             lista.AddNewMaterial(m);
 
-            // akcja która wykona się za 5 tików zegara, 3 razy, w odstępach 2 sekundowych
-            TickAction naszaAkcja = new TickAction(0,10,2);
-            //Action naszaAkcja = new Action(0,10);
-            naszaAkcja.Actions += delegate() 
-            {
-                m.BoostMaterial();
-            };
-
-            GameEngine.ActionList.AddAction(naszaAkcja);
 
             TickAction bonus = new TickAction(10, 1, 0);
-
             bonus.Actions += delegate ()
             {
                 m.AddBonusQuantity(1, 1);
             };
-
             GameEngine.ActionList.AddAction(bonus);
+
+            TickAction bonus100 = new TickAction(10, 5, 3);
+            bonus100.Actions += delegate ()
+            {
+                m.CurrentAmount += 100;
+            };
+            GameEngine.ActionList.AddAction(bonus100);
 
             TownHallPanel ratusz = new TownHallPanel("/IdleClicker;component/Resources/Images/wood.png", "Dupa");
             ratusz.AddNewParagraph("Aktualny przyrost surowców:", "Złoto", "200", "Drewno", "500", "Żywność", "1000");
@@ -73,10 +68,27 @@ namespace IdleClicker
             List<Building> listOfBuildings = new List<Building>();
             listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2));
             listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+
+
             listOfBuildings[1].AddRequirement(100, m);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
             // ----------------------------------------
 
+            buildPanel.ImportBuildings(listOfBuildings);
 
         }
     }

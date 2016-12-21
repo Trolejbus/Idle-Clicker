@@ -11,15 +11,14 @@ namespace IdleClicker
     /// </summary>
     public delegate void ActionDelegate();
 
-    public interface IAction : IComparable<Action>
+    public interface IAction : IComparable<IAction>
     {
         event ActionDelegate Actions;
-        long Tick { get; }
-        long TickToExecute { get; }
+        long TriggerValue { get; }
         int ExecuteTimes { get; set; }
-        long FrequencyTick { get; }
+        long FrequencyValue { get; }
         bool FirstExecute { get; }
-        void UpdateTick(long gameEngineTicks);
         void Execute();
+        void OnAdd();
     }
 }
