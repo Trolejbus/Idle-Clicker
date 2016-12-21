@@ -33,7 +33,7 @@ namespace IdleClicker
 
             foreach (Building item in buildings)
             {
-                newItem = new BuildingItem();
+                newItem = new BuildingItem(item);
                 
                 newItem.BuildingImage.Source = item.IconSource;
                 newItem.BuildingName.Text = Dictionary.dictionary[item.Key];
