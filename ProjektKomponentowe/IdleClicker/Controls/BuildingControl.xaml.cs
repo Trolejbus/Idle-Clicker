@@ -48,5 +48,10 @@ namespace IdleClicker
                 this.Visibility = Visibility.Visible;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("HAHAHA KURWA ! JESTEM SOBIE "+Dictionary.dictionary[building.Key]+" i mam level: "+building.Level+" :D");
+        }
     }
 }
