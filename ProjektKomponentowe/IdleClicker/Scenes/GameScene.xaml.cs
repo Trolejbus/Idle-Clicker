@@ -21,24 +21,20 @@ namespace IdleClicker
     /// </summary>
     public partial class GameScene : Scene
     {
-        GameEngine gameEngine;
-
         public GameScene()
         {
             InitializeComponent();
 
-            MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden; };
+            MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
+            buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
+            //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
-          //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
-
-            gameEngine = new GameEngine();
-            gameEngine.SetActionList(new ActionList());
-            gameEngine.Enabled = true;
+            GameEngine.Enabled = true;
 
             ListOfMaterials lista = new ListOfMaterials();
             lista.NewMaterial += this.MainPanel.UpdateKindOfMaterials;
 
-            Material m = new Material(gameEngine);
+            Material m = new Material();
             m.Key = "WOOD";
             m.IconSource = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative));
             m.CurrentAmount = 200;
@@ -56,34 +52,32 @@ namespace IdleClicker
                 m.BoostMaterial();
             };
 
-            gameEngine.GetActionList().AddAction(naszaAkcja);
-
-
-            TickAction czas = new TickAction(0, 100, 1);
-
-            czas.Actions += delegate ()
-            {
-                MainPanel.TickToDate((int)gameEngine.Ticks);
-            };
-
-            gameEngine.GetActionList().AddAction(czas);
+            GameEngine.ActionList.AddAction(naszaAkcja);
 
             TickAction bonus = new TickAction(10, 1, 0);
-
-
 
             bonus.Actions += delegate ()
             {
                 m.AddBonusQuantity(1, 1);
             };
 
-            gameEngine.GetActionList().AddAction(bonus);
+            GameEngine.ActionList.AddAction(bonus);
 
             TownHallPanel ratusz = new TownHallPanel("/IdleClicker;component/Resources/Images/wood.png", "Dupa");
             ratusz.AddNewParagraph("Aktualny przyrost surowców:", "Złoto", "200", "Drewno", "500", "Żywność", "1000");
             ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999","Leśniczówka", "600" );
             
             canvas.Children.Add(ratusz);
+
+            // AK: Dodawanie budynków w celach testowych
+            List<Building> listOfBuildings = new List<Building>();
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings[1].AddRequirement(100, m);
+            listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
+            // ----------------------------------------
+
+
         }
     }
 }

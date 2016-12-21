@@ -6,27 +6,13 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public class ActionList : IActionList
+    public class ActionList
     {
         /// <summary>
         /// Lista akcji posortowana rosnąca (względem czasu uruchomienia Akcji). Przyspiesza to sprawdzanie czy wykonać daną akcję bo tylko sprawdza akcję, która
         /// ma się wykonać najwcześniej czyli pierwszą na liście.
         /// </summary>
         SortLinkedList<Action> actions = new SortLinkedList<Action>();
-
-        /// <summary>
-        /// Instancja klasy Game Engine
-        /// </summary>
-        GameEngine gameEngine;
-
-        /// <summary>
-        /// Ustawia instację game Engine dla listy
-        /// </summary>
-        /// <param name="ge">Instancja klasy game engine</param>
-        public void SetGameEngine(GameEngine ge)
-        {
-            gameEngine = ge;          
-        }
 
         /// <summary>
         /// Metoda, która wykonuje się za każym tickiem zegara
@@ -44,7 +30,7 @@ namespace IdleClicker
         public void AddAction(Action newAction)
         {
             if(newAction is TickAction)
-                ((TickAction)newAction).UpdateTick(gameEngine.Ticks);
+                ((TickAction)newAction).UpdateTick(GameEngine.GameTimer.Ticks);
             actions.AddItem((Action)newAction, InsertBySimpleMethod.Insert);
         }
 

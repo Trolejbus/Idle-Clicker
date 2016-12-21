@@ -7,48 +7,36 @@ using System.Windows.Controls;
 
 namespace IdleClicker
 {
-    public class GameEngine
+    public static class GameEngine
     {
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać
         /// </summary>
-        private System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
-
-        /// <summary>
-        /// Zdarzenie wywołujące się przy ticku zegara
-        /// </summary>
-        public event OnTickDelegate OnTick;
+        public static GameTimer GameTimer;
 
         /// <summary>
         /// Informacja czy gra jest aktywna
         /// </summary>
-        private bool enabled;
+        private static bool enabled;
 
         /// <summary>
         /// Lista akcji
         /// </summary>
-        ActionList actionList;
+        public static ActionList ActionList;
 
         /// <summary>
         /// Konstruktor klasy
         /// </summary>
-        public GameEngine()
+        static GameEngine()
         {
-            // Tworzy obiekt GameTimera
-            gameTimer.Tick += GameTimer_Tick;
+            //Tworzy obiekt GameTimera
+            GameTimer = new GameTimer();
+            GameTimer.OnTick += GameTimer_Tick;
+            Enabled = false;
+            ActionList = new ActionList();
 
             // Określa wstępną częstotliwość zegara
-            gameTimer.Interval = new TimeSpan(0, 0, 0, 0, 1000);
-        }
-
-        /// <summary>
-        /// Ustawia instację action listy
-        /// </summary>
-        /// <param name="newActionList"></param>
-        public void SetActionList(ActionList newActionList)
-        {
-            actionList = newActionList;
-            newActionList.SetGameEngine(this);
+            GameTimer.Interval = 1000;
         }
 
         /// <summary>
@@ -56,27 +44,20 @@ namespace IdleClicker
         /// </summary>
         /// <param name="sender">Domyślnie Game Timer</param>
         /// <param name="e"></param>
-        private void GameTimer_Tick(object sender, EventArgs e)
+        private static void GameTimer_Tick(long Ticks)
         {
-            Ticks++; // Przy każdym ticku zwiększa ticks
-            actionList.Execute(Ticks);
-            if(OnTick != null)
-                OnTick(Ticks); // Wywołuje zdarzenie
+            ActionList.Execute(Ticks);
         }
 
         /// <summary>
         /// Pauzuje i uruchamia z powrotem grę
         /// </summary>
-        public bool Enabled
+        public static bool Enabled
         {
             set
             {
                 enabled = value;
-                // Odpowiednio zatrzymuje lub wznawia pracę zegara
-                if (value)
-                    gameTimer.Start();
-                else
-                    gameTimer.Stop();
+                GameTimer.Enabled = value;
             }
             get
             {
@@ -84,20 +65,6 @@ namespace IdleClicker
             }
         }
 
-        /// <summary>
-        /// Zwraca instancję listy zdarzeń
-        /// </summary>
-        public IActionList GetActionList()
-        {
-            return actionList;
-        }
-
-        /// <summary>
-        /// Zwraca ilość ticków
-        /// </summary>()
-        public long Ticks
-        {
-            get; private set;
-        }
+        
     }
 }
