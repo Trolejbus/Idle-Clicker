@@ -13,6 +13,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="/IdleClicker;component/Resources/Images/VillageBackground.png"/>
             </Grid.Background>
+            <local:BuildingsLayer x:Name="buildingsLayer"></local:BuildingsLayer>
             <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
                 <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>

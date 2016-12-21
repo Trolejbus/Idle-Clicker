@@ -21,6 +21,8 @@ namespace IdleClicker
     public partial class BuildingItem : UserControl
     {
         Building building;
+        Brush defaultBrush = new SolidColorBrush(Color.FromRgb(228, 181, 123));
+
         public BuildingItem(Building building)
         {
             InitializeComponent();
@@ -39,12 +41,22 @@ namespace IdleClicker
 
         public void UpdateRequirements()
         {
-            List<Requirement> buildingRequirements = building.Requirements;
-            for (int i = 0; i < buildingRequirements.Count; i++)
+            for (int i = 0; i < building.Requirements.Count; i++)
             {
-                if (!buildingRequirements[i].CheckIfCompleted())
+                if (!building.Requirements[i].CheckIfCompleted())
                 {
-                    // AK: Teraz sprawdź typ i działaj.
+                    if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                        ((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = Brushes.Red;
+                    else
+                        ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                }
+                else
+                {
+
+                    if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                        ((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = defaultBrush;
+                    else
+                        ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = defaultBrush;
                 }
             }
         }

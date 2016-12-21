@@ -18,19 +18,23 @@ namespace IdleClicker
         public ImageSource IconSource { get; private set; }
         public int Level { get; private set; }
         public Point Location { get; private set; }
-        public int MaxLevel { get; private set; }
+        public int MaxLevel{ get; private set; }
         public List<Requirement> Requirements { get; }
+        public ImageSource Image { get; private set; }
 
         public event BonusAction OnChangeLevel;
 
         // AK: Konstruktor budowany na potrzeby testów
-        public Building(String key, string imgSource, int level)
+        public Building(String key, string iconSource, int level, int xPosition, int yPosition, string imageSource, int maxLevel)
         {
             Key = key;
             Level = level;
-            IconSource = new BitmapImage(new Uri(imgSource, UriKind.RelativeOrAbsolute));
+            IconSource = new BitmapImage(new Uri(iconSource, UriKind.RelativeOrAbsolute));
             Requirements = new List<Requirement>();
             BonusList = new ActionList();
+            Location = new Point(xPosition, yPosition);
+            Image = new BitmapImage(new Uri(imageSource, UriKind.Relative));
+            MaxLevel = maxLevel;
         }
 
         // AK: Dodane na potrzeby testów
@@ -62,12 +66,15 @@ namespace IdleClicker
             {
                 if (!item.CheckIfCompleted()) return false;
             }
+
             Level++;
             foreach (Requirement item in Requirements)
             {
                 if (item is IReducible)
                     ((IReducible)item).ReduceMaterial(item.RequireValue);
+
                 item.UpdateToLevel(Level);
+
             }
             
             OnChangeLevel(Level);

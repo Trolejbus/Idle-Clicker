@@ -66,29 +66,27 @@ namespace IdleClicker
 
             // AK: Dodawanie budynków w celach testowych
             List<Building> listOfBuildings = new List<Building>();
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2, 200, 200, @"/IdleClicker;component/Resources/Images/wood.png", 999));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10, 300, 300, @"/IdleClicker;component/Resources/Images/wood.png",  999));
 
+
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 0, 200, 200, @"/IdleClicker;component/Resources/Images/food.png", 999));
 
             listOfBuildings[1].AddRequirement(100, m);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
             // ----------------------------------------
 
             buildPanel.ImportBuildings(listOfBuildings);
+            buildingsLayer.UpdateBuildingsOnLayer(listOfBuildings);
+
+            TickAction budujLeśniczówke = new TickAction(0, 1, 1);
+
+            budujLeśniczówke.Actions += delegate ()
+            {
+                listOfBuildings[2].Build();
+            };
+
+            GameEngine.ActionList.AddAction(budujLeśniczówke);
 
         }
     }

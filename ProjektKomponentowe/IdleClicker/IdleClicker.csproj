@@ -64,11 +64,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Config\Loader.cs" />
+    <Compile Include="Controls\BuildingControl.xaml.cs">
+      <DependentUpon>BuildingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BuildingButton.xaml.cs">
       <DependentUpon>BuildingButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\BuildingItem.xaml.cs">
       <DependentUpon>BuildingItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BuildingsLayer.xaml.cs">
+      <DependentUpon>BuildingsLayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\BuildingsPanel.xaml.cs">
       <DependentUpon>BuildingsPanel.xaml</DependentUpon>
@@ -159,11 +165,19 @@
     </Compile>
     <Compile Include="Web\UpdateModule.cs" />
     <Compile Include="Web\Version.cs" />
+    <Page Include="Controls\BuildingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\BuildingButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\BuildingItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BuildingsLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
