@@ -55,21 +55,19 @@ namespace IdleClicker
                 if (!building.Requirements[i].CheckIfCompleted())
                 {
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
-                        ((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = Brushes.Red;
+                        //((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = Brushes.Red;
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w"+i)).ResourceCountTB.Foreground = Brushes.Red;
                     else
-                        ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                        //((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = Brushes.Red;
                 }
                 else
                 {
 
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
-                    {
-                        MessageBox.Show(((ResourceInfo)this.FindName("w" + i)).Name);
-                        ((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = defaultBrush;
-                    }
-
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = defaultBrush;
                     else
-                        ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = defaultBrush;
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = defaultBrush;
                 }
             }
         }

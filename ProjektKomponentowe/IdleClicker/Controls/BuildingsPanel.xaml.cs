@@ -41,7 +41,6 @@ namespace IdleClicker
 
                 for (int i = 0; i < item.Requirements.Count; i++)
                 {
-                    // MP: Może nie działać
                     if ((item.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
                         newResourceInfo = new ResourceInfo();
