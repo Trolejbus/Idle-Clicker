@@ -52,7 +52,7 @@ namespace IdleClicker
                         if (item.Requirements[i].requiredObject.RequireType == RequireType.Material)
                             newItem.BuildingRequireMaterials.Children.Add(newResourceInfo);
                         else
-                            newItem.BuildingRequireMaterials.Children.Add(newResourceInfo);                   
+                            newItem.BuildingRequireBuildings.Children.Add(newResourceInfo);                   
                     }
                     else
                     {
