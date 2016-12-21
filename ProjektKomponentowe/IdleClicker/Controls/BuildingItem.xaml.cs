@@ -28,7 +28,7 @@ namespace IdleClicker
             InitializeComponent();
             this.building = building;
             this.building.OnChangeLevel += UpdateRequirements;
-            //GameEngine.GameTimer.OnTick += GameTimer_OnTick;
+            GameEngine.GameTimer.OnTick += GameTimer_OnTick;
         
         }
 
@@ -63,7 +63,11 @@ namespace IdleClicker
                 {
 
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                    {
+                        MessageBox.Show(((ResourceInfo)this.FindName("w" + i)).Name);
                         ((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = defaultBrush;
+                    }
+
                     else
                         ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = defaultBrush;
                 }
