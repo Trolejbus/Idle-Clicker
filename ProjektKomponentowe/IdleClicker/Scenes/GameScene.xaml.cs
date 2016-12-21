@@ -26,7 +26,7 @@ namespace IdleClicker
             InitializeComponent();
 
             MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
-
+            buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
             GameEngine.Enabled = true;
@@ -63,6 +63,16 @@ namespace IdleClicker
             ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999","Leśniczówka", "600" );
             
             canvas.Children.Add(ratusz);
+
+            // AK: Dodawanie budynków w celach testowych
+            List<Building> listOfBuildings = new List<Building>();
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10));
+            listOfBuildings[1].AddRequirement(100, m);
+            listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
+            // ----------------------------------------
+
+
         }
     }
 }
