@@ -24,5 +24,15 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+            InfoPopup.IsOpen = true;
+        }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            InfoPopup.IsOpen = false;
+        }
     }
 }
