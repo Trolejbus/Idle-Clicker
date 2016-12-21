@@ -24,5 +24,29 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        public TownHallPanel(string imageURL, string title)
+        {
+            InitializeComponent();
+            image.Source = new BitmapImage(new Uri(imageURL, UriKind.RelativeOrAbsolute));
+            TitleWindowTB.Text = title;
+        }
+
+        public void AddNewParagraph(string title, params string[] lines)
+        {
+            ListOfLines newParagraph = new ListOfLines();
+            newParagraph.TitleTextBlock.Text = title;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (i < lines.Length-1 )
+                {
+                    newParagraph.StackOfLineSP.Children.Add(new LineForPanel(lines[i], lines[i + 1]));
+                    i++;
+                }
+            }
+
+            this.StackOfListsSP.Children.Add(newParagraph);
+        }
     }
 }
