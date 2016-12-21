@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
             <Image x:Name="BuildingImage" Margin="0,0,-0.5,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
             <Border BorderThickness="1" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Width="96" Height="48">
-                <TextBlock x:Name="BuildingName" TextWrapping="Wrap" Text="Kopalnia łowców dupa" Foreground="#FFE4B57B" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1" FontWeight="Bold"/>
+                <TextBlock x:Name="BuildingName" TextWrapping="Wrap" Text="Kopalnia łowców" Foreground="#FFE4B57B" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="-1" FontWeight="Bold"/>
             </Border>
             <TextBlock x:Name="TextPoziom" Grid.Column="2" TextWrapping="Wrap" Text="Poziom" FontSize="10.667" Foreground="#FFE4B57B" VerticalAlignment="Top" Margin="10,9.665,8.33,0" d:LayoutOverrides="Width"/>
             <TextBlock x:Name="BuildingLevelValue" Grid.Column="2" Margin="19.786,23.852,20.273,8.186" TextWrapping="Wrap" Text="10" d:LayoutOverrides="Width, Height" Foreground="#FFE4B57B"/>
