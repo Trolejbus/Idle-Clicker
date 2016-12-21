@@ -76,6 +76,8 @@ namespace IdleClicker
             listOfBuildings[1].AddRequirement(100, m);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
             // ----------------------------------------
+
+
         }
     }
 }
