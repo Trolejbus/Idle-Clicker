@@ -16,20 +16,13 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for LineForPanel.xaml
+    /// Interaction logic for OtherRequirementLine.xaml
     /// </summary>
-    public partial class LineForPanel : UserControl
+    public partial class OtherRequirementLine : UserControl
     {
-        public LineForPanel()
+        public OtherRequirementLine()
         {
             InitializeComponent();
-        }
-
-        public LineForPanel(string property, string value)
-        {
-            InitializeComponent();
-            TextLineTB.Text = property;
-            TextNumberTB.Text = value;
         }
     }
 }

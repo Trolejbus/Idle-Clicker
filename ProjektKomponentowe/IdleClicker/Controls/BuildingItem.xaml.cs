@@ -16,20 +16,23 @@ using System.Windows.Shapes;
 namespace IdleClicker
 {
     /// <summary>
-    /// Interaction logic for LineForPanel.xaml
+    /// Interaction logic for BuildingItem.xaml
     /// </summary>
-    public partial class LineForPanel : UserControl
+    public partial class BuildingItem : UserControl
     {
-        public LineForPanel()
+        public BuildingItem()
         {
             InitializeComponent();
         }
 
-        public LineForPanel(string property, string value)
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
         {
-            InitializeComponent();
-            TextLineTB.Text = property;
-            TextNumberTB.Text = value;
+            InfoPopup.IsOpen = true;
+        }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+            InfoPopup.IsOpen = false;
         }
     }
 }
