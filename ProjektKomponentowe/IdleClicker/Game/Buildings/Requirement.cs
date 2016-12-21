@@ -17,7 +17,7 @@ namespace IdleClicker
         {
             return requiredObject.GetValue() >= RequireValue;
         }
-        public RequireAlgorithm requireAlgorithm = (a) => { return 0; };
+        public RequireAlgorithm requireAlgorithm = (a) => { return 5; };
         public void UpdateToLevel(int level)
         {
             RequireValue = requireAlgorithm(level);

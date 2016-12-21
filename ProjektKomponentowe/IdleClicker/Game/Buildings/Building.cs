@@ -68,13 +68,12 @@ namespace IdleClicker
             }
 
             Level++;
-            foreach (Requirement item in Requirements)
+            for (int i = 0; i < Requirements.Count; i++)
             {
-                if (item is IReducible)
-                    ((IReducible)item).ReduceMaterial(item.RequireValue);
+                if (Requirements[i].requiredObject is IReducible)
+                    ((IReducible)Requirements[i].requiredObject).ReduceMaterial(Requirements[i].RequireValue);
 
-                item.UpdateToLevel(Level);
-
+                Requirements[i].UpdateToLevel(Level);
             }
             
             OnChangeLevel(Level);

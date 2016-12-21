@@ -54,7 +54,7 @@ namespace IdleClicker
             TickAction bonus100 = new TickAction(10, 5, 3);
             bonus100.Actions += delegate ()
             {
-                m.CurrentAmount += 100;
+                m.CurrentAmount += 1;
             };
             GameEngine.ActionList.AddAction(bonus100);
 
@@ -67,14 +67,16 @@ namespace IdleClicker
             // AK: Dodawanie budynków w celach testowych
             List<Building> listOfBuildings = new List<Building>();
             listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2, 200, 200, 999));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 10, 300, 300, 999));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 1, 300, 300, 999));
 
 
             listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999));
             listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/food.png", 0, 0, 0, 999));
 
 
-            listOfBuildings[1].AddRequirement(100, m);
+            Requirement req = new Requirement(100, m);
+            req.requireAlgorithm = (level) => { return 100 * level; };
+            listOfBuildings[1].Requirements.Add(req);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
 
             listOfBuildings[3].AddRequirement(1, listOfBuildings[2]);

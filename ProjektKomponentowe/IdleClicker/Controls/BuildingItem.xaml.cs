@@ -55,19 +55,29 @@ namespace IdleClicker
                 if (!building.Requirements[i].CheckIfCompleted())
                 {
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
-                        //((ResourceInfo)this.FindName("w" + i)).ResourceCountTB.Foreground = Brushes.Red;
-                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w"+i)).ResourceCountTB.Foreground = Brushes.Red;
+                    {
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = Brushes.Red;
+                    }
                     else
-                        //((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                    {
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Text = building.Requirements[i].RequireValue.ToString();
                         ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                    }
                 }
                 else
                 {
 
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                    {
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
                         ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = defaultBrush;
+                    }
                     else
+                    {
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Text = building.Requirements[i].RequireValue.ToString();
                         ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = defaultBrush;
+                    }
                 }
             }
         }
