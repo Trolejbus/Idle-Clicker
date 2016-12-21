@@ -18,9 +18,6 @@
            <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
                 <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>
-
-                <local:SoundPanel Canvas.Left="200"></local:SoundPanel>
-                <local:LoadGamePanel Canvas.Left="400"></local:LoadGamePanel>
                 <local:BuildingsPanel x:Name="buildPanel" Canvas.Left="0" Canvas.Top="75" Visibility="Collapsed"></local:BuildingsPanel>
             </Canvas>
             <local:BuildingButton x:Name="buildButton" Margin="0,0,26,26" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1"/>

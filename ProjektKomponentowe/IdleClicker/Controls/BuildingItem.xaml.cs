@@ -27,6 +27,14 @@ namespace IdleClicker
         {
             InitializeComponent();
             this.building = building;
+            this.building.OnChangeLevel += UpdateRequirements;
+            //GameEngine.GameTimer.OnTick += GameTimer_OnTick;
+        
+        }
+
+        private void GameTimer_OnTick(TickEventArgs e)
+        {
+            UpdateRequirements(building.Level);
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
@@ -39,8 +47,9 @@ namespace IdleClicker
             InfoPopup.IsOpen = false;
         }
 
-        public void UpdateRequirements()
+        public void UpdateRequirements(int Level)
         {
+            this.BuildingLevelValue.Text = Level.ToString();
             for (int i = 0; i < building.Requirements.Count; i++)
             {
                 if (!building.Requirements[i].CheckIfCompleted())
@@ -59,6 +68,11 @@ namespace IdleClicker
                         ((OtherRequirementLine)this.FindName("w" + i)).ResourceTextTB.Foreground = defaultBrush;
                 }
             }
+        }
+
+        private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            building.Build();
         }
     }
 }

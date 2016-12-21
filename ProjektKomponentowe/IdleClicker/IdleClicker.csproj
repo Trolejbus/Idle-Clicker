@@ -332,6 +332,7 @@
     <Resource Include="Resources\Images\wood.png" />
     <Resource Include="Resources\Images\VillageBackground.png" />
     <Resource Include="Resources\Images\BuildButton.png" />
+    <Resource Include="Resources\Buildings\TownHall.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />

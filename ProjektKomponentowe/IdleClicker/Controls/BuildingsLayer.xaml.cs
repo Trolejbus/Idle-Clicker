@@ -32,7 +32,7 @@ namespace IdleClicker
             {
                     buildingInstance = new BuildingControl(item);
                     buildingInstance.SetPosition(item.Location.X, item.Location.Y);
-                    buildingInstance.SetImage(item.Image);
+                    buildingInstance.SetImage(item.IconSource);
                     buildingInstance.Visibility = Visibility.Collapsed;
                     buildingsContainer.Children.Add(buildingInstance);
              

@@ -36,7 +36,7 @@ namespace IdleClicker
             Enabled = false;          
 
             // Określa wstępną częstotliwość zegara
-            GameTimer.Interval = 1;
+            GameTimer.Interval = 1000;
         }
 
         /// <summary>
