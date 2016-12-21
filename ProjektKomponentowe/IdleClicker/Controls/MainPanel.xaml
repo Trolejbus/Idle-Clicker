@@ -10,10 +10,7 @@
 
         </StackPanel>
         <TextBlock x:Name="nameTB" Margin="0,10" TextWrapping="Wrap" Text="Tekameikite" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" FontSize="22" Height="30" HorizontalAlignment="Center"/>
+        <local:TimerPanel x:Name ="TimerPanel" Margin="0,0,76,0" HorizontalAlignment="Right"></local:TimerPanel>
         <local:mainButton x:Name ="MenuButton" Margin="0,7.5,10,7.5" HorizontalAlignment="Right" Width="50" Height="30" Content="Menu"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Right" Margin="0,10,120,25" TextWrapping="Wrap" Text="Dzień:" Foreground="#FFE4B57B" Height="15" FontSize="10"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Right" Margin="0,10,70,25" TextWrapping="Wrap" Text="Godzina:" Foreground="#FFE4B57B" Height="15" FontSize="10"/>
-        <TextBlock x:Name="DayTB" HorizontalAlignment="Right" Margin="0,25,120,10" TextWrapping="Wrap" Text="1" Foreground="#FFE4B57B" Height="15" FontSize="10"/>
-        <TextBlock x:Name="HourTB" HorizontalAlignment="Right" Margin="0,25,70,10" TextWrapping="Wrap" Text="00:00" Foreground="#FFE4B57B" Height="15" FontSize="10"/>
     </Grid>
 </UserControl>
