@@ -22,7 +22,7 @@ namespace IdleClicker
         /// <summary>
         /// Lista akcji
         /// </summary>
-        public static ActionList ActionList;
+        public static IActionList ActionList;
 
         /// <summary>
         /// Konstruktor klasy
@@ -31,7 +31,7 @@ namespace IdleClicker
         {
             //Tworzy obiekt GameTimera
             GameTimer = new GameTimer();
-            GameTimer.OnTick += GameTimer_Tick;
+            GameTimer.OnTick += GameTimer_OnTick;
             Enabled = false;
             ActionList = new ActionList();
 
@@ -39,14 +39,10 @@ namespace IdleClicker
             GameTimer.Interval = 1000;
         }
 
-        /// <summary>
-        /// Zdarzenie wywołujące się przy każdym Ticku
-        /// </summary>
-        /// <param name="sender">Domyślnie Game Timer</param>
-        /// <param name="e"></param>
-        private static void GameTimer_Tick(long Ticks)
+        private static void GameTimer_OnTick(TickEventArgs e)
         {
-            ActionList.Execute(Ticks);
+            ActionList.Execute(e.Ticks);
+
         }
 
         /// <summary>
