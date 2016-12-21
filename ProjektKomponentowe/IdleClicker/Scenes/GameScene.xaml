@@ -16,6 +16,7 @@
             <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
                 <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>
+                <local:BuildingsPanel Canvas.Left="0" Canvas.Top="0" Visibility="Collapsed"></local:BuildingsPanel>
             </Canvas>
             <Image x:Name="image" Margin="0,0,26,26" Width="48" Height="48" Source="/IdleClicker;component/Resources/Images/BuildButton.png" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
             <!--<local:ArcPanel HorizontalAlignment="Right" Height="100" Margin="0,0,48,79" VerticalAlignment="Bottom" Width="100"/>
