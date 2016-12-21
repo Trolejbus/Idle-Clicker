@@ -10,18 +10,23 @@
     <Grid>
         <local:MainPanel x:Name="MainPanel" Margin="0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
         <Grid HorizontalAlignment="Stretch" Margin="0,50,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="17*"/>
+            </Grid.ColumnDefinitions>
             <Grid.Background>
                 <ImageBrush ImageSource="/IdleClicker;component/Resources/Images/VillageBackground.png"/>
             </Grid.Background>
-            <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+            <local:Night Width="Auto" Height="Auto" Grid.ColumnSpan="2" ></local:Night>
+            <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0" Grid.ColumnSpan="2">
                 <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
                 <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>
-                
+
                 <local:SoundPanel Canvas.Left="200"></local:SoundPanel>
                 <local:LoadGamePanel Canvas.Left="400"></local:LoadGamePanel>
                 <local:BuildingsPanel x:Name="buildPanel" Canvas.Left="0" Canvas.Top="75" Visibility="Collapsed"></local:BuildingsPanel>
             </Canvas>
-            <local:BuildingButton x:Name="buildButton" Margin="0,0,26,26" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+            <local:BuildingButton x:Name="buildButton" Margin="0,0,26,26" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1"/>
             <!--<local:ArcPanel HorizontalAlignment="Right" Height="100" Margin="0,0,48,79" VerticalAlignment="Bottom" Width="100"/>
                 
             -->

@@ -91,6 +91,9 @@
     <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
       <DependentUpon>TownHallPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Night.xaml.cs">
+      <DependentUpon>Night.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\OtherRequirementLine.xaml.cs">
       <DependentUpon>OtherRequirementLine.xaml</DependentUpon>
     </Compile>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Night.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
