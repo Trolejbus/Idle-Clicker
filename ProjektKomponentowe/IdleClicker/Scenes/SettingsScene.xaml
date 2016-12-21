@@ -62,10 +62,14 @@
                 <TextBox x:Name="textBox" Height="23" Margin="76,44.973,76,0" TextWrapping="Wrap" Text="Użytkownik" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" TextAlignment="Center" BorderBrush="{x:Null}" Background="#FFE4B57B" Foreground="#FF492412"/>
                 <local:mainButton Width="95" Height="20" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" FontSize="12" Content="Zmień"></local:mainButton>
             </Grid>
-            <Grid x:Name="gridUpdate" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272" Background="#FF8A4A27" Height="290" Visibility="Hidden">
+            <Grid x:Name="gridUpdate" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272" Background="#FF8A4A27" Height="290" Visibility="Visible">
                 <TextBlock x:Name="textBlock3" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Aktualna wersja:"/>
                 <TextBlock x:Name="textBlock3_Copy" Margin="0,39.973,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="25" Height="39.306" TextAlignment="Center" Foreground="#FFE4B57B" Text="1.0" d:LayoutOverrides="VerticalAlignment"/>
                 <local:mainButton Width="130" Height="20" FontSize="12" Content="Sprawdź aktualizacje" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height"></local:mainButton>
+                <RichTextBox x:Name="richTextBox" Background="#FFE4B57B" HorizontalAlignment="Left" Height="154" Margin="10,101,0,0" VerticalAlignment="Top" Width="252" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" IsReadOnly="True">
+                    
+                </RichTextBox>
+                <TextBlock x:Name="textBlock3_Copy1" Margin="10,80,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B" Text="Zmiany:"/>
             </Grid>
         </Grid>
         <local:mainButton x:Name="mainButton" HorizontalAlignment="Left" Margin="-130,0,0,20" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" Content="POWRÓT" FontSize="16" Click="mainButton_Click"></local:mainButton>

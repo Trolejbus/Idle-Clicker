@@ -88,11 +88,17 @@
     <Compile Include="Controls\MenuPanel.xaml.cs">
       <DependentUpon>MenuPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MovablePanels\LoadGamePanel.xaml.cs">
+      <DependentUpon>LoadGamePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MovablePanels\SoundPanel.xaml.cs">
       <DependentUpon>SoundPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
       <DependentUpon>TownHallPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Night.xaml.cs">
+      <DependentUpon>Night.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\OtherRequirementLine.xaml.cs">
       <DependentUpon>OtherRequirementLine.xaml</DependentUpon>
@@ -100,7 +106,7 @@
     <Compile Include="Controls\TimerPanel.xaml.cs">
       <DependentUpon>TimerPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dictionary\Dictionary.cs" />
+    <Compile Include="Commons\Dictionary\Dictionary.cs" />
     <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
     <Compile Include="Game\Actions\Action.cs" />
     <Compile Include="Commons\EventArgs\TickEventArgs.cs" />
@@ -122,9 +128,9 @@
     <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Behaviours\HiderBehaviour.cs" />
+    <Compile Include="Controls\Behaviours\HiderBehaviour.cs" />
     <Compile Include="Config.cs" />
-    <Compile Include="Behaviours\DragBehaviour.cs" />
+    <Compile Include="Controls\Behaviours\DragBehaviour.cs" />
     <Compile Include="Scenes\GameScene.xaml.cs">
       <DependentUpon>GameScene.xaml</DependentUpon>
     </Compile>
@@ -201,11 +207,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\MovablePanels\LoadGamePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MovablePanels\SoundPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Night.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,10 +232,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TimerPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,7 +336,9 @@
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Controls\Setting Panel\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -31,16 +31,18 @@ namespace IdleClicker
         {
             //Tworzy obiekt GameTimera
             GameTimer = new GameTimer();
+            ActionList = new ActionList();
             GameTimer.OnTick += GameTimer_OnTick;
             Enabled = false;          
 
             // Określa wstępną częstotliwość zegara
-            GameTimer.Interval = 1000;
-
-            ActionList = new ActionList();
-            GameTimer = new GameTimer();
+            GameTimer.Interval = 1;
         }
 
+        /// <summary>
+        /// Metoda wywołująca sprawdzanie zdarzeń w ActionList
+        /// </summary>
+        /// <param name="e">Aktualny czas</param>
         private static void GameTimer_OnTick(TickEventArgs e)
         {
             ActionList.Execute(e.Ticks);
