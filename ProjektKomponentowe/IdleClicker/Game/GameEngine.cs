@@ -12,7 +12,7 @@ namespace IdleClicker
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać
         /// </summary>
-        public static GameTimer GameTimer;
+        public static IGameTimer GameTimer;
 
         /// <summary>
         /// Informacja czy gra jest aktywna
@@ -32,17 +32,18 @@ namespace IdleClicker
             //Tworzy obiekt GameTimera
             GameTimer = new GameTimer();
             GameTimer.OnTick += GameTimer_OnTick;
-            Enabled = false;
-            ActionList = new ActionList();
+            Enabled = false;          
 
             // Określa wstępną częstotliwość zegara
             GameTimer.Interval = 1000;
+
+            ActionList = new ActionList();
+            GameTimer = new GameTimer();
         }
 
         private static void GameTimer_OnTick(TickEventArgs e)
         {
             ActionList.Execute(e.Ticks);
-
         }
 
         /// <summary>

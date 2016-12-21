@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public delegate void OnTickDelegate(TickEventArgs e);
-    public class GameTimer
+    public class GameTimer : IGameTimer
     {
         protected System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
         bool enabled;
