@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="IdleClicker.LoadGamePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IdleClicker"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="200" Height="300">
+
+        <Grid Width="200" Height="300" Background="#FF8A4A27">
+        <local:TopPanel VerticalAlignment="Top" Height="20" Width="Auto"/>
+        <ScrollViewer x:Name="scrollviewer" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="200" Height="Auto" Margin="0,20,0,0" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Top">
+            <ScrollViewer.Resources>
+                <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">0</sys:Double>
+            </ScrollViewer.Resources>
+            <ScrollViewer.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ScrollViewer.RenderTransform>
+            <StackPanel x:Name="stackPanel" Background="#00000000" MinHeight="170" Height="Auto" Margin="10,5,10,5">
+                <local:Slot x:Name="Slot1" Margin="0,10,0,0"/>
+                <local:Slot Margin="0,10,0,0"/>
+                <local:Slot Margin="0,10,0,0"/>
+                <local:Slot Margin="0,10,0,0"/>
+                <local:Slot Margin="0,10,0,0"/>
+                <local:Slot Margin="0,10,0,0"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

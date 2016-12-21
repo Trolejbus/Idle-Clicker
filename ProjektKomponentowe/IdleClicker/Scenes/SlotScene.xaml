@@ -24,7 +24,7 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid Background="#FF6E2617">
-        <ScrollViewer x:Name="scrollviewer" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="155" Height="260" Margin="245,100,0,87" RenderTransformOrigin="0.5,0.5">
+        <ScrollViewer x:Name="scrollviewer" Background="#FFE4B57B" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" Width="135" Height="260" Margin="245,100,0,87" RenderTransformOrigin="0.5,0.5">
             <ScrollViewer.Resources>
                 <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">5</sys:Double>
             </ScrollViewer.Resources>
@@ -36,9 +36,9 @@
                     <TranslateTransform/>
                 </TransformGroup>
             </ScrollViewer.RenderTransform>
-            <StackPanel x:Name="stackPanel" HorizontalAlignment="left" Width="150" VerticalAlignment="Top" Background="#FFE4B57B" MinHeight="260">
+            <StackPanel x:Name="stackPanel" Margin="10,0,10,0" HorizontalAlignment="left" Width="115" VerticalAlignment="Top"  MinHeight="260">
                 <local:Slot x:Name="Slot1" Margin="0,10,0,0"/>
-                <local:Slot Margin="10,10,10,0"/>
+                <local:Slot Margin="0,10,0,0"/>
                 <local:mainButton Margin="10,10,10,15" Width="Auto" VerticalAlignment="Bottom" Content="NOWA GRA" Click="mainButton_Click"/>
             </StackPanel>
         </ScrollViewer>
