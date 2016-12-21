@@ -56,6 +56,16 @@ namespace IdleClicker
 
             gameEngine.GetActionList().AddAction(naszaAkcja);
 
+
+            TickAction czas = new TickAction(0, 100, 1);
+
+            czas.Actions += delegate ()
+            {
+                MainPanel.TickToDate((int)gameEngine.Ticks);
+            };
+
+            gameEngine.GetActionList().AddAction(czas);
+
             TickAction bonus = new TickAction(10, 1, 0);
 
 
