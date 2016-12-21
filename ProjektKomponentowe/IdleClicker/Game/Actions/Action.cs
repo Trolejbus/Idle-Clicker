@@ -10,7 +10,7 @@ namespace IdleClicker
     /// Klasa przechowująca zdarzenie zaplanowane w przyszłości, które ma się wykonać
     /// </summary>
     public class Action : IComparable<Action>
-    {     
+    {
         /// <summary>
         /// Zdarzenia, które mają się wykonać
         /// </summary>
@@ -20,10 +20,9 @@ namespace IdleClicker
         /// Numer Ticku, w którym mają się wykonać. UWAGA! Wartość musi być zwiększona o ilość ticków w momencie wykonania
         /// zdarzenia! (ToDo: Dorobić możliwość zmiany ilości ticków na bieżąco)
         /// </summary>
-        public long Tick { private set; get; }
-        public long TickToExecute { private set; get; }
+        public long TriggerValue { protected set; get; }
         public int ExecuteTimes { get; set; }
-        public long FrequencyTick { get; private set; }
+        public long FrequencyValue { get; private set; }
         public bool FirstExecute { get; private set; }
 
         /// <summary>
@@ -32,35 +31,16 @@ namespace IdleClicker
         /// <param name="tickToExecute">Wartość, która mówi, że "za ile ticków ma się wykonać zdarzenie"</param>
         /// <param name="executeTimes">Wartość, która mówi "ile razy ma się wykonać zdarzenie"</param>
         /// <param name="frequencyTicks">Wartość, która mówi "co ile ma się wykonywać zdarzenie"</param>
-        public Action(long ticksToExecute = 0, int executeTimes = 1, long frequencyTicks = 1)
+        public Action(long triggerValue = 0, int executeTimes = 1, long frequencyTicks = 1)
         {
             //Tick = ticksToExecute;
-            TickToExecute = ticksToExecute;
+            TriggerValue = triggerValue;
+
             // przechowuje częstotliwość z jaką jest wykonywana akcja
-            FrequencyTick = frequencyTicks;
+            FrequencyValue = frequencyTicks;
 
             // ile razy ma się wykonać akcja
             ExecuteTimes = executeTimes;
-        }
-
-        /// <summary>
-        /// Przy dodawaniu zdarzenia do listy ta metoda zwiększa ilość ticków w tym zdarzeniu o ilość ticków w silniku gry
-        /// </summary>
-        /// <param name="gameEngineTicks">Tiki zegara gry</param>
-        public void UpdateTick(long gameEngineTicks)
-        {
-            if (TickToExecute == 0)
-            {
-                Tick = gameEngineTicks;
-            }
-            else if(TickToExecute > 0)
-            {
-                Tick = gameEngineTicks + TickToExecute;
-            }
-
-            // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
-            TickToExecute = FrequencyTick;
-            return;
         }
 
         /// <summary>
@@ -78,10 +58,7 @@ namespace IdleClicker
         /// <returns> mniejsze od 0 jeśli mniejsze, równe 0 jeśli takie samo, większe od 0 jeżeli większe</returns>
         public int CompareTo(Action obj)
         {
-            if (!(obj is Action))
-                throw new ArgumentException();
-
-            return Convert.ToInt32(Tick - ((Action)obj).Tick);            
+            return Convert.ToInt32(TriggerValue - obj.TriggerValue);
         }
     }
 }

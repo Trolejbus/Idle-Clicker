@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public interface IActionList
+    interface IReducible
     {
-        void SetGameEngine(GameEngine ge);
-        void AddAction(Action newAction);
+        void ReduceMaterial(double value);
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public interface IActionList
-    {
-        void SetGameEngine(GameEngine ge);
-        void AddAction(Action newAction);
-    }
+    public enum RequireType {
+        Material = 1,
+        Building = 2
+    };
 }

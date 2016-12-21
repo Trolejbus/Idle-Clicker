@@ -40,7 +40,10 @@ namespace IdleClicker
                 values.AddBefore(node, item);
             else
             {
-                Insert(values, item, node.Next);
+                if(node.Next == null)
+                    values.AddAfter(node, item);
+                else
+                    Insert(values, item, node.Next);
             }
         }
     }

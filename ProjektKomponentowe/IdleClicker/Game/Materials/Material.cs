@@ -13,7 +13,7 @@ namespace IdleClicker
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
-    public class Material
+    public class Material : IRequired, IReducible
     {
         public event BoostMaterialHandler onChangeMaterial;
 
@@ -31,7 +31,7 @@ namespace IdleClicker
         /// <summary>
         /// Silnik gry.
         /// </summary>
-        IGameEngine gameEngine;
+        GameEngine gameEngine;
         /// <summary>
         /// Obecna ilość surowca.
         /// </summary>
@@ -49,7 +49,7 @@ namespace IdleClicker
         /// Konstruktor surowca.
         /// </summary>
         /// <param name="ge">Instancja klasy GameEngine, która zarządza czasem gry.</param>
-        public Material(IGameEngine ge)
+        public Material(GameEngine ge)
         {
             gameEngine = ge;
         }
@@ -128,6 +128,14 @@ namespace IdleClicker
             }
         }
 
+        public RequireType RequireType
+        {
+            get
+            {
+                return RequireType.Material;
+            }
+        }
+
         /// <summary>
         /// Metoda, która umożliwia zwiększenie przyrostu zasobu na tick zegara, wyrażonego w procentach.
         /// </summary>
@@ -137,7 +145,7 @@ namespace IdleClicker
         {
             currentIncreaseQuantity += percentage/100 * beginningIncreaseQuantity;
 
-            Action action = new Action(time * 60);
+            TickAction action = new TickAction(time * 60);
             action.Actions += () => { currentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
 
             gameEngine.GetActionList().AddAction(action);
@@ -153,7 +161,7 @@ namespace IdleClicker
         {
             currentIncreaseQuantity += quantity;
 
-            Action action = new Action(time * 60);
+            TickAction action = new TickAction(time * 60);
             action.Actions += () => { currentIncreaseQuantity -= quantity;  };
 
             gameEngine.GetActionList().AddAction(action);
@@ -179,6 +187,14 @@ namespace IdleClicker
             onChangeMaterial(this);
         }
 
-        
+        public ImageSource GetIcon()
+        {
+            return IconSource;
+        }
+
+        public double GetValue()
+        {
+            return currentAmount;
+        }
     }
 }

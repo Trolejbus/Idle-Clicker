@@ -17,25 +17,24 @@ namespace IdleClicker
         /// <summary>
         /// Instancja klasy Game Engine
         /// </summary>
-        IGameEngine gameEngine;
+        GameEngine gameEngine;
 
         /// <summary>
         /// Ustawia instację game Engine dla listy
         /// </summary>
         /// <param name="ge">Instancja klasy game engine</param>
-        public void SetGameEngine(IGameEngine ge)
+        public void SetGameEngine(GameEngine ge)
         {
-            gameEngine = ge;
-            ge.OnTick += Ge_OnTick;
+            gameEngine = ge;          
         }
 
         /// <summary>
         /// Metoda, która wykonuje się za każym tickiem zegara
         /// </summary>
-        /// <param name="Tick">Ilość ticków zegara</param>
-        private void Ge_OnTick(long Tick)
+        /// <param name="triggerValue">Ilość ticków zegara</param>
+        public void Execute(long triggerValue)
         {
-            CheckActions();
+            CheckActions(triggerValue);
         }
 
         /// <summary>
@@ -44,19 +43,20 @@ namespace IdleClicker
         /// <param name="newAction"></param>
         public void AddAction(Action newAction)
         {
-            newAction.UpdateTick(gameEngine.Ticks);
-            actions.AddItem(newAction, InsertBySimpleMethod.Insert);
+            if(newAction is TickAction)
+                ((TickAction)newAction).UpdateTick(gameEngine.Ticks);
+            actions.AddItem((Action)newAction, InsertBySimpleMethod.Insert);
         }
 
         /// <summary>
         /// Sprawdza (przy każdym ticku zegara) czy już wykonać akcję
         /// </summary>
-        private void CheckActions()
+        private void CheckActions(long triggerValue)
         {
             if(actions.List.Count > 0)
             {
                 Action copyAction;
-                while (actions.List.Count > 0 && actions.List.First.Value.Tick <= gameEngine.Ticks)
+                while (actions.List.Count > 0 && actions.List.First.Value.TriggerValue <= triggerValue)
                 {
                     actions.List.First.Value.Execute();
                     if(actions.List.First.Value.ExecuteTimes > 1)

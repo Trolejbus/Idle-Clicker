@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace IdleClicker
 {
-    public interface IActionList
+    interface IRequired
     {
-        void SetGameEngine(GameEngine ge);
-        void AddAction(Action newAction);
+        ImageSource GetIcon();
+        double GetValue();
+        RequireType RequireType { get; }
     }
 }

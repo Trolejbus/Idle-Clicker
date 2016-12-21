@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace IdleClicker
 {
-    public class GameEngine : IGameEngine
+    public class GameEngine
     {
         /// <summary>
         /// GameTimer - zegar gry. Wywołuje zdarzenia na które ma się coś dziać
@@ -27,7 +27,7 @@ namespace IdleClicker
         /// <summary>
         /// Lista akcji
         /// </summary>
-        IActionList actionList;
+        ActionList actionList;
 
         /// <summary>
         /// Konstruktor klasy
@@ -45,7 +45,7 @@ namespace IdleClicker
         /// Ustawia instację action listy
         /// </summary>
         /// <param name="newActionList"></param>
-        public void SetActionList(IActionList newActionList)
+        public void SetActionList(ActionList newActionList)
         {
             actionList = newActionList;
             newActionList.SetGameEngine(this);
@@ -59,7 +59,9 @@ namespace IdleClicker
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             Ticks++; // Przy każdym ticku zwiększa ticks
-            OnTick(Ticks); // Wywołuje zdarzenie
+            actionList.Execute(Ticks);
+            if(OnTick != null)
+                OnTick(Ticks); // Wywołuje zdarzenie
         }
 
         /// <summary>
