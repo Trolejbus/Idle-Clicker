@@ -27,6 +27,8 @@ namespace IdleClicker
         {
             InitializeComponent();
 
+            MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Hidden ? Visibility.Visible : Visibility.Hidden; };
+
           //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
             gameEngine = new GameEngine();

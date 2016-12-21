@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="IdleClicker.MenuPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IdleClicker"
+             mc:Ignorable="d" Width="120" Height="Auto">
+    <Grid Width="120" Background="#FF8A4A27" Height="Auto">
+        <StackPanel Margin="0" Background="#00000000" Height="Auto">
+            <local:mainButton Content="Statystyki wioski" Width="120"/>
+            <local:mainButton Content="Dźwięk" Width="120"/>
+            <local:mainButton Content="Zapisz grę" Width="120"/>
+            <local:mainButton Content="Wczytaj grę" Width="120"/>
+            <local:mainButton Content="Wyjdź" Width="120"/>
+            
+        </StackPanel>
+
+    </Grid>
+</UserControl>
