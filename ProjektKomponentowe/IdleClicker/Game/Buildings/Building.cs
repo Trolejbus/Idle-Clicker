@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace IdleClicker
 {
@@ -22,11 +23,23 @@ namespace IdleClicker
 
         public event BonusAction OnChangeLevel;
 
-        public Building()
+        // AK: Konstruktor budowany na potrzeby testów
+        public Building(String key, string imgSource, int level)
         {
+            Key = key;
+            Level = level;
+            IconSource = new BitmapImage(new Uri(imgSource, UriKind.RelativeOrAbsolute));
             Requirements = new List<Requirement>();
             BonusList = new ActionList();
         }
+
+        // AK: Dodane na potrzeby testów
+        public void AddRequirement(int requireValue, IRequired requiredObject)
+        {
+            Requirements.Add(new Requirement(requireValue, requiredObject));
+        }
+
+        // ------------------------------------
 
         public RequireType RequireType
         {

@@ -22,5 +22,12 @@ namespace IdleClicker
             RequireValue = requireAlgorithm(level);
         }
        
+        // AK: Dodane na potrzeby testów ------------
+        public Requirement(int requireValue, IRequired requiredObject)
+        {
+            RequireValue = requireValue;
+            this.requiredObject = requiredObject;
+        }
+        // ------------------------------------------
     }
 }
