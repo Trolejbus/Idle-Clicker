@@ -29,10 +29,6 @@ namespace IdleClicker
         ImageSource iconSource;
 
         /// <summary>
-        /// Silnik gry.
-        /// </summary>
-        GameEngine gameEngine;
-        /// <summary>
         /// Obecna ilość surowca.
         /// </summary>
         double currentAmount = 0;
@@ -44,16 +40,7 @@ namespace IdleClicker
         /// Początkowy przyrost zasobu na tick zegara.
         /// </summary>
         double beginningIncreaseQuantity = 0;
-         
-        /// <summary>
-        /// Konstruktor surowca.
-        /// </summary>
-        /// <param name="ge">Instancja klasy GameEngine, która zarządza czasem gry.</param>
-        public Material(GameEngine ge)
-        {
-            gameEngine = ge;
-        }
-
+        
         /// <summary>
         /// Właściwość, która umożliwia pobranie lub ustawienie nazwy surowca.
         /// </summary>
@@ -148,7 +135,7 @@ namespace IdleClicker
             TickAction action = new TickAction(time * 60);
             action.Actions += () => { currentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
 
-            gameEngine.GetActionList().AddAction(action);
+            GameEngine.ActionList.AddAction(action);
 
         }
 
@@ -164,7 +151,7 @@ namespace IdleClicker
             TickAction action = new TickAction(time * 60);
             action.Actions += () => { currentIncreaseQuantity -= quantity;  };
 
-            gameEngine.GetActionList().AddAction(action);
+            GameEngine.ActionList.AddAction(action);
 
         }
 
