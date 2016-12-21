@@ -20,9 +20,11 @@ namespace IdleClicker
     /// </summary>
     public partial class BuildingItem : UserControl
     {
-        public BuildingItem()
+        Building building;
+        public BuildingItem(Building building)
         {
             InitializeComponent();
+            this.building = building;
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
@@ -33,6 +35,18 @@ namespace IdleClicker
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
         {
             InfoPopup.IsOpen = false;
+        }
+
+        public void UpdateRequirements()
+        {
+            List<Requirement> buildingRequirements = building.Requirements;
+            for (int i = 0; i < buildingRequirements.Count; i++)
+            {
+                if (!buildingRequirements[i].CheckIfCompleted())
+                {
+                    // AK: Teraz sprawdź typ i działaj.
+                }
+            }
         }
     }
 }
