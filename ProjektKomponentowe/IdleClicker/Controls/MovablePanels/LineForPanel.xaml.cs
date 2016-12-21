@@ -24,5 +24,12 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        public LineForPanel(string property, string value)
+        {
+            InitializeComponent();
+            TextLineTB.Text = property;
+            TextNumberTB.Text = value;
+        }
     }
 }
