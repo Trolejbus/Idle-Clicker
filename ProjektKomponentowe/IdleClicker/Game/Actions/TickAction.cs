@@ -22,23 +22,21 @@ namespace IdleClicker
         public TickAction(long ticksToExecute = 0, int executeTimes = 1, long frequencyTicks = 1) 
             :base(0,executeTimes,frequencyTicks)
         {
-            TicksToExecute = ticksToExecute;
+            TicksToExecute = ticksToExecute;      
+        }
+
+        public override void OnAdd()
+        {
+            UpdateTicks();
         }
 
         /// <summary>
         /// Przy dodawaniu zdarzenia do listy ta metoda zwiększa ilość ticków w tym zdarzeniu o ilość ticków w silniku gry
         /// </summary>
         /// <param name="gameEngineTicks">Tiki zegara gry</param>
-        public void UpdateTick(long gameEngineTicks)
-        {
-            if (TicksToExecute == 0)
-            {
-                TriggerValue = gameEngineTicks;
-            }
-            else if(TicksToExecute > 0)
-            {
-                TriggerValue = gameEngineTicks + TicksToExecute;
-            }
+        public void UpdateTicks()
+        { 
+            TriggerValue = GameEngine.GameTimer.Ticks + TicksToExecute;
 
             // gdy wstawię akcję w liście akcji już nie muszę czekać na rozpoczęcie wykonywania
             TicksToExecute = FrequencyValue;

@@ -38,10 +38,10 @@ namespace IdleClicker
             }
         }
 
-        private void GameTimer_OnTick(long Tick)
+        private void GameTimer_OnTick(TickEventArgs e)
         {
-            DayTB.Text = GameEngine.GameTimer.GameDate.Day.ToString();
-            HourTB.Text = GameEngine.GameTimer.GameDate.ToString("HH:mm");
+            DayTB.Text = e.GameDate.Day.ToString();
+            HourTB.Text = e.GameDate.ToString("HH:mm");
         }       
     }
 }

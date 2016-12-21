@@ -82,6 +82,9 @@
     <Compile Include="Controls\MenuPanel.xaml.cs">
       <DependentUpon>MenuPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MovablePanels\SoundPanel.xaml.cs">
+      <DependentUpon>SoundPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
       <DependentUpon>TownHallPanel.xaml</DependentUpon>
     </Compile>
@@ -94,15 +97,16 @@
     <Compile Include="Dictionary\Dictionary.cs" />
     <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
     <Compile Include="Game\Actions\Action.cs" />
+    <Compile Include="Commons\EventArgs\TickEventArgs.cs" />
     <Compile Include="Game\Buildings\Building.cs" />
-    <Compile Include="Game\Buildings\Enums.cs" />
-    <Compile Include="Game\Buildings\IReducible.cs" />
-    <Compile Include="Game\Buildings\IRequired.cs" />
+    <Compile Include="Commons\Enums\Enums.cs" />
+    <Compile Include="Interfaces\IGameTimer.cs" />
+    <Compile Include="Interfaces\IReducible.cs" />
+    <Compile Include="Interfaces\IRequired.cs" />
     <Compile Include="Game\Buildings\Requirement.cs" />
     <Compile Include="Game\GameTimer.cs" />
     <Compile Include="Interfaces\IAction.cs" />
     <Compile Include="Interfaces\IActionList.cs" />
-    <Compile Include="Interfaces\IGameEngine.cs" />
     <Compile Include="Controls\MainPanel.xaml.cs">
       <DependentUpon>MainPanel.xaml</DependentUpon>
     </Compile>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MenuPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MovablePanels\SoundPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

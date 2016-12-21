@@ -17,7 +17,6 @@ namespace IdleClicker
     {
         public event BoostMaterialHandler onChangeMaterial;
 
-
         /// <summary>
         /// Nazwa surowca.
         /// </summary>
@@ -27,6 +26,11 @@ namespace IdleClicker
         /// Ścieżka do ikona jako graficznej reprezentacji surowca.
         /// </summary>
         ImageSource iconSource;
+
+        /// <summary>
+        /// Określa czy materiał został dodany do zegara gry (Aby go zwiększać)
+        /// </summary>
+        bool addedToGameTick;
 
         /// <summary>
         /// Obecna ilość surowca.
@@ -112,7 +116,26 @@ namespace IdleClicker
             set
             {
                 currentIncreaseQuantity = value;
+                if (currentIncreaseQuantity == 0)
+                {
+                    if (addedToGameTick)
+                    {
+                        addedToGameTick = false;
+                        GameEngine.GameTimer.OnTick -= GameTimer_OnTick;
+                    }
+                }
+                else
+                    if (!addedToGameTick)
+                    {
+                        addedToGameTick = true;
+                        GameEngine.GameTimer.OnTick += GameTimer_OnTick;
+                    }             
             }
+        }
+
+        private void GameTimer_OnTick(TickEventArgs e)
+        {
+            BoostMaterial();
         }
 
         public RequireType RequireType
@@ -130,10 +153,10 @@ namespace IdleClicker
         /// <param name="time">Paramter, określający czas trwania aktywności bonusa.</param>
         public void AddBonusPercentage(double percentage, int time)
         {
-            currentIncreaseQuantity += percentage/100 * beginningIncreaseQuantity;
+            CurrentIncreaseQuantity += percentage/100 * beginningIncreaseQuantity;
 
             TickAction action = new TickAction(time * 60);
-            action.Actions += () => { currentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
+            action.Actions += () => { CurrentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
 
             GameEngine.ActionList.AddAction(action);
 
@@ -146,13 +169,12 @@ namespace IdleClicker
         /// <param name="time">Paramter, określający czas trwania aktywności bonusa.</param>
         public void AddBonusQuantity(double quantity, int time)
         {
-            currentIncreaseQuantity += quantity;
+            CurrentIncreaseQuantity += quantity;
 
             TickAction action = new TickAction(time * 60);
-            action.Actions += () => { currentIncreaseQuantity -= quantity;  };
+            action.Actions += () => { CurrentIncreaseQuantity -= quantity;  };
 
             GameEngine.ActionList.AddAction(action);
-
         }
 
         /// <summary>
@@ -160,7 +182,7 @@ namespace IdleClicker
         /// </summary>
         public void BoostMaterial()
         {
-            currentAmount += currentIncreaseQuantity;
+            currentAmount += CurrentIncreaseQuantity;
             onChangeMaterial(this);
         }
 

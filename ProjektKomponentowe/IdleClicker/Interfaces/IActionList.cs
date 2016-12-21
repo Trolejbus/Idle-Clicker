@@ -8,7 +8,7 @@ namespace IdleClicker
 {
     public interface IActionList
     {
-        void SetGameEngine(GameEngine ge);
-        void AddAction(Action newAction);
+        void AddAction(IAction newAction);
+        void Execute(long triggerValue);
     }
 }

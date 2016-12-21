@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public delegate void OnTickDelegate(long Tick);
-    public interface IGameEngine
+    public delegate void OnTickDelegate(TickEventArgs e);
+    public interface IGameTimer
     {
-        bool Enabled { get; set; }
-        void SetActionList(IActionList newActionList);
+        DateTime GameDate { get; }
         long Ticks { get; }
+        bool Enabled { get; set; }
+        int Interval { get; set; }
+
         event OnTickDelegate OnTick;
-        IActionList GetActionList();
     }
 }
