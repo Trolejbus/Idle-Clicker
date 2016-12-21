@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="IdleClicker.SoundPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IdleClicker"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" Width="200" Height="200" Background="Black">
+    <Grid Width="200" Height="200" Background="#FF8A4A27">
+        <local:TopPanel VerticalAlignment="Top" Height="20" Width="200"/>
+        <TextBlock x:Name="textBlock" Margin="0,25,0,0" TextWrapping="Wrap" Text="Głośność muzyki" FontSize="18" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Foreground="#FFE4B57B" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Top" Background="#00000000"/>
+        <Slider x:Name="musicVolume" Margin="0,60,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="160" HorizontalAlignment="Center" ValueChanged="musicVolume_ValueChanged" Maximum="100"/>
+        <TextBlock x:Name="textBlock_Copy" Margin="0,110,0,0" TextWrapping="Wrap" Text="Głośność dźwięku" FontSize="18" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Foreground="#FFE4B57B" HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Top" Background="#00000000"/>
+        <Slider x:Name="soundsVolume" Margin="0,145,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="160" Height="18" HorizontalAlignment="Center" ValueChanged="soundsVolume_ValueChanged_1" Maximum="100"/>
+        <TextBlock x:Name="musicLevel" Margin="0,75,0,0" TextWrapping="Wrap" Text="50%" FontSize="10" VerticalAlignment="Top" Background="Transparent" Foreground="#FFE4B57B" FontFamily="IdleClicker;componentt/Sources/Fonts/#Eczar" HorizontalAlignment="Center"/>
+        <TextBlock x:Name="soundsLevel" Margin="0,160,0,0" TextWrapping="Wrap" Text="50%" FontSize="10" Foreground="#FFE4B57B" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+    </Grid>
+</UserControl>
