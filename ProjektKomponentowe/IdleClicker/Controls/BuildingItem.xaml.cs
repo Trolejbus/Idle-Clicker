@@ -21,7 +21,9 @@ namespace IdleClicker
     public partial class BuildingItem : UserControl
     {
         Building building;
-        Brush defaultBrush = new SolidColorBrush(Color.FromRgb(228, 181, 123));
+        Brush defaultTextBrush = new SolidColorBrush(Color.FromRgb(228, 181, 123));
+        Brush grayItemBrush = new SolidColorBrush(Color.FromRgb(169, 153, 153));
+        Brush defaultItemBrush = new SolidColorBrush(Color.FromRgb(73, 36, 18));
 
         public BuildingItem(Building building)
         {
@@ -54,6 +56,8 @@ namespace IdleClicker
             {
                 if (!building.Requirements[i].CheckIfCompleted())
                 {
+                    BuildingItemMainGrid.Background = grayItemBrush;
+                    BuildingItemMainGrid.Cursor = Cursors.No; // AK: Nie wiem czy nie za chamsko
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
                         ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
@@ -67,16 +71,17 @@ namespace IdleClicker
                 }
                 else
                 {
-
+                    BuildingItemMainGrid.Background = defaultItemBrush;
+                    BuildingItemMainGrid.Cursor = Cursors.Hand;
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
                         ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
-                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = defaultBrush;
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = defaultTextBrush;
                     }
                     else
                     {
                         ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Text = building.Requirements[i].RequireValue.ToString();
-                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = defaultBrush;
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = defaultTextBrush;
                     }
                 }
             }
