@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace IdleClicker
 {
     public delegate void OnTickDelegate(TickEventArgs e);
+    public delegate void ChangeOnNightDelegate(bool checkIfNight);
     public interface IGameTimer
     {
         DateTime GameDate { get; }
@@ -15,5 +16,6 @@ namespace IdleClicker
         int Interval { get; set; }
 
         event OnTickDelegate OnTick;
+        event ChangeOnNightDelegate CheckOnNight;
     }
 }

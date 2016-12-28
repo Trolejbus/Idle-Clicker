@@ -3,24 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace IdleClicker
 {
     public class GameTimer : IGameTimer
     {
-        protected System.Windows.Threading.DispatcherTimer gameTimer = new System.Windows.Threading.DispatcherTimer();
+        protected DispatcherTimer gameTimer = new DispatcherTimer();
         bool enabled;
         public DateTime GameDate { get; private set; }
+        bool CheckIfChange = false;
 
         /// <summary>
         /// Zdarzenie wywołujące się przy ticku zegara
         /// </summary>
         public event OnTickDelegate OnTick;
+        public event ChangeOnNightDelegate CheckOnNight;
 
         public GameTimer()
         {
             GameDate = new DateTime(1, 1, 1, 8, 0, 0);
-            gameTimer.Tick += GameTimer_Tick;           
+            gameTimer.Tick += GameTimer_Tick;
+            gameTimer.Tick += CheckTimeOfDay;
         }
 
         /// <summary>
@@ -38,7 +42,6 @@ namespace IdleClicker
             if (OnTick != null)
                 OnTick(new TickEventArgs(Ticks,GameDate));
         }
-
         public bool Enabled
         {
             set
@@ -66,6 +69,21 @@ namespace IdleClicker
             {
                 gameTimer.Interval = new TimeSpan(0, 0, 0, 0, value);
             }
-        }    
+        }
+        public bool CheckIfNight()
+        {
+            return (GameDate.Hour >= 20 || GameDate.Hour < 6);
+            //CheckIfChange = true;
+
+        }
+        public void CheckTimeOfDay(object sender, EventArgs a)
+        {
+            bool checkIfNight = CheckIfNight();
+            if (checkIfNight != CheckIfChange)
+            {
+                CheckOnNight(checkIfNight);
+                CheckIfChange = checkIfNight;
+            }
+        }
     }
 }

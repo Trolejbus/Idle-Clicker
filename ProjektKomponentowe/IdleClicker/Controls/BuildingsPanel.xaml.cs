@@ -41,12 +41,17 @@ namespace IdleClicker
 
                 for (int i = 0; i < item.Requirements.Count; i++)
                 {
-                    // MP: Może nie działać
                     if ((item.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
                         newResourceInfo = new ResourceInfo();
+                        newResourceInfo.Name = "w" + i;
                         newResourceInfo.ResourceIconME.Source = item.Requirements[i].requiredObject.GetIcon();
                         newResourceInfo.ResourceCountTB.Text = item.Requirements[i].RequireValue.ToString();
+
+                        if (!item.Requirements[i].CheckIfCompleted())
+                        {
+                            newResourceInfo.ResourceCountTB.Foreground = Brushes.Red;
+                        }
 
                         if (item.Requirements[i].requiredObject.RequireType == RequireType.Material)
                             newItem.BuildingRequireMaterials.Children.Add(newResourceInfo);

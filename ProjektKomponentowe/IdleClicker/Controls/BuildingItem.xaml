@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Width="200" Height="50" Margin="0,5,0,0">
-        <Grid Cursor="Hand" Height="50" Background="#FF492412" Width="200" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
+             d:DesignHeight="300" d:DesignWidth="300" Width="200" Height="50" Margin="0,5,0,0" MouseLeftButtonUp="UserControl_MouseLeftButtonUp">
+        <Grid x:Name="BuildingItemMainGrid" Cursor="Hand" Height="50" Background="#FF492412" Width="200" MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="49*"/>
                 <ColumnDefinition Width="96*"/>

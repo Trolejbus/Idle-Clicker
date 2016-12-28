@@ -21,10 +21,22 @@ namespace IdleClicker
     public partial class BuildingItem : UserControl
     {
         Building building;
+        Brush defaultTextBrush = new SolidColorBrush(Color.FromRgb(228, 181, 123));
+        Brush grayItemBrush = new SolidColorBrush(Color.FromRgb(169, 153, 153));
+        Brush defaultItemBrush = new SolidColorBrush(Color.FromRgb(73, 36, 18));
+
         public BuildingItem(Building building)
         {
             InitializeComponent();
             this.building = building;
+            this.building.OnChangeLevel += UpdateRequirements;
+            GameEngine.GameTimer.OnTick += GameTimer_OnTick;
+        
+        }
+
+        private void GameTimer_OnTick(TickEventArgs e)
+        {
+            UpdateRequirements(building.Level);
         }
 
         private void Grid_MouseEnter(object sender, MouseEventArgs e)
@@ -37,16 +49,47 @@ namespace IdleClicker
             InfoPopup.IsOpen = false;
         }
 
-        public void UpdateRequirements()
+        public void UpdateRequirements(int Level)
         {
-            List<Requirement> buildingRequirements = building.Requirements;
-            for (int i = 0; i < buildingRequirements.Count; i++)
+            this.BuildingLevelValue.Text = Level.ToString();
+            for (int i = 0; i < building.Requirements.Count; i++)
             {
-                if (!buildingRequirements[i].CheckIfCompleted())
+                if (!building.Requirements[i].CheckIfCompleted())
                 {
-                    // AK: Teraz sprawdź typ i działaj.
+                    BuildingItemMainGrid.Background = grayItemBrush;
+                    BuildingItemMainGrid.Cursor = Cursors.No; // AK: Nie wiem czy nie za chamsko
+                    if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                    {
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = Brushes.Red;
+                    }
+                    else
+                    {
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Text = building.Requirements[i].RequireValue.ToString();
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = Brushes.Red;
+                    }
+                }
+                else
+                {
+                    BuildingItemMainGrid.Background = defaultItemBrush;
+                    BuildingItemMainGrid.Cursor = Cursors.Hand;
+                    if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
+                    {
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
+                        ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Foreground = defaultTextBrush;
+                    }
+                    else
+                    {
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Text = building.Requirements[i].RequireValue.ToString();
+                        ((OtherRequirementLine)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceTextTB.Foreground = defaultTextBrush;
+                    }
                 }
             }
+        }
+
+        private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            building.Build();
         }
     }
 }

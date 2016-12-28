@@ -12,16 +12,22 @@ namespace IdleClicker
     {
         public int RequireValue { get; private set; }
         public IRequired requiredObject;
+
         public bool CheckIfCompleted()
         {
             return requiredObject.GetValue() >= RequireValue;
         }
-        public RequireAlgorithm requireAlgorithm;
+        public RequireAlgorithm requireAlgorithm = (a) => { return 5; };
         public void UpdateToLevel(int level)
         {
             RequireValue = requireAlgorithm(level);
         }
        
+        public void SetAlgorithm(RequireAlgorithm algorithm)
+        {
+            requireAlgorithm = algorithm;
+        }
+
         // AK: Dodane na potrzeby testów ------------
         public Requirement(int requireValue, IRequired requiredObject)
         {

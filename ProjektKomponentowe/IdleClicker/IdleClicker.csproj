@@ -64,11 +64,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Config\Loader.cs" />
+    <Compile Include="Controls\BuildingControl.xaml.cs">
+      <DependentUpon>BuildingControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\BuildingButton.xaml.cs">
       <DependentUpon>BuildingButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\BuildingItem.xaml.cs">
       <DependentUpon>BuildingItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\BuildingsLayer.xaml.cs">
+      <DependentUpon>BuildingsLayer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\BuildingsPanel.xaml.cs">
       <DependentUpon>BuildingsPanel.xaml</DependentUpon>
@@ -82,11 +88,17 @@
     <Compile Include="Controls\MenuPanel.xaml.cs">
       <DependentUpon>MenuPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MovablePanels\LoadGamePanel.xaml.cs">
+      <DependentUpon>LoadGamePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MovablePanels\SoundPanel.xaml.cs">
       <DependentUpon>SoundPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\MovablePanels\TownHallPanel.xaml.cs">
       <DependentUpon>TownHallPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Night.xaml.cs">
+      <DependentUpon>Night.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\OtherRequirementLine.xaml.cs">
       <DependentUpon>OtherRequirementLine.xaml</DependentUpon>
@@ -164,11 +176,19 @@
     <Compile Include="Web\Program.cs" />
     <Compile Include="Web\UpdateModule.cs" />
     <Compile Include="Web\Version.cs" />
+    <Page Include="Controls\BuildingControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\BuildingButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\BuildingItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\BuildingsLayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -192,11 +212,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\MovablePanels\LoadGamePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MovablePanels\SoundPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MovablePanels\TownHallPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Night.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -213,10 +241,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TimerPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\UserControl1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -317,6 +341,7 @@
     <Resource Include="Resources\Images\wood.png" />
     <Resource Include="Resources\Images\VillageBackground.png" />
     <Resource Include="Resources\Images\BuildButton.png" />
+    <Resource Include="Resources\Buildings\TownHall.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
