@@ -31,14 +31,14 @@ namespace IdleClicker
             {
                 if (this.nightEffectGrid.Opacity<0.9)
                 {
-                    this.nightEffectGrid.Opacity += 0.004;
+                    this.nightEffectGrid.Opacity += 0.04;
                 }
             }
             if (CheckIfRise == 2)
             {
                 if (nightEffectGrid.Opacity>0)
                 {
-                    this.nightEffectGrid.Opacity -= 0.004;
+                    this.nightEffectGrid.Opacity -= 0.04;
                 }
             }
 
