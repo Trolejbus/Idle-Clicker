@@ -12,7 +12,7 @@ namespace IdleClicker
         protected DispatcherTimer gameTimer = new DispatcherTimer();
         bool enabled;
         public DateTime GameDate { get; private set; }
-        bool CheckIfChange = false;
+        int CheckIfChange = 0;
 
         /// <summary>
         /// Zdarzenie wywołujące się przy ticku zegara
@@ -70,19 +70,35 @@ namespace IdleClicker
                 gameTimer.Interval = new TimeSpan(0, 0, 0, 0, value);
             }
         }
-        public bool CheckIfNight()
+        //1-wschód
+        //2-zachód
+        //3-nic
+        public int CheckIfSunrise()
         {
-            return (GameDate.Hour >= 20 || GameDate.Hour < 6);
-            //CheckIfChange = true;
+            if (GameDate.Hour >= 18 && GameDate.Hour < 23)
+            {
+                return 1;
+            }
+            else
+            {
+                if (GameDate.Hour >= 5 && GameDate.Hour < 9)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
 
         }
         public void CheckTimeOfDay(object sender, EventArgs a)
         {
-            bool checkIfNight = CheckIfNight();
-            if (checkIfNight != CheckIfChange)
+            int checkIfNight = CheckIfSunrise();
+            if (checkIfNight == 1 || checkIfNight ==2)
             {
                 CheckOnNight(checkIfNight);
-                CheckIfChange = checkIfNight;
+                //CheckIfChange = checkIfNight;
             }
         }
     }

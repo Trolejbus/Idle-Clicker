@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace IdleClicker
 {
     public delegate void OnTickDelegate(TickEventArgs e);
-    public delegate void ChangeOnNightDelegate(bool checkIfNight);
+    public delegate void ChangeOnNightDelegate(int checkIfSunRise);
     public interface IGameTimer
     {
         DateTime GameDate { get; }
