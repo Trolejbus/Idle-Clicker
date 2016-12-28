@@ -12,7 +12,6 @@ namespace IdleClicker
         protected DispatcherTimer gameTimer = new DispatcherTimer();
         bool enabled;
         public DateTime GameDate { get; private set; }
-        //int CheckIfChange = 0;
         int counterToIncreaseOpacity = 0;
 
         /// <summary>
@@ -93,14 +92,6 @@ namespace IdleClicker
             }
 
         }
-        //public void IncreaseOpacityValue()
-        //{
-        //    if (increase)
-        //    {
-
-        //    }
-            
-        //}
         public void CheckTimeOfDay(object sender, EventArgs a)
         {
                 int checkIfNight = CheckIfSunrise();
@@ -110,7 +101,6 @@ namespace IdleClicker
                     if (counterToIncreaseOpacity == 10)
                     {
                         CheckOnNight(checkIfNight);
-                        //CheckIfChange = checkIfNight;
                         counterToIncreaseOpacity = 0;
                     }
                 }

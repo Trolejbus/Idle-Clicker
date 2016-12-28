@@ -41,9 +41,6 @@ namespace IdleClicker
                     this.nightEffectGrid.Opacity -= 0.04;
                 }
             }
-
-            
-            //this.nightEffectGrid.Opacity = CheckIfNight ? 0.6 : 0;
         }
     }
 }
