@@ -112,6 +112,7 @@
     <Compile Include="Commons\Dictionary\Dictionary.cs" />
     <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
+    <Compile Include="GameConfig.cs" />
     <Compile Include="Game\Actions\Action.cs" />
     <Compile Include="Commons\EventArgs\TickEventArgs.cs" />
     <Compile Include="Game\Buildings\Building.cs" />
@@ -342,6 +343,17 @@
     <Resource Include="Resources\Images\VillageBackground.png" />
     <Resource Include="Resources\Images\BuildButton.png" />
     <Resource Include="Resources\Buildings\TownHall.png" />
+    <Resource Include="Resources\Buildings\Brickyard.png" />
+    <Resource Include="Resources\Buildings\Farm.png" />
+    <Resource Include="Resources\Buildings\FireCamp.png" />
+    <Resource Include="Resources\Buildings\House.png" />
+    <Resource Include="Resources\Buildings\House2.png" />
+    <Resource Include="Resources\Buildings\House3.png" />
+    <Resource Include="Resources\Buildings\Mill.png" />
+    <Resource Include="Resources\Buildings\Mine.png" />
+    <Resource Include="Resources\Buildings\Tent.png" />
+    <Resource Include="Resources\Buildings\Warehouse.png" />
+    <Resource Include="Resources\Buildings\Woodshed.png" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />

@@ -33,6 +33,8 @@ namespace IdleClicker
             GameEngine.Enabled = true;
 
             ListOfMaterials lista = new ListOfMaterials();
+            GameEngine.SetListOfMaterials(lista);
+
             lista.NewMaterial += this.MainPanel.UpdateKindOfMaterials;
 
             Material m = new Material();
@@ -43,6 +45,8 @@ namespace IdleClicker
             m.CurrentIncreaseQuantity = 2;
             m.onChangeMaterial += this.MainPanel.UpdateCountOfMaterials;
             lista.AddNewMaterial(m);
+
+            
 
 
             TickAction bonus = new TickAction(10, 1, 0);
@@ -59,7 +63,7 @@ namespace IdleClicker
             };
             GameEngine.ActionList.AddAction(bonus100);
 
-            TownHallPanel ratusz = new TownHallPanel("/IdleClicker;component/Resources/Images/wood.png", "Dupa");
+            TownHallPanel ratusz = new TownHallPanel(new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative)), "Dupa");
             ratusz.AddNewParagraph("Aktualny przyrost surowców:", "Złoto", "200", "Drewno", "500", "Żywność", "1000");
             ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999","Leśniczówka", "600" );
             
@@ -67,12 +71,12 @@ namespace IdleClicker
 
             // AK: Dodawanie budynków w celach testowych
             List<Building> listOfBuildings = new List<Building>();
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/wood.png", 2, 200, 200, 999));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/gold.png", 1, 300, 300, 999));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Brickyard.png", 0, -400, -400, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Tent.png", 0, -100, 500, 999, BuildingType.Productive));
 
 
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Images/food.png", 0, 0, 0, 999));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Woodshed.png", 0, 400, -400, 999, BuildingType.Productive));
 
 
             Requirement req = new Requirement(100, m);

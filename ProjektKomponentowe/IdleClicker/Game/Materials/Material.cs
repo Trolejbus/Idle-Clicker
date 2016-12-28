@@ -44,7 +44,19 @@ namespace IdleClicker
         /// Początkowy przyrost zasobu na tick zegara.
         /// </summary>
         double beginningIncreaseQuantity = 0;
+
+        public Dictionary<Building, double> buildingBonuses = new Dictionary<Building, double>();
+
+        public Dictionary<Building, double> BuildingBonuses { get { return BuildingBonuses; } }
         
+
+        public void AddProductiveBuilding(Building building, double increaseQuantity)
+        {
+            BuildingBonuses.Add(building, increaseQuantity);
+
+            AddBonusQuantity(increaseQuantity, 0);
+        }
+
         /// <summary>
         /// Właściwość, która umożliwia pobranie lub ustawienie nazwy surowca.
         /// </summary>
@@ -169,6 +181,12 @@ namespace IdleClicker
         /// <param name="time">Paramter, określający czas trwania aktywności bonusa.</param>
         public void AddBonusQuantity(double quantity, int time)
         {
+            if (time == 0)
+            {
+                CurrentIncreaseQuantity += quantity;
+                return;
+            }
+
             CurrentIncreaseQuantity += quantity;
 
             TickAction action = new TickAction(time * 60);
