@@ -25,9 +25,22 @@ namespace IdleClicker
             InitializeComponent();
             GameEngine.GameTimer.CheckOnNight += OnChangeTimeOfDay;
         }
-        public void OnChangeTimeOfDay(bool CheckIfNight)
+        public void OnChangeTimeOfDay(int CheckIfRise)
         {
-            this.nightEffectGrid.Opacity = CheckIfNight ? 0.6 : 0;
+            if (CheckIfRise == 1)
+            {
+                if (this.nightEffectGrid.Opacity<0.9)
+                {
+                    this.nightEffectGrid.Opacity += 0.04;
+                }
+            }
+            if (CheckIfRise == 2)
+            {
+                if (nightEffectGrid.Opacity>0)
+                {
+                    this.nightEffectGrid.Opacity -= 0.04;
+                }
+            }
         }
     }
 }
