@@ -91,10 +91,14 @@
     <Compile Include="Controls\OtherRequirementLine.xaml.cs">
       <DependentUpon>OtherRequirementLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Setting Panel\UpdatePanel.xaml.cs">
+      <DependentUpon>UpdatePanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TimerPanel.xaml.cs">
       <DependentUpon>TimerPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Commons\Dictionary\Dictionary.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
     <Compile Include="Extensions\ExtensionsForLineForPanel.cs" />
     <Compile Include="Game\Actions\Action.cs" />
     <Compile Include="Commons\EventArgs\TickEventArgs.cs" />
@@ -157,6 +161,7 @@
     <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Web\Program.cs" />
     <Compile Include="Web\UpdateModule.cs" />
     <Compile Include="Web\Version.cs" />
     <Page Include="Controls\BuildingButton.xaml">
@@ -200,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ResourceInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Setting Panel\UpdatePanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -312,9 +321,7 @@
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Setting Panel\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

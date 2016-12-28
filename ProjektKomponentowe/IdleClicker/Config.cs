@@ -11,5 +11,6 @@ namespace IdleClicker
     class Config
     {
         public static string ApplicationExecutablePath { get { return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location); } }
+        public static Version Version = new Version(1, 0, 0);
     }
 }

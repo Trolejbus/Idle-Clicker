@@ -48,7 +48,6 @@ namespace IdleClicker
             gridGraphic.Visibility = Visibility.Hidden;
             gridGame.Visibility = Visibility.Hidden;
             gridUpdate.Visibility = Visibility.Hidden;
-
         }
 
         public void changeButtonStyleToDefault()
