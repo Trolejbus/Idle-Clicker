@@ -25,10 +25,10 @@ namespace IdleClicker
             InitializeComponent();
         }
 
-        public TownHallPanel(string imageURL, string title)
+        public TownHallPanel(ImageSource imageURL, string title)
         {
             InitializeComponent();
-            image.Source = new BitmapImage(new Uri(imageURL, UriKind.RelativeOrAbsolute));
+            image.Source = imageURL;
             TitleWindowTB.Text = title;
         }
 
