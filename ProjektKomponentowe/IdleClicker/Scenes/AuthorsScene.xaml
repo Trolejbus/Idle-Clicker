@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
+             xmlns:common="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
              mc:Ignorable="d" >
     <UserControl.Resources>
         <Storyboard x:Key="OnLoaded1">
@@ -49,6 +50,6 @@
         <Border x:Name="border" BorderThickness="2,2,0,2" BorderBrush="#E4B57B" HorizontalAlignment="Right" Width="275" Margin="0,57,-275,0" Height="300" VerticalAlignment="Top">
             <TextBlock x:Name="textBlock" TextAlignment="Justify" Margin="0" TextWrapping="Wrap" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." Width="275" Background="#FF492412" Foreground="#FFE4B57B" Padding="20" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
         </Border>
-        <local:mainButton Content="POWRÓT" Width="140" Height="35" x:Name="backButton" Margin="40,0,0,28" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="0" Click="backButton_Click"/>
+        <common:CustomButton Content="POWRÓT" Width="140" Height="35" x:Name="backButton" Margin="40,0,0,28" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="0" Click="backButton_Click"/>
     </Grid>
 </local:Scene>

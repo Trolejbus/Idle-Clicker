@@ -1,0 +1,103 @@
+Warunki korzystania z gry IdleClicker (Umowa licencyjna) - wersja z dnia 01.01.2017r.
+
+UWAGA. Przed instalacj¹ Oprogramowania, którego dotyczy niniejsza Umowa, nale¿y dok³adnie zapoznaæ siê z przedstawionymi poni¿ej warunkami licencyjnymi oraz z postanowieniami odrêbnych dokumentów dostêpnych w Serwisie: Ogólnymi Warunkami Gwarancji Oprogramowania, jak równie¿ stworzyæ kopiê zapasow¹ danych zgromadzonych w programie, dla którego Oprogramowanie stanowi funkcjonalny dodatek.
+
+I. PRZEDMIOT UMOWY
+
+1.1. Niniejsza Umowa licencyjna („Umowa”) reguluje warunki korzystania na zasadach licencji z oprogramowania komputerowego („Oprogramowanie”) - opracowanego i dostarczonego przez WebCoders.eu Sp. z o.o. z siedzib¹ w Szerokie 56N, 20-050 Lublin, Polska, wpisan¹ do Rejestru Przedsiêbiorców Krajowego Rejestru S¹dowego prowadzonego przez Sad Rejonowy Lublin-Wschód w Lublinie z Siedziba w Œwidniku, VI Wydzia³ Gospodarczy pod numerem 0000425692, kapita³ zak³adowy 100.000 z³, NIP 7133083804, REGON 061431669 („Licencjodawca”) - przez u¿ytkownika koñcowego, który jako licencjobiorca odp³atnie nabywa uprawnienie do korzystania z przedmiotowego oprogramowania na zasadach wyra¿onych w niniejszej Umowie i w ramach prowadzonej przez siebie dzia³alnoœci gospodarczej („Klient”).
+
+1.2. Oprogramowanie nie posiada samodzielnej zdolnoœci operacyjnej i nie jest przeznaczone do samoczynnego funkcjonowania, gdy¿ stanowi wprowadzaj¹cy nowe funkcjonalnoœci dodatek do programu Shoper, który jest objêty odrêbnymi i niezale¿nymi od niniejszej Umowy prawami w³asnoœci intelektualnej podmiotów trzecich i którego uprzednia instalacja przez Klienta jest niezbêdna dla korzystania z Oprogramowania.
+
+1.3. Na potrzeby Umowy wprowadza siê nastêpuj¹ce definicje: a) Gra - przedmiot umowy program Idle Clicker, prowadzony przez Licencjodawcê; b) Biblioteki - kody Ÿród³owe, objête odrêbnymi i niezale¿nymi od niniejszej Umowy prawami w³asnoœci intelektualnej podmiotów trzecich, wykorzystywane przez Licencjodawcê w Oprogramowaniu w zgodzie z zakresem tych praw na zasadach licencji niewy³¹cznej.
+
+1.4. Licencjodawca oœwiadcza, ¿e: a) jest twórc¹ Oprogramowania i z tego tytu³u przys³uguj¹ mu do niego wy³¹czne prawa autorskie wynikaj¹ce z ustawy z dnia 4 lutego 1994 r. o prawie autorskim i prawach pokrewnych, z wy³¹czeniem tych elementów Oprogramowania, z których Licencjodawca korzysta na podstawie odrêbnej licencji;
+b) Biblioteki wykorzystywane s¹ w Oprogramowaniu zgodnie z licencj¹ na korzystanie z nich, a Licencjodawca ma prawo do ich funkcjonalnego i komercyjnego u¿ywania, w tym w szczególnoœci do udzielenia na zasadach okreœlonych w Umowie praw do korzystania z Oprogramowania.
+
+1.5. Przys³uguj¹ce Licencjodawcy prawa w³asnoœci intelektualnej, w tym prawa autorskie, do Oprogramowania obejmuj¹ w szczególnoœci kod i strukturê Oprogramowania, zastosowane w nim rozwi¹zania techniczne, uk³ad i dobór elementów, kompozycjê, interface, grafikê oraz wszystkie opisy. Odrêbne prawa autorskie przys³uguj¹ Licencjodawcy w stosunku do dokumentacji, instrukcji i innych dokumentów udostêpnianych Klientowi wraz z Oprogramowaniem lub zamieszczonych w Serwisie.
+
+II. ZAKRES LICENCJI
+
+2.1. Klient jest uprawniony do korzystania z Oprogramowania jedynie na zasadach wyra¿onych w Umowie i w zgodzie ze zdefiniowanym w niej zakresem i warunkami. Niniejsza Umowa nie skutkuje przeniesieniem przez Licencjodawcê przys³uguj¹cych mu wzglêdem Oprogramowania praw autorskich na Klienta i w ¿adnym zakresie praw tych nie narusza.
+
+2.2. Okreœlone w niniejszej Umowie uprawnienie Klienta do korzystania z Oprogramowania („Licencja”) udzielone jest na czas nieoznaczony, bez ograniczeñ terytorialnych i ma charakter niewy³¹czny.
+
+2.3. Licencja, pod warunkiem przestrzegania przez Klienta postanowieñ Umowy, obejmuje uprawnienie do:
+a) zainstalowania Oprogramowania na dowolnej liczbie stanowisk posiadanych i bêd¹cych w wy³¹cznej dyspozycji Klienta oraz udostêpnienia Oprogramowania pod dowolnym jednym adresem internetowym, w ramach sieci wewnêtrznej dla dowolnej liczby u¿ytkowników wewnêtrznych - z tym zastrze¿eniem, ¿e w jednym czasie Klient mo¿e eksploatowaæ i korzystaæ z Oprogramowania tylko na jednym stanowisku/serwerze,
+b) korzystania z Oprogramowania wy³¹cznie na w³asny u¿ytek Klienta, zwi¹zany z prowadzon¹ dzia³alnoœci¹ gospodarcz¹ w formie sklepu internetowego,
+c) sporz¹dzania dowolnej iloœci kopii Oprogramowania dla celów archiwalnych lub jako kopii zapasowych na dowolnym noœniku danych.
+
+2.4. Licencja obejmuje tak¿e uprawnienie do korzystania przez Klienta z innych dokumentów dostarczonych wraz z Oprogramowaniem, a objêtych prawami autorskimi Licencjodawcy, w tym do instrukcji i Ogólnych Warunków Gwarancji Oprogramowania.
+
+2.5. Klient mo¿e samodzielnie przenieœæ odp³atnie lub nieodp³atnie wszystkie swoje uprawnienia wynikaj¹ce z Licencji na innego u¿ytkownika spe³niaj¹cego kryteria Klienta w rozumieniu pkt 1.1. Warunkiem skutecznego przeniesienia wszelkich praw z Licencji przez Klienta jest wyra¿enie przez nabywcê/nastêpcê prawnego zgody na przejêcie praw i obowi¹zków wynikaj¹cych z niniejszej Umowy. Z chwil¹ dokonania przeniesienia ogó³u praw i obowi¹zków wynikaj¹cych z Licencji dotychczasowy Klient traci wszelkie uprawnienia do korzystania z Oprogramowania, co wyklucza dalsz¹ eksploatacjê Oprogramowania przez niego na dotychczasowych zasadach oraz skutkuje obowi¹zkiem usuniêcia wszelkich posiadanych kopii Oprogramowania. Klient jest obowi¹zany niezw³ocznie powiadomiæ Licencjodawcê o dokonanym przeniesieniu ogó³u praw i obowi¹zków z Licencji, którego by³ stron¹ – za poœrednictwem Grze lub na adres e-mail : info@webcoders.eu.
+
+2.6. Kod Ÿród³owy Oprogramowania nie jest publicznie jawny. Klient nie mo¿e bez zgody Licencjodawcy upubliczniaæ kodu Oprogramowania, w ca³oœci lub we fragmentach, w ¿adnej formie.
+
+2.7. Klient jest uprawniony do dokonywania na w³asne potrzeby - bez prawa do udostêpniania, nieodp³atnego lub komercyjnego, rezultatów tych prac osobom trzecim - modyfikacji kodu Ÿród³owego Oprogramowania, co oznacza w szczególnoœci uprawnienie Klienta do jego adaptacji, zmiany, dekompilacji, wyodrêbniania lub od³¹czania jego fragmentów. Autorskie prawa maj¹tkowe do takich opracowañ, powsta³ych na skutek modyfikacji przez Klienta kodu Ÿród³owego Oprogramowania, z momentem ich ustalenia przechodz¹ na Licencjodawcê, na co Klient wyra¿a zgodê.
+
+2.8. Licencja nie obejmuje uprawnienia do odp³atnego lub nieodp³atnego rozpowszechniania, upubliczniania lub udostêpniania – w tym w drodze u¿yczenia, najmu, dzier¿awy, dalszej licencji, udostêpniania w sieci do pobrania lub w formie subskrypcji jako us³uga dostêpu do Oprogramowania, w tym w szczególnoœci z zastosowaniem technologii Cloud („chmura”) - Oprogramowania lub jego kopii osobom trzecim - w jakimkolwiek celu, w tym w szczególnoœci dla jego wykorzystywania, u¿ywania, badania lub testowania w innym sklepie internetowym ni¿ sklep Klienta.
+
+2.9. Klient zobowi¹zany jest do niepodejmowania dzia³añ, które maj¹ na celu usuniêcie lub ukrycie ujawnionych wskutek instalacji Oprogramowania informacji o Licencjodawcy, w tym usuniêcia lub ukrycia hiper³¹cza odsy³aj¹cego do Serwisu. Uprawnienie Licencjodawcy do umieszczania takich informacji objête jest treœci¹ niniejszej Umowy.
+
+2.10. Wszelkie kopiowanie i rozpowszechnianie rozwi¹zañ i elementów zastosowanych w Oprogramowaniu jest zabronione, podobne jaki inne naruszenia praw autorskich Licencjodawcy okreœlonych w Umowie. Dotyczy to tak¿e zakazu wykorzystywania, udostêpniania i rozpowszechniania elementów, fragmentów i czêœci Oprogramowania, w tym w szczególnoœci: grafik, fotografii, zrzutów ekranu, animacji, dŸwiêków, czcionek, baz danych.
+
+III. OP£ATA LICENCYJNA
+
+3.1. Udzielenie Licencji przez Licencjodawcê na rzecz Klienta nastêpuje pod warunkiem zap³aty przez Klienta op³aty licencyjnej („Op³ata”). Klienta obci¹¿aj¹ wszelkie obci¹¿enia publiczne bezpoœrednio kszta³tuj¹ce wysokoœæ op³aty, w tym w szczególnoœci wynikaj¹ca z przepisów powszechnie obowi¹zuj¹cych stawka podatku VAT.
+
+3.2. Op³ata uiszczana jest zgodnie z aktualnym i zamieszczonym na Serwisie cenniku - jednorazowo za ca³y okres obowi¹zywania Licencji. Op³ata nie podlega zwrotowi w przypadku rozwi¹zania lub wygaœniêcia Umowy lub Licencji, niezale¿nie od ich przyczyny.
+
+3.3. Dla unikniêcia jakichkolwiek w¹tpliwoœci uzgadnia siê, ¿e w ka¿dym wypadku okolicznoœæ zainstalowania Oprogramowania i korzystania z niego przez Klienta oznacza pe³n¹ i bezwarunkow¹ akceptacjê treœci Licencji oraz zgodê Klienta na przestrzeganie wszystkich warunków niniejszej Umowy.
+
+3.4. Jeœli u¿ytkownik koñcowy nie wyra¿a zgody na zasady i warunki Umowy powinien niezw³ocznie usun¹æ posiadane kopie Oprogramowania.
+
+IV. INNE PRAWA I OBOWI¥ZKI STRON UMOWY
+
+4.1. Klient ma prawo do otrzymania dotycz¹cej Oprogramowania pomocy technicznej od Licencjodawcy drog¹ elektroniczn¹ (email) oraz uzyskania informacji w przedmiocie obs³ugi lub instalacji Oprogramowania.
+
+4.2. Licencjodawca udziela gwarancji dzia³ania Oprogramowania na zasadach okreœlonych w dokumencie Ogólne Warunki Gwarancji Oprogramowania dostêpnym w Serwisie, przy czym, gwarancja wygasa w przypadku dokonania jakichkolwiek zmian i modyfikacji w Oprogramowaniu przez Klienta lub osoby, którymi siê pos³uguje.
+
+4.3. Gwarancja nie oznacza w szczególnoœci obowi¹zku Licencjodawcy do usuniêcia wad i zak³óceñ w funkcjonowaniu Oprogramowania, które wynikaj¹ z: a) niezgodnej wersji Shoper; b) modyfikacji Shoper (tak¿e stylu graficznego); c) integracji z zewnêtrznymi systemami; d) personalizacji sprzêtowej i systemowej konkretnego komputera (serwera) Klienta.
+
+4.4. Korzystanie z Oprogramowania wymaga spe³nienia wymogów okreœlonych w specyfikacji Oprogramowania, w tym w szczególnoœci dostêpu do Internetu.
+
+4.5. Jeœli ze specyfikacji Oprogramowania wynika, ¿e Oprogramowanie w oznaczony sposób pobiera okreœlone informacje o œrodowisku systemowym lub aktywnoœci Klienta w ramach korzystania przez niego z Oprogramowania, to warunkiem udzielenia Licencji jest wyra¿enie przez Klienta zgody na powy¿sze, przy czym zgoda ta mo¿e byæ dokonana tak¿e poprzez czynnoœæ instalacji Oprogramowania przez Klienta.
+
+V. OGRANICZENIE ODPOWIEDZIALNOŒCI
+
+5.1. Okreœlone w Umowie ograniczenia odpowiedzialnoœci Licencjodawcy nie uchybiaj¹ tym obowi¹zkom Licencjodawcy, które ten w innym zakresie jednoznacznie i stanowczo na siebie przyj¹³, w tym w szczególnoœci w zakresie powinnoœci wynikaj¹cych z udzielonej Klientowi gwarancji lub okreœlonych przedmiotem odrêbnych us³ug zleconych Licencjodawcy przez Klienta.
+
+5.2. Licencjodawca nie ponosi odpowiedzialnoœci za przydatnoœæ Oprogramowania do celów zak³adanych przez Klienta, ani za brak funkcjonalnoœci, która nie zosta³a wyraŸnie objêta szczegó³owym zakresem specyfikacji Oprogramowania.
+
+5.3. Licencjodawca nie odpowiada za nieprawid³owe funkcjonowanie Oprogramowania oraz jakiekolwiek skutki spowodowane modyfikacjami Oprogramowania dokonanymi przez Klienta lub osoby trzecie.
+
+5.4. Licencjodawca nie jest odpowiedzialny za brak dzia³ania Oprogramowania na konkretnym komputerze (serwerze) Klienta, w tym w szczególnoœci wyst¹pienia zak³óceñ i przerw w funkcjonalnoœci Oprogramowania wywo³anych ró¿nicami sprzêtowymi, ustawieniem po³¹czeñ internetowych albo personalizacj¹ œrodowiska systemowego i programowego Klienta. Licencjodawca nie gwarantuje, ¿e Oprogramowanie bêdzie zawsze dzia³aæ w sposób ci¹g³y, bezb³êdny i nieprzerwany lub bêdzie zgodne z wymogami sprzêtowymi lub systemowymi komponentów dostarczonych przez podmioty trzecie.
+
+5.5. Oprogramowanie (i wszelkie jego aktualizacje) udostêpniane jest w formacie „as is” (takie jakie jest) i jest u¿ywane przez Klienta na jego wy³¹czne ryzyko i odpowiedzialnoœæ. Licencjodawca nie ponosi odpowiedzialnoœci za szkody maj¹tkowe i niemaj¹tkowe odniesione przez Klienta lub osoby trzecie, a wynikaj¹ce z niewykonania lub niew³aœciwego wykonania Umowy oraz wykorzystywania lub niemo¿noœci wykorzystywania przez Klienta Oprogramowania, w tym te spowodowane wadami i b³êdami Oprogramowania, a w szczególnoœci Licencjodawca nie odpowiada za utracone przez Klienta informacje lub dochody, niemo¿noœæ efektywnego korzystania z prowadzonego przez Klienta e-sklepu lub zaistnia³ej awarii komputera (serwera), czy za powsta³¹ dysfunkcjonalnoœæ innego oprogramowania wykorzystywanego dotychczas przez Klienta. Oparta na rêkojmi odpowiedzialnoœæ Licencjodawcy za wady fizyczne i prawne Oprogramowania lub noœnika zawieraj¹cego Oprogramowanie jest wy³¹czona. Wszystkie powy¿sze wy³¹czenia odpowiedzialnoœci Licencjodawcy maj¹ zastosowanie równie¿ do wszelkich skutków instalacji Oprogramowania przez Klienta, przy czym nie dotyczy to sytuacji, gdy Klient - zgodnie z Regulaminem instalacji Oprogramowania stanowi¹cym odrêbny dokument - zleci³ dodatkowo us³ugê instalacji Licencjodawcy, który wówczas przejmuje na siebie ryzyka i odpowiedzialnoœæ za tak¹ instalacjê, z zastrze¿eniem pkt 5.8.
+
+5.6. Licencjodawca nie ponosi odpowiedzialnoœci za niemo¿noœæ funkcjonalnego korzystania przez Klienta z Oprogramowania w ca³oœci lub czêœci w przypadku, gdy jest to spowodowane aktualizacj¹ lub modyfikacj¹ programu, dla którego Oprogramowanie stanowi dodatek, b¹dŸ aktualizacj¹ i modyfikacj¹ innych programów komputerowych u¿ytkowanych przez Klienta.
+
+5.7. W przypadku udostêpnienia przez Licencjodawcê aktualizacji do Oprogramowania, Licencjodawca nie ponosi odpowiedzialnoœci za skutki zainstalowania, jak równie¿ za skutki zaniechania w zainstalowaniu przedmiotowej aktualizacji przez Klienta.
+
+5.8. Niezale¿nie od pozosta³ych ograniczeñ wyra¿onych w Umowie, wszelka odpowiedzialnoœæ Licencjodawcy z tytu³u niewykonania lub niew³aœciwego wykonania niniejszej Umowy lub obowi¹zków dodatkowych przyjêtych na siebie przez Licencjodawcê, jak równie¿ skutków instalowania i wykorzystywania Oprogramowania przez Klienta, ograniczona jest do kwoty stanowi¹cej równowartoœæ Op³aty uiszczonej przez Klienta.
+
+VI. WYGAŒNIÊCIE LICENCJI
+
+6.1. Umowa lub Licencja mo¿e zostaæ rozwi¹zana/uniewa¿niona przez Licencjodawcê w ca³oœci lub czêœci ze skutkiem natychmiastowym w przypadku stwierdzenia naruszenia przez Klienta warunków niniejszej Umowy i o ile Klient uchybi³ tygodniowemu terminowi do zaprzestania naruszeñ lub przywrócenia stanu zgodnego z Umow¹, wyznaczonego mu przez Licencjodawcê wraz ze wskazaniem nieprawid³owoœci, z zastrze¿eniem punktów poni¿szych.
+
+6.2. Licencja wygasa w przypadku podjêcia przez Klienta próby usuniêcia lub obejœcia zabezpieczeñ technicznych zastosowanych w Oprogramowaniu.
+
+6.3. Licencja wygasa w przypadku ca³kowitego usuniêcia Oprogramowania wraz ze wszystkimi kopiami przez Klienta, chyba ¿e wina za ich usuniêcie nie le¿y po stronie Klienta.
+
+6.4. W przypadku rozwi¹zania lub wygaœniêcia Umowy b¹dŸ Licencji Klient jest obowi¹zany niezw³ocznie zaniechaæ dalszego korzystania z Oprogramowania, odinstalowaæ zainstalowane wersje Oprogramowania i usun¹æ trwale wszystkie pozosta³e kopie, którymi dysponuje.
+
+VII. POSTANOWIENIA KOÑCOWE
+
+7.1. Prawem w³aœciwym dla wyk³adni oraz stosowania niniejszej Umowy jest prawo obowi¹zuj¹ce na terytorium Rzeczpospolitej Polskiej.
+
+7.2. Jeœliby którekolwiek postanowienie Umowy okaza³o siê niewa¿ne b¹dŸ nieskuteczne nie ma to wp³ywu na obowi¹zywanie Umowy w pozosta³ej czêœci, a w miejsce postanowieñ wy³¹czonych stosuje siê ogólne zasady prawa powszechnie obowi¹zuj¹cego.
+
+7.3. Wszelkie spory wynikaj¹ce lub zwi¹zane z Umow¹ lub Licencj¹, jak równie¿ obowi¹zkami dodatkowymi zwi¹zanymi z Licencj¹, w tym w szczególnoœci z Ogólnych Warunków Gwarancji Oprogramowania, rozstrzygane bêd¹ przez s¹d w³aœciwy dla siedziby Licencjodawcy.
+
+7.4. W przypadku udoskonalenia, usuniêcia b³êdów lub zwiêkszenia funkcjonalnoœci Oprogramowania przez Licencjodawcê, które bêd¹ przez niego udostêpniona w formie aktualizacji Oprogramowania, niniejsza Umowa i wynikaj¹ce z niej warunki obejmuje w to¿samym zakresie równie¿ wersjê Oprogramowania powsta³¹ po instalacji rzeczonej aktualizacji przez Klienta.
+
+7.5. Niniejsza Umowa stanowi pe³ne, jedyne i kompleksowe umowne uregulowanie relacji prawnych pomiêdzy Licencjodawc¹ a Klientem w zakresie korzystania z Oprogramowania i zastêpuje wszelkie dotychczasowe uzgodnienia i ustalenia tych stron w to¿samym zakresie.

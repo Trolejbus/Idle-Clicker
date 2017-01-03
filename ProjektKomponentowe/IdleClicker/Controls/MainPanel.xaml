@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
+             xmlns:common="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
              mc:Ignorable="d" Height="50" d:DesignWidth="650" Background="#FF6E2617">
     <Grid>
         <StackPanel x:Name="resourcesSP" Margin="10,10,0,10" HorizontalAlignment="Left" Height="30" Orientation="Horizontal">
@@ -11,6 +12,6 @@
         </StackPanel>
         <TextBlock x:Name="nameTB" Margin="0,10" TextWrapping="Wrap" Text="Tekameikite" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" Foreground="#FFE4B57B" FontSize="22" Height="30" HorizontalAlignment="Center"/>
         <local:TimerPanel x:Name ="TimerPanel" Margin="0,0,76,0" HorizontalAlignment="Right"></local:TimerPanel>
-        <local:mainButton x:Name ="MenuButton" Margin="0,7.5,10,7.5" HorizontalAlignment="Right" Width="50" Height="30" Content="Menu"/>
+        <common:CustomButton x:Name ="MenuButton" Margin="0,7.5,10,7.5" HorizontalAlignment="Right" Width="50" Height="30" Content="Menu"/>
     </Grid>
 </UserControl>

@@ -24,7 +24,7 @@ namespace IdleClicker
         public GameScene()
         {
             InitializeComponent();
-
+            
             MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene());  };

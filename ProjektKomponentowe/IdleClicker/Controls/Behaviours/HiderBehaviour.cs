@@ -9,10 +9,11 @@ using System.Windows.Input;
 using System.Windows.Interactivity;
 using System.Drawing.Drawing2D;
 using System.Windows.Media;
+using IdleClickerCommon;
 
 namespace IdleClicker
 {
-    class HiderBehaviour : Behavior<mainButton>
+    class HiderBehaviour : Behavior<CustomButton>
     {
         protected override void OnAttached()
         {

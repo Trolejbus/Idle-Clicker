@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
+             xmlns:common="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
              mc:Ignorable="d" Width="150" Height="Auto">
     <Grid Margin="0,0" Background="#6E2617" Height="Auto">
         <StackPanel Margin="5,0,5,10" Background="#00000000" Height="Auto">
-            <local:mainButton Content="Statystyki wioski" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <local:mainButton Content="Dźwięk" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <local:mainButton Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <local:mainButton Content="Wczytaj grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <local:mainButton x:Name="exitButton" Content="Wyjdź" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton Content="Statystyki wioski" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton Content="Dźwięk" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton Content="Wczytaj grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="exitButton" Content="Wyjdź" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
 
         </StackPanel>
 
