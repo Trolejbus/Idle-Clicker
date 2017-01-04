@@ -44,11 +44,14 @@ namespace IdleClicker
         /// Początkowy przyrost zasobu na tick zegara.
         /// </summary>
         double beginningIncreaseQuantity = 0;
-
+        /// <summary>
+        /// Maksymalny poziom surowców
+        /// </summary>
+        double maxAmountMaterial = 1000;
         public Dictionary<Building, double> buildingBonuses = new Dictionary<Building, double>();
 
         public Dictionary<Building, double> BuildingBonuses { get { return BuildingBonuses; } }
-        
+
 
         public void AddProductiveBuilding(Building building, double increaseQuantity)
         {
@@ -97,7 +100,25 @@ namespace IdleClicker
             }
             set
             {
-                currentAmount = value;
+                if (value != CurrentAmount && onChangeMaterial!=null)
+                {
+                    currentAmount = value;
+                    onChangeMaterial(this);
+                }
+                else
+                    currentAmount = value;
+            }
+        }
+
+        public double MaxAmountMaterial
+        {
+            get
+            {
+                return maxAmountMaterial;
+            }
+            set
+            {
+                maxAmountMaterial = value;
             }
         }
 
@@ -205,8 +226,15 @@ namespace IdleClicker
         /// </summary>
         public void BoostMaterial()
         {
-            currentAmount += CurrentIncreaseQuantity;
-            onChangeMaterial(this);
+            if (maxAmountMaterial < CurrentAmount + CurrentIncreaseQuantity)
+            {
+                CurrentAmount = MaxAmountMaterial;
+            }
+            else
+            {
+                CurrentAmount += CurrentIncreaseQuantity;
+
+            }
         }
 
         /// <summary>

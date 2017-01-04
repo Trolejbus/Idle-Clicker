@@ -67,9 +67,10 @@ namespace IdleClicker
             listOfBuildings.Add(new Building("WARHOUSE", "/IdleClicker;component/Resources/Buildings/Warehouse.png", 0, 400, -400, 999, BuildingType.Warehouse));
             listOfBuildings.Add(new Building("MINE", "/IdleClicker;component/Resources/Buildings/Mine.png", 0,900, -400, 999, BuildingType.Productive));
 
-            //BuildingAction bonusAction = new BuildingAction(1, 0, 1);
-            //bonusAction.Actions += () => { m.AddBonusQuantity(10,0); };
-            //listOfBuildings[0].AddBonus(bonusAction);
+            BuildingAction bonusAction = new BuildingAction(1, 0, 1);
+            bonusAction.Actions += () => { m.MaxAmountMaterial += 1000; };
+            listOfBuildings[3].AddBonus(bonusAction);
+
 
             listOfBuildings[0].AddBonusCount(10, 5, 5, m, 20, "Ilość produkowanego drewna");
             listOfBuildings[0].AddBuildingInfo("NIC", "Gówno warta właściwość", "0");
