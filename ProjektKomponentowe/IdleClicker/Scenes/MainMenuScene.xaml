@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:IdleClicker"
+             xmlns:common="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="562.312">
     <UserControl.Resources>
@@ -25,13 +26,13 @@
         </EventTrigger>
     </UserControl.Triggers>
     <Grid x:Name="grid" Background="#FF6E2617">
-        <Image x:Name="image" Stretch="Fill" Source="Resources/Images/main_menu_image.png"/>
+        <!--<Image x:Name="image" Stretch="Fill" Source="Resources/Images/main_menu_image.png"/>-->
         <StackPanel x:Name="stackPanel" Background="#FFE4B57B" HorizontalAlignment="Center" Width="150" Height="200" VerticalAlignment="Center" Opacity="0">
-            <local:mainButton x:Name="playButton" Content="Graj" Margin="10,10,10,0" Height="32" Click="button_Click" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
-            <local:mainButton x:Name="optionsButton" Content="Opcje" Margin="10,10,10,0" Height="25" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Click="optionsButton_Click"/>
-            <local:mainButton x:Name="rankButton" Content="Ranking" Margin="10,10,10,0" Height="25" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
-            <local:mainButton x:Name="authorsButton" Content="Autorzy" Margin="10,10,10,0" Height="25" Click="authorsButton_Click" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
-            <local:mainButton x:Name="exitButton" Content="Koniec Gry" Margin="10,10,10,0" Height="32" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
+            <common:CustomButton x:Name="playButton" Content="Graj" Margin="10,10,10,0" Height="32" Click="button_Click" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
+            <common:CustomButton x:Name="optionsButton" Content="Opcje" Margin="10,10,10,0" Height="25" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Click="optionsButton_Click"/>
+            <common:CustomButton x:Name="rankButton" Content="Ranking" Margin="10,10,10,0" Height="25" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
+            <common:CustomButton x:Name="authorsButton" Content="Autorzy" Margin="10,10,10,0" Height="25" Click="authorsButton_Click" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
+            <common:CustomButton x:Name="exitButton" Content="Koniec Gry" Margin="10,10,10,0" Height="32" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
         </StackPanel>
         <Grid x:Name="grid1" Background="#FFE4B57B" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="317" Margin="0,-40,0,0">
             <Label x:Name="label" Content="GAME TITLE" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="20" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF492412"/>

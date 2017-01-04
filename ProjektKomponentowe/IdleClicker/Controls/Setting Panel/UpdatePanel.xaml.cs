@@ -24,18 +24,33 @@ namespace IdleClicker
     {
         public UpdatePanel()
         {
-            Program.OnVersionChange += Program_OnVersionChange;
+            /*Program.OnVersionChange += Program_OnVersionChange;
             Program.OnNewestVersionChange += Program_OnNewestVersionChange;
             Program.OnChangeLogsChange += Program_OnChangeLogsChange;
+            Program.OnUpdateToVersionChange += Program_OnUpdateToVersionChange;
+
 
             UpdateModule.OnStartUpdateAction += UpdateModule_OnStartUpdateAction;
             UpdateModule.OnEndUpdateAction += UpdateModule_OnEndUpdateAction;
             UpdateModule.OnStatusTextChanged += UpdateModule_OnStatusTextChanged;
+            
 
             InitializeComponent();
             Program_OnNewestVersionChange(Program.NewestVersion);
-            Program_OnVersionChange(Program.Version);
+            Program_OnVersionChange(Program.Version);*/
         }
+
+        /*private void Program_OnUpdateToVersionChange(ProgramVersion newVersion)
+        {
+            if (!CheckAccess())
+            {
+                Dispatcher.Invoke(() => Program_OnUpdateToVersionChange(newVersion));
+                return;
+            }
+
+            updateToButton.Visibility = Visibility.Visible;
+            updateToButton.Content = "Zaktualizuj do " + newVersion;
+        }*/
 
         private void Program_OnChangeLogsChange(string changeLogs)
         {
@@ -82,7 +97,7 @@ namespace IdleClicker
             updateProgressBar.IsIndeterminate = true;
         }
 
-        private void Program_OnNewestVersionChange(Version newestVersion)
+        /*private void Program_OnNewestVersionChange(ProgramVersion newestVersion)
         {
             if (!CheckAccess())
             {
@@ -95,7 +110,7 @@ namespace IdleClicker
             NewestVersionTextBlock.Text = "Aktualna wersja: " + newestVersionValue;
         }
 
-        private void Program_OnVersionChange(Version version)
+        private void Program_OnVersionChange(ProgramVersion version)
         {
             if (!CheckAccess())
             {
@@ -104,22 +119,20 @@ namespace IdleClicker
             }
 
             VersionTextBlock.Text = "Wersja programu: " + version;
-        }
+        }*/
 
         private async void mainButton_Click(object sender, RoutedEventArgs e)
         {
-            updateProgressBar.IsIndeterminate = true;
-            Task checkIfUpToDateTask = new Task( () => UpdateModule.CheckIfUpToDate());
+            /*Task checkIfUpToDateTask = new Task( () => UpdateModule.CheckIfUpToDate());
             checkIfUpToDateTask.Start();
-            await checkIfUpToDateTask;
-            updateProgressBar.IsIndeterminate = false;
+            await checkIfUpToDateTask;*/
         }
 
         private async void mainButton_Click_1(object sender, RoutedEventArgs e)
         {
-            Task checkIfUpToDateTask = new Task(() => UpdateModule.UpToDate());
-            checkIfUpToDateTask.Start();
-            await checkIfUpToDateTask;
+            /*Task upToDateTask = new Task(() => UpdateModule.UpToDate());
+            upToDateTask.Start();
+            await upToDateTask;*/
         }
     }
 }

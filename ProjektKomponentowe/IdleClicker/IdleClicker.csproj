@@ -149,9 +149,6 @@
     <Compile Include="Scenes\IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\mainButton.xaml.cs">
-      <DependentUpon>mainButton.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Scenes\MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
     </Compile>
@@ -174,9 +171,6 @@
     <Compile Include="Controls\TopPanel.xaml.cs">
       <DependentUpon>TopPanel.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Web\Program.cs" />
-    <Compile Include="Web\UpdateModule.cs" />
-    <Compile Include="Web\Version.cs" />
     <Page Include="Controls\BuildingControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -254,10 +248,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Scenes\IntroScene.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\mainButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -358,7 +348,16 @@
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IdleClickerCommon\IdleClickerCommon.csproj">
+      <Project>{7d9a05f4-d2d4-4c41-a528-c87fbbf0b3ac}</Project>
+      <Name>IdleClickerCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Music\click_sound.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

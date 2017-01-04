@@ -1,19 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdleClicker
+namespace IdleClickerCommon
 {
-    public delegate void OnVersionChangeDelegate(Version newVersion);
+    public delegate void OnVersionChangeDelegate(ProgramVersion newVersion);
     public delegate void OnChangeLogsChangeDelegate(string changeLogs);
 
     public static class Program
     {
-        private static Version version;
-        private static Version newestVersion;
+        private static ProgramVersion version;
+        private static ProgramVersion updateToVersion;
+        private static ProgramVersion newestVersion;
         private static string changeLogs;
+
+        private static string webSite = @"http://www.IdleClicker.hexcore.pl";
+        //private static string webSite = @"http://localhost/IdleClicker";
+
+        public static string WebSite { get { return webSite; } }
+
+        public static string ApplicationExecutablePath { get; set; }
+
 
         public static string ChangeLogs
         {
@@ -30,7 +40,7 @@ namespace IdleClicker
         }
         public static event OnChangeLogsChangeDelegate OnChangeLogsChange;
 
-        public static Version Version
+        public static ProgramVersion Version
         {
             get
             {
@@ -38,6 +48,7 @@ namespace IdleClicker
             }
             set
             {
+               
                 version = value;
                 if (OnVersionChange != null)
                     OnVersionChange(version);
@@ -45,7 +56,7 @@ namespace IdleClicker
         }
         public static event OnVersionChangeDelegate OnVersionChange;
 
-        public static Version NewestVersion
+        public static ProgramVersion NewestVersion
         {
             get
             {
@@ -58,11 +69,31 @@ namespace IdleClicker
                     OnNewestVersionChange(newestVersion);
             }
         }
+
+        public static event OnVersionChangeDelegate OnUpdateToVersionChange;
+
+        public static ProgramVersion UpdateToVersion
+        {
+            get
+            {
+                return updateToVersion;
+            }
+            set
+            {
+                if (UpdateToVersion == null || UpdateToVersion.CompareTo(Version) > 0)
+                {
+                    updateToVersion = value;
+                    if (OnUpdateToVersionChange != null)
+                        OnUpdateToVersionChange(updateToVersion);
+                }
+            }
+        }
+
         public static event OnVersionChangeDelegate OnNewestVersionChange;
 
         static Program()
         {
-            version = new Version(1, 0, 0);
+            version = new ProgramVersion(1, 0, 0);
         }
     }
 }
