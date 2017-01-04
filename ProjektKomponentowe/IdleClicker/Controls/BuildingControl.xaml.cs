@@ -56,6 +56,8 @@ namespace IdleClicker
 
             TownHallPanel buildingWindow = new TownHallPanel(building.IconSource, Dictionary.dictionary[building.Key]);
 
+
+            gameScene.canvas.Children.Add(buildingWindow);
         }
     }
 }
