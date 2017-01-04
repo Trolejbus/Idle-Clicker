@@ -188,7 +188,7 @@ namespace IdleClickerCommon
                 for (int i = 0; i < files.Count; i++)
                 {
                     isError = false;
-                    StatusText = "Pobieranie pliku " + i + " z " + (files.Count - 1);
+                    StatusText = "Pobieranie pliku " + (i+1) + " z " + (files.Count);
                     Uri url = new Uri(files[i].File);
                     string path = destinationfolder + @"\IdleClicker Installer.exe";
                     webClient.DownloadFile(url, path);

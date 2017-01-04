@@ -18,7 +18,7 @@ namespace IdleClicker
         int ExecuteTimes { get; set; }
         long FrequencyValue { get; }
         bool FirstExecute { get; }
+        void Update();
         void Execute();
-        void OnAdd();
     }
 }

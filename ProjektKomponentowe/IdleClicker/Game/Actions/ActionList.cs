@@ -29,8 +29,8 @@ namespace IdleClicker
         /// <param name="newAction"></param>
         public void AddAction(IAction newAction)
         {
-            newAction.OnAdd();
-            actions.AddItem(newAction, InsertBySimpleMethod.Insert);           
+            newAction.Update();
+            actions.AddItem(newAction, InsertBySimpleMethod.Insert);          
         }
 
         /// <summary>
@@ -44,15 +44,16 @@ namespace IdleClicker
                 while (actions.List.Count > 0 && actions.List.First.Value.TriggerValue <= triggerValue)
                 {
                     actions.List.First.Value.Execute();
-                    if(actions.List.First.Value.ExecuteTimes > 1)
-                    {
+                    if (actions.List.First.Value.ExecuteTimes == 1)
+                        actions.List.RemoveFirst();
+                    else
+                    { 
                         copyAction = actions.List.First.Value;
-                        copyAction.ExecuteTimes--;
+                        if(copyAction.ExecuteTimes > 0)
+                            copyAction.ExecuteTimes--;
                         actions.List.RemoveFirst();
                         AddAction(copyAction);
-                    }
-                    else
-                        actions.List.RemoveFirst();
+                    }                    
                 }
             }           
         }
