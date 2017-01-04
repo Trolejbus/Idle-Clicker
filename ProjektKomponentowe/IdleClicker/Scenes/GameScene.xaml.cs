@@ -27,7 +27,7 @@ namespace IdleClicker
             
             MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
-            menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene());  };
+            menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene()); };
             //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
             GameEngine.Enabled = true;
@@ -55,8 +55,8 @@ namespace IdleClicker
 
             TownHallPanel ratusz = new TownHallPanel(new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative)), "Dupa");
             ratusz.AddNewParagraph("Aktualny przyrost surowców:", "Złoto", "200", "Drewno", "500", "Żywność", "1000");
-            ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999","Leśniczówka", "600" );
-            
+            ratusz.AddNewParagraph("Aktualne poziomy budynków:", "Farma", "999", "Leśniczówka", "600");
+
             canvas.Children.Add(ratusz);
 
             // AK: Dodawanie budynków w celach testowych
@@ -74,8 +74,14 @@ namespace IdleClicker
 
             Requirement req = new Requirement(100, m);
             req.requireAlgorithm = (level) => { return 100 * level; };
+
             listOfBuildings[1].Requirements.Add(req);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
+
+            Action action = new Action(0, 10, 1);
+            action.Actions += () => { m.AddBonusQuantity(1, 0);};
+
+            listOfBuildings[1].BonusList.AddAction(action);
 
             listOfBuildings[3].AddRequirement(1, listOfBuildings[2]);
             // ----------------------------------------
