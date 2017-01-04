@@ -61,16 +61,18 @@ namespace IdleClicker
 
             // AK: Dodawanie budynków w celach testowych
             List<Building> listOfBuildings = new List<Building>();
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Woodshed.png", 0, -400, -400, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Woodshed.png", 0, -400, -400, 20, BuildingType.Productive));
             listOfBuildings.Add(new Building("FARM", "/IdleClicker;component/Resources/Buildings/Farm.png", 0, -100, 500, 999, BuildingType.Productive));
             listOfBuildings.Add(new Building("TOWNHALL", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999, BuildingType.TownHall));
             listOfBuildings.Add(new Building("WARHOUSE", "/IdleClicker;component/Resources/Buildings/Warehouse.png", 0, 400, -400, 999, BuildingType.Warehouse));
-            listOfBuildings.Add(new Building("MINE", "/IdleClicker;component/Resources/Buildings/Mine.png", 0,500, -400, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("MINE", "/IdleClicker;component/Resources/Buildings/Mine.png", 0,900, -400, 999, BuildingType.Productive));
 
-            BuildingAction bonusAction = new BuildingAction(1, 0, 1);
-            bonusAction.Actions += () => { m.AddBonusQuantity(10,0); };
-            bonusAction.SetBuilding(listOfBuildings[0]);
-            listOfBuildings[0].BonusList.AddAction(bonusAction);
+            //BuildingAction bonusAction = new BuildingAction(1, 0, 1);
+            //bonusAction.Actions += () => { m.AddBonusQuantity(10,0); };
+            //listOfBuildings[0].AddBonus(bonusAction);
+
+            listOfBuildings[0].AddBonusCount(10, 5, 5, m, 20, "Ilość produkowanego drewna");
+            listOfBuildings[0].AddBuildingInfo("NIC", "Gówno warta właściwość", "0");
 
             Requirement req = new Requirement(100, m);
             req.requireAlgorithm = (level) => { return 100 * level; };
@@ -78,12 +80,10 @@ namespace IdleClicker
             listOfBuildings[1].Requirements.Add(req);
             listOfBuildings[1].AddRequirement(5, listOfBuildings[0]);
 
-            Action action = new Action(0, 10, 1);
-            action.Actions += () => { m.AddBonusQuantity(1, 0);};
 
-            listOfBuildings[1].BonusList.AddAction(action);
-
-            listOfBuildings[3].AddRequirement(1, listOfBuildings[2]);
+            Requirement r = new Requirement(1, listOfBuildings[2]);
+            r.SetAlgorithm((int level) => { if (level % 5 == 0) return level / 5; else return 0; });
+            listOfBuildings[3].AddRequirement(r);
             // ----------------------------------------
 
             buildPanel.ImportBuildings(listOfBuildings);

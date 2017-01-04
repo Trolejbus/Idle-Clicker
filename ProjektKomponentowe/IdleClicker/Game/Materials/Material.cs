@@ -13,7 +13,7 @@ namespace IdleClicker
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
-    public class Material : IRequired, IReducible
+    public class Material : IRequired, IReducible, IProductable
     {
         public event BoostMaterialHandler onChangeMaterial;
 
@@ -172,6 +172,11 @@ namespace IdleClicker
 
             GameEngine.ActionList.AddAction(action);
 
+        }
+
+        public void AddIncreaseCount(double value)
+        {
+            AddBonusQuantity(value, 0);
         }
 
         /// <summary>

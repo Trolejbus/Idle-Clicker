@@ -13,7 +13,7 @@ namespace IdleClicker
 
     public class Building : IRequired
     {
-        public ActionList BonusList { get; private set; }
+        private ActionList bonusList;
         public String Key { get; private set; }
         public ImageSource IconSource { get; private set; }
         public int Level { get; private set; }
@@ -21,6 +21,8 @@ namespace IdleClicker
         public int MaxLevel{ get; private set; }
         public List<Requirement> Requirements { get; }
         public BuildingType BuildingType { get; private set; }
+        public List<BuildingInfo> BuildingInfos;
+
 
         //public ImageSource IconSource { get; private set; }
 
@@ -33,19 +35,81 @@ namespace IdleClicker
             Level = level;
             IconSource = new BitmapImage(new Uri(iconSource, UriKind.RelativeOrAbsolute));
             Requirements = new List<Requirement>();
-            BonusList = new ActionList();
+            bonusList = new ActionList();
             Location = new Point(xPosition, yPosition);
             //IconSource = new BitmapImage(new Uri(imageSource, UriKind.Relative));
             MaxLevel = maxLevel;
             BuildingType = buildingType;
+            BuildingInfos = new List<BuildingInfo>();
+        }
+
+
+        public void AddBuildingInfo(string key, string label, string value)
+        {
+            BuildingInfos.Add(new BuildingInfo() {
+                    Key = key,
+                    Label = label,
+                    Value = value
+            });
+        }
+
+        public void AddBonus(BuildingAction bonus)
+        {
+            bonus.SetBuilding(this);
+            bonusList.AddAction(bonus);
+        }
+
+        public void AddBonusCount(int triggerValue, int executeTimes, int frequencyTimes, IProductable productableObject, double bonusCount, string displayText, bool display = true)
+        {
+            
+            BuildingAction bonus = new BuildingAction(triggerValue, executeTimes, frequencyTimes);
+            BuildingInfo b1 = BuildingInfos.Find(BuildingInfo => BuildingInfo.Key == productableObject.Key);
+
+            if (display)
+            {
+                //if (b1 != null)
+                //{
+                //    b1.Value = (Convert.ToDouble(b1.Value) + bonusCount).ToString();
+                //}
+                if (b1 == null)
+                {
+                    b1 = new BuildingInfo()
+                    {
+                        Key = productableObject.Key,
+                        Value = 0.ToString(),
+                        Label = displayText
+                    };
+                    BuildingInfos.Add(b1);
+                }
+                bonus.Actions += () =>
+                {
+                    productableObject.AddIncreaseCount(bonusCount);
+                    b1.Value = (Convert.ToDouble(b1.Value) + bonusCount).ToString();
+                };
+            }
+            else
+            {
+                bonus.Actions += () =>
+                {
+                    productableObject.AddIncreaseCount(bonusCount);
+                };
+            }
+
+            AddBonus(bonus);
         }
 
         // AK: Dodane na potrzeby testów
         public void AddRequirement(int requireValue, IRequired requiredObject)
         {
-            Requirements.Add(new Requirement(requireValue, requiredObject));
+            Requirement r = new Requirement(requireValue, requiredObject);
+            r.SetAlgorithm((int level) => { return 0; });
+            Requirements.Add(r);
         }
 
+        public void AddRequirement(Requirement requirement)
+        {
+            Requirements.Add(requirement);
+        }
         // ------------------------------------
 
         public RequireType RequireType
@@ -80,7 +144,7 @@ namespace IdleClicker
             }
             
             OnChangeLevel(Level);
-            BonusList.Execute(Level);
+            bonusList.Execute(Level);
             return true;
         }
 

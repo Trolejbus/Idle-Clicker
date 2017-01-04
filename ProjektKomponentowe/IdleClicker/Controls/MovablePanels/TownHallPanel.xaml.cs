@@ -48,5 +48,10 @@ namespace IdleClicker
 
             this.StackOfListsSP.Children.Add(newParagraph);
         }
+
+        public void AddNewLine(string label, string value)
+        {
+            this.StackOfListsSP.Children.Add(new LineForPanel(label, value));
+        }
     }
 }

@@ -118,7 +118,9 @@
     <Compile Include="Game\Actions\BuildingAction.cs" />
     <Compile Include="Game\Buildings\Building.cs" />
     <Compile Include="Commons\Enums\Enums.cs" />
+    <Compile Include="Game\Buildings\BuildingInfo.cs" />
     <Compile Include="Interfaces\IGameTimer.cs" />
+    <Compile Include="Interfaces\IProductable.cs" />
     <Compile Include="Interfaces\IReducible.cs" />
     <Compile Include="Interfaces\IRequired.cs" />
     <Compile Include="Game\Buildings\Requirement.cs" />

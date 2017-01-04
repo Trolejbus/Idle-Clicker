@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    class BuildingAction : Action
+    public class BuildingAction : Action
     {
         public long LevelToExecute { private set; get; }
         private Building buildingOwner;
