@@ -115,6 +115,7 @@
     <Compile Include="GameConfig.cs" />
     <Compile Include="Game\Actions\Action.cs" />
     <Compile Include="Commons\EventArgs\TickEventArgs.cs" />
+    <Compile Include="Game\Actions\BuildingAction.cs" />
     <Compile Include="Game\Buildings\Building.cs" />
     <Compile Include="Commons\Enums\Enums.cs" />
     <Compile Include="Interfaces\IGameTimer.cs" />

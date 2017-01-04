@@ -167,7 +167,7 @@ namespace IdleClicker
         {
             CurrentIncreaseQuantity += percentage/100 * beginningIncreaseQuantity;
 
-            TickAction action = new TickAction(time * 60);
+            TickAction action = new TickAction(time);
             action.Actions += () => { CurrentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
 
             GameEngine.ActionList.AddAction(action);
@@ -189,7 +189,7 @@ namespace IdleClicker
 
             CurrentIncreaseQuantity += quantity;
 
-            TickAction action = new TickAction(time * 60);
+            TickAction action = new TickAction(time);
             action.Actions += () => { CurrentIncreaseQuantity -= quantity;  };
 
             GameEngine.ActionList.AddAction(action);

@@ -46,22 +46,12 @@ namespace IdleClicker
             m.onChangeMaterial += this.MainPanel.UpdateCountOfMaterials;
             lista.AddNewMaterial(m);
 
-            
-
-
             TickAction bonus = new TickAction(10, 1, 0);
             bonus.Actions += delegate ()
             {
-                m.AddBonusQuantity(1, 1);
+                m.AddBonusQuantity(1, 60);
             };
             GameEngine.ActionList.AddAction(bonus);
-
-            TickAction bonus100 = new TickAction(10, 5, 3);
-            bonus100.Actions += delegate ()
-            {
-                m.CurrentAmount += 1;
-            };
-            GameEngine.ActionList.AddAction(bonus100);
 
             TownHallPanel ratusz = new TownHallPanel(new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/wood.png", UriKind.Relative)), "Dupa");
             ratusz.AddNewParagraph("Aktualny przyrost surowców:", "Złoto", "200", "Drewno", "500", "Żywność", "1000");
@@ -71,13 +61,16 @@ namespace IdleClicker
 
             // AK: Dodawanie budynków w celach testowych
             List<Building> listOfBuildings = new List<Building>();
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Brickyard.png", 0, -400, -400, 999, BuildingType.Productive));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Tent.png", 0, -100, 500, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Woodshed.png", 0, -400, -400, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("FARM", "/IdleClicker;component/Resources/Buildings/Farm.png", 0, -100, 500, 999, BuildingType.Productive));
+            listOfBuildings.Add(new Building("TOWNHALL", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999, BuildingType.TownHall));
+            listOfBuildings.Add(new Building("WARHOUSE", "/IdleClicker;component/Resources/Buildings/Warehouse.png", 0, 400, -400, 999, BuildingType.Warehouse));
+            listOfBuildings.Add(new Building("MINE", "/IdleClicker;component/Resources/Buildings/Mine.png", 0,500, -400, 999, BuildingType.Productive));
 
-
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/TownHall.png", 0, 0, 0, 999, BuildingType.Productive));
-            listOfBuildings.Add(new Building("WOODCUTTER", "/IdleClicker;component/Resources/Buildings/Woodshed.png", 0, 400, -400, 999, BuildingType.Productive));
-
+            BuildingAction bonusAction = new BuildingAction(1, 0, 1);
+            bonusAction.Actions += () => { m.AddBonusQuantity(10,0); };
+            bonusAction.SetBuilding(listOfBuildings[0]);
+            listOfBuildings[0].BonusList.AddAction(bonusAction);
 
             Requirement req = new Requirement(100, m);
             req.requireAlgorithm = (level) => { return 100 * level; };
