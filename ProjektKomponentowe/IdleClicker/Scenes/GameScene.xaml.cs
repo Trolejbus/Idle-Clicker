@@ -20,7 +20,7 @@ namespace IdleClicker
     /// Interaction logic for GameScene.xaml
     /// </summary>
     public partial class GameScene : Scene
-    {
+    {   
         public GameScene()
         {
             InitializeComponent();
@@ -86,6 +86,14 @@ namespace IdleClicker
             buildPanel.ImportBuildings(listOfBuildings);
             buildingsLayer.UpdateBuildingsOnLayer(listOfBuildings);
 
+
+            // AK: odtwarzacz
+            AudioPlayer.Play("Resources/Music/bratanki.mp3");
+        }
+
+        public override void Close()
+        {
+            base.Close();
         }
     }
 }

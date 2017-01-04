@@ -24,5 +24,15 @@ namespace IdleClicker
         {
             InitializeComponent();    
         }
+
+        /// <summary>
+        /// Metoda wywoływana podczas zamykania głównego okna gry.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AudioPlayer.Stop();
+        }
     }
 }
