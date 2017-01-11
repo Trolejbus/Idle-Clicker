@@ -51,7 +51,11 @@ namespace IdleClicker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("HAHAHA KURWA ! JESTEM SOBIE "+Dictionary.dictionary[building.Key]+" i mam level: "+building.Level+" :D");
+            MainWindow mainWindow = (MainWindow)System.Windows.Application.Current.MainWindow;
+            GameScene gameScene = (GameScene)mainWindow.sceneController.CurrentScene;
+
+            TownHallPanel buildingWindow = new TownHallPanel(building.IconSource, Dictionary.dictionary[building.Key]);
+
         }
     }
 }

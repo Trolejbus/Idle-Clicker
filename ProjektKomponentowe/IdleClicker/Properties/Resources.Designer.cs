@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IdleClicker.Properties {
+namespace IdleClickerCommon.Properties {
     using System;
     
     

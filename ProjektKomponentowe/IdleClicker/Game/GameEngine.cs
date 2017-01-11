@@ -24,6 +24,8 @@ namespace IdleClicker
         /// </summary>
         public static IActionList ActionList;
 
+        public static ListOfMaterials listOfMaterials;
+
         /// <summary>
         /// Konstruktor klasy
         /// </summary>
@@ -38,6 +40,12 @@ namespace IdleClicker
             // Określa wstępną częstotliwość zegara
             GameTimer.Interval = 1000;
         }
+
+        public static void SetListOfMaterials(ListOfMaterials list)
+        {
+            listOfMaterials = list;
+        }
+
 
         /// <summary>
         /// Metoda wywołująca sprawdzanie zdarzeń w ActionList

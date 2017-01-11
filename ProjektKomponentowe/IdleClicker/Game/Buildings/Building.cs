@@ -20,12 +20,14 @@ namespace IdleClicker
         public Point Location { get; private set; }
         public int MaxLevel{ get; private set; }
         public List<Requirement> Requirements { get; }
+        public BuildingType BuildingType { get; private set; }
+
         //public ImageSource IconSource { get; private set; }
 
         public event BonusAction OnChangeLevel;
 
         // AK: Konstruktor budowany na potrzeby testów
-        public Building(String key, string iconSource, int level, int xPosition, int yPosition, int maxLevel)
+        public Building(String key, string iconSource, int level, int xPosition, int yPosition, int maxLevel, BuildingType buildingType)
         {
             Key = key;
             Level = level;
@@ -35,6 +37,7 @@ namespace IdleClicker
             Location = new Point(xPosition, yPosition);
             //IconSource = new BitmapImage(new Uri(imageSource, UriKind.Relative));
             MaxLevel = maxLevel;
+            BuildingType = buildingType;
         }
 
         // AK: Dodane na potrzeby testów

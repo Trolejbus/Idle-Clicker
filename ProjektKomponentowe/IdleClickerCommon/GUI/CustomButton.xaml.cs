@@ -13,16 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace IdleClicker
+namespace IdleClickerCommon
 {
     /// <summary>
     /// Interaction logic for mainButton.xaml
     /// </summary>
-    public partial class mainButton : Button
+    public partial class CustomButton : Button
     {
-        public mainButton()
+        public CustomButton()
         {
-            InitializeComponent();
+            InitializeComponent();       
         }
     }
 }

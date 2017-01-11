@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IdleClicker
+namespace IdleClickerCommon
 {
-    public class Version : IComparable<Version>
+    public class ProgramVersion : IComparable<ProgramVersion>
     {
         public int _MainVersion;// { get; set; }
         public int _SubVersion;// { get; set; }
         public int _DetailVersion;// { get; set; }
 
-        public Version(int MainVersion,int SubVersion, int DetailVersion)
+        public ProgramVersion(int MainVersion,int SubVersion, int DetailVersion)
         {
             _MainVersion = MainVersion;
             _SubVersion = SubVersion;
@@ -41,7 +41,7 @@ namespace IdleClicker
             return _MainVersion + "." + _SubVersion + "." + _DetailVersion;
         }
 
-        public int CompareTo(Version other)
+        public int CompareTo(ProgramVersion other)
         {
             int Main = _MainVersion - other._MainVersion;
             int Sub = _SubVersion - other._SubVersion;

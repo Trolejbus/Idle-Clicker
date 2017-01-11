@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="IdleClickerUpdater.UpdaterPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:IdleClickerUpdater"
+             xmlns:IdleClickerCommon="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
+             mc:Ignorable="d" 
+             d:DesignWidth="800" d:DesignHeight="600">
+    <Grid x:Name="grid">
+        <Grid.Background>
+            <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterBackground.png"/>
+        </Grid.Background>
+        <Image x:Name="logo" Source="/IdleClickerUpd;component/Resources/UpdaterName.png" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Width="468" Margin="10,10,0,0"/>
+        <Image x:Name="medalogo" Margin="10,0,0,10" Source="/IdleClickerUpd;component/Resources/MedaLogo_Medium.png" RenderTransformOrigin="-0.08,0.99" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70"/>
+
+        <Grid x:Name="InstalationPanel1" Visibility="Hidden" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" HorizontalAlignment="Center" Margin="10,42,10,0" TextWrapping="Wrap" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="59" Width="380"><Run Text="Ten program "/><Run Text="pobierze instalator"/><Run Text=" gr"/><Run Text="y"/><Run Text=" Idle Clicker na Tw"/><Run Text="ój"/><Run Text=" komputer! Podążaj za instrukcjami!"/></TextBlock>
+            <IdleClickerCommon:CustomButton x:Name="customButton" HorizontalAlignment="Center" Margin="0,106,0,0" VerticalAlignment="Top" Height="34" Content="Następny krok" Click="customButton_Click"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="InstalationPanel2" Visibility="Hidden" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Wybierz miejsce gdzie pobierze program" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton2" HorizontalAlignment="Right" Margin="0,106,10,10" Height="Auto" Content="Następny krok" Click="customButton2_Click_1"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton2_Copy" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="Poprzedni krok" Click="customButton2_Copy_Click"/>
+            <Image x:Name="image" Cursor="Hand" HorizontalAlignment="Left" Height="24" Margin="20,66,0,0" VerticalAlignment="Top" Width="24" Source="/IdleClickerUpd;component/Resources/Browse.png" MouseDown="image_MouseDown"/>
+            <TextBlock x:Name="DownloadPathTextBox" FontSize="12" Margin="49,66,18,0" TextWrapping="Wrap" Text="" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="35"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid x:Name="InstalationPanel3" Tag="ToHide" Visibility="Hidden" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Klikając Pobierz zostanie pobrany plik instalatora." Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton1" HorizontalAlignment="Right" Margin="0,106,10,10" Height="Auto" Content="Pobierz" Click="customButton1_Click"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton2_Copy1" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="Poprzedni krok" Click="customButton2_Copy1_Click"/>
+        </Grid>
+
+        <Grid x:Name="ProgressPanel" Tag="ToHide" Margin="0,0,10,10" HorizontalAlignment="Right" Width="500" Height="150" VerticalAlignment="Bottom">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+            <ProgressBar x:Name="progressBar" Margin="10,115,10,10" Width="480" Foreground="#FFE4B57B" Value="0" HorizontalAlignment="Center"/>
+            <ProgressBar x:Name="progressBar2" Margin="10,85,10,40" Width="480" Foreground="#FFE4B57B" Value="0" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="ProgressHeaderTextBox" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="480" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock x:Name="ProgressStatusTextBox" FontSize="12" Margin="10,61,110,0" TextWrapping="Wrap" Text="Stan...
+" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
+        </Grid>
+        <Grid x:Name="InstalationPanel4" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Pobrano instalator!" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton3" HorizontalAlignment="Right" Margin="0,106,10,10" Height="Auto" Content="Uruchom" Click="customButton3_Click"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton2_Copy2" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="Zakończ" Click="customButton2_Copy2_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>
