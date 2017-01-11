@@ -23,12 +23,15 @@ namespace IdleClicker
         public SoundPanel()
         {
             InitializeComponent();
+            musicVolume.Value = (int)(AudioPlayer.Volume * 100);
+            //soundsVolume.Value = (int)(AudioPlayer.SoundVolume * 100);
         }
 
         private void musicVolume_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (musicLevel != null)
             {
+                AudioPlayer.Volume = (float)(musicVolume.Value / 100);
                 musicLevel.Text = (int)musicVolume.Value + "%";
             }
         }
@@ -37,6 +40,7 @@ namespace IdleClicker
         {
             if (soundsLevel != null)
             {
+                //AudioPlayer.SoundVolume = (float)(soundsVolume.Value / 100);
                 soundsLevel.Text = (int)soundsVolume.Value + "%";
             }
         }

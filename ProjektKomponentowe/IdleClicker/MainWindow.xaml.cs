@@ -32,7 +32,8 @@ namespace IdleClicker
         /// <param name="e"></param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            AudioPlayer.Stop();
+            //AudioPlayer.StopMusic();
+            //AudioPlayer.StopSound();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace IdleClickerCommon
     {
         public CustomButton()
         {
-            InitializeComponent();       
+            InitializeComponent();
         }
     }
 }

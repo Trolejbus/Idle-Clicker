@@ -20,11 +20,10 @@ namespace IdleClicker
     /// Interaction logic for GameScene.xaml
     /// </summary>
     public partial class GameScene : Scene
-    {   
+    {
         public GameScene()
         {
             InitializeComponent();
-            
             MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene()); };
@@ -98,7 +97,11 @@ namespace IdleClicker
 
 
             // AK: odtwarzacz
-            AudioPlayer.Play("Resources/Music/bratanki.mp3");
+            //if(!AudioPlayer.IsPlaying)
+            AudioPlayer.AddSong("Resources/Music/bratanki.mp3");
+            //AudioPlayer.AddSong("Resources/Music/test1.wav");
+            //AudioPlayer.AddSong("Resources/Music/test2.wav");
+            AudioPlayer.PlayMusic();
         }
 
         public override void Close()

@@ -326,6 +326,9 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Music\test1.wav" />
+    <Content Include="Resources\Music\test2.wav" />
+    <Content Include="Resources\Music\test3.wav" />
     <Resource Include="Resources\VillageBackground.png" />
     <Resource Include="Resources\Images\food.png" />
     <Resource Include="Resources\Images\gold.png" />
@@ -344,11 +347,16 @@
     <Resource Include="Resources\Buildings\Tent.png" />
     <Resource Include="Resources\Buildings\Warehouse.png" />
     <Resource Include="Resources\Buildings\Woodshed.png" />
+    <Content Include="Resources\Music\bratanki.mp3" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IdleClickerAudioPlayer\IdleClickerAudioPlayer.csproj">
+      <Project>{f07c1b17-a7e5-4a4b-a8ef-8aa21c9204e6}</Project>
+      <Name>IdleClickerAudioPlayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IdleClickerCommon\IdleClickerCommon.csproj">
       <Project>{7d9a05f4-d2d4-4c41-a528-c87fbbf0b3ac}</Project>
       <Name>IdleClickerCommon</Name>
