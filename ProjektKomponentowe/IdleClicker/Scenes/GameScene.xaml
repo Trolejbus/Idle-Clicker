@@ -7,13 +7,13 @@
              x:Class="IdleClicker.GameScene"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="600">
-    <Grid>
+    <Grid Margin="0,0,0,0">
         <local:MainPanel x:Name="MainPanel" Margin="0" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
         <Grid HorizontalAlignment="Stretch" Margin="0,50,0,0">
             <Grid.Background>
                 <ImageBrush ImageSource="/IdleClicker;component/Resources/Images/VillageBackground.png"/>
             </Grid.Background>
-            <local:BuildingsLayer x:Name="buildingsLayer"></local:BuildingsLayer>
+            <local:BuildingsLayer x:Name="buildingsLayer"/>
             <local:Night Width="Auto" Height="Auto" Grid.ColumnSpan="2" IsHitTestVisible="False"></local:Night>
             <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
                 <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>

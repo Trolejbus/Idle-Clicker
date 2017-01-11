@@ -102,7 +102,7 @@ namespace IdleClicker
         public void AddRequirement(int requireValue, IRequired requiredObject)
         {
             Requirement r = new Requirement(requireValue, requiredObject);
-            r.SetAlgorithm((int level) => { return 0; });
+            r.SetAlgorithm((level, requireValueInRequirement) => { return 0; });
             Requirements.Add(r);
         }
 
@@ -140,7 +140,7 @@ namespace IdleClicker
                 if (Requirements[i].requiredObject is IReducible)
                     ((IReducible)Requirements[i].requiredObject).ReduceMaterial(Requirements[i].RequireValue);
 
-                Requirements[i].UpdateToLevel(Level);
+                Requirements[i].UpdateToLevel(Level, Requirements[i].RequireValue);
             }
             
             OnChangeLevel(Level);
