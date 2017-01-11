@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IdleClicker
 {
-    public delegate int RequireAlgorithm(int level);
+    public delegate int RequireAlgorithm(int level, int requireValue);
 
     public class Requirement
     {
@@ -17,10 +17,14 @@ namespace IdleClicker
         {
             return requiredObject.GetValue() >= RequireValue;
         }
-        public RequireAlgorithm requireAlgorithm = (a) => { return 5; };
-        public void UpdateToLevel(int level)
+        private RequireAlgorithm requireAlgorithm = null;
+
+        public void UpdateToLevel(int level, int requireValue)
         {
-            RequireValue = requireAlgorithm(level);
+            if (requireAlgorithm(level, requireValue) != 0)
+            {
+                RequireValue = requireAlgorithm(level, requireValue);
+            }
         }
        
         public void SetAlgorithm(RequireAlgorithm algorithm)

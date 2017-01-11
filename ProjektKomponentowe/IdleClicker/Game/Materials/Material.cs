@@ -13,7 +13,7 @@ namespace IdleClicker
     /// <summary>
     /// Klasa opisująca surowiec.
     /// </summary>
-    public class Material : IRequired, IReducible
+    public class Material : IRequired, IReducible, IProductable
     {
         public event BoostMaterialHandler onChangeMaterial;
 
@@ -44,11 +44,14 @@ namespace IdleClicker
         /// Początkowy przyrost zasobu na tick zegara.
         /// </summary>
         double beginningIncreaseQuantity = 0;
-
+        /// <summary>
+        /// Maksymalny poziom surowców
+        /// </summary>
+        double maxAmountMaterial = 1000;
         public Dictionary<Building, double> buildingBonuses = new Dictionary<Building, double>();
 
         public Dictionary<Building, double> BuildingBonuses { get { return BuildingBonuses; } }
-        
+
 
         public void AddProductiveBuilding(Building building, double increaseQuantity)
         {
@@ -97,7 +100,25 @@ namespace IdleClicker
             }
             set
             {
-                currentAmount = value;
+                if (value != CurrentAmount && onChangeMaterial!=null)
+                {
+                    currentAmount = value;
+                    onChangeMaterial(this);
+                }
+                else
+                    currentAmount = value;
+            }
+        }
+
+        public double MaxAmountMaterial
+        {
+            get
+            {
+                return maxAmountMaterial;
+            }
+            set
+            {
+                maxAmountMaterial = value;
             }
         }
 
@@ -167,11 +188,16 @@ namespace IdleClicker
         {
             CurrentIncreaseQuantity += percentage/100 * beginningIncreaseQuantity;
 
-            TickAction action = new TickAction(time * 60);
+            TickAction action = new TickAction(time);
             action.Actions += () => { CurrentIncreaseQuantity -= percentage * beginningIncreaseQuantity; };
 
             GameEngine.ActionList.AddAction(action);
 
+        }
+
+        public void AddIncreaseCount(double value)
+        {
+            AddBonusQuantity(value, 0);
         }
 
         /// <summary>
@@ -189,7 +215,7 @@ namespace IdleClicker
 
             CurrentIncreaseQuantity += quantity;
 
-            TickAction action = new TickAction(time * 60);
+            TickAction action = new TickAction(time);
             action.Actions += () => { CurrentIncreaseQuantity -= quantity;  };
 
             GameEngine.ActionList.AddAction(action);
@@ -200,8 +226,15 @@ namespace IdleClicker
         /// </summary>
         public void BoostMaterial()
         {
-            currentAmount += CurrentIncreaseQuantity;
-            onChangeMaterial(this);
+            if (maxAmountMaterial < CurrentAmount + CurrentIncreaseQuantity)
+            {
+                CurrentAmount = MaxAmountMaterial;
+            }
+            else
+            {
+                CurrentAmount += CurrentIncreaseQuantity;
+
+            }
         }
 
         /// <summary>

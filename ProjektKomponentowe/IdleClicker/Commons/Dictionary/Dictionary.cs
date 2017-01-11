@@ -20,7 +20,10 @@ namespace IdleClicker
             { "GOLD", "Złoto" },
             { "FOOD", "Pożywnienie"},
             { "WOODCUTTER", "Leśniczówka" },
-            { "TOWNHALL", "Ratusz" }
+            { "TOWNHALL", "Ratusz" },
+            { "WARHOUSE", "Magazyn" },
+            { "FARM", "Farma" },
+            { "MINE", "Kopalnia" }
         };
     }
       

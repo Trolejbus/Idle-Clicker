@@ -25,9 +25,9 @@
                 <Image x:Name="image" Margin="20,15,0,0" Height="60" Width="60" VerticalAlignment="Top" OpacityMask="Black" Source="" HorizontalAlignment="Left"/>
                 <TextBlock x:Name="TitleWindowTB" Margin="-10,30,45,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/fonts/#Eczar" FontSize="22" Width="Auto" Height="Auto" HorizontalAlignment="Right" d:LayoutOverrides="Width" Background="#00000000" TextAlignment="Center" Foreground="#FFE4B57B" Text="RATUSZ" Grid.Column="1"/>
                 <StackPanel x:Name="StackOfListsSP" Width="250" Grid.ColumnSpan="2" Margin="0,85,0,20" VerticalAlignment="Top" HorizontalAlignment="Left">
-                    <local:LineForPanel local:ExtensionsForLineForPanel.Text="Aktualny poziom budynku:" local:ExtensionsForLineForPanel.Number="1"></local:LineForPanel>
+                    <!--<local:LineForPanel local:ExtensionsForLineForPanel.Text="Aktualny poziom budynku:" local:ExtensionsForLineForPanel.Number="1"></local:LineForPanel>
                     <local:LineForPanel local:ExtensionsForLineForPanel.Text="Maksymalny poziom budynku:" local:ExtensionsForLineForPanel.Number="100"></local:LineForPanel>
-                </StackPanel>
+                --></StackPanel>
             </Grid>
         </ScrollViewer>
     </Grid>

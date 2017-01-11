@@ -43,9 +43,9 @@ namespace IdleClicker
             ExecuteTimes = executeTimes;
         }
 
-        public virtual void OnAdd()
+        public virtual void Update()
         {
-            // Nic nie wykonuje, ale musi być żeby spełnić interface
+
         }
 
         /// <summary>
