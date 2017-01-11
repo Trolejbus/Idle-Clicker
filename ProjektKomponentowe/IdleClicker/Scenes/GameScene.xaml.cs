@@ -180,7 +180,7 @@ namespace IdleClicker
 
             // AK: odtwarzacz
             //if(!AudioPlayer.IsPlaying)
-            AudioPlayer.AddSong("Resources/Music/bratanki.mp3");
+            //AudioPlayer.AddSong("Resources/Music/bratanki.mp3");
             //AudioPlayer.AddSong("Resources/Music/test1.wav");
             //AudioPlayer.AddSong("Resources/Music/test2.wav");
             AudioPlayer.PlayMusic();

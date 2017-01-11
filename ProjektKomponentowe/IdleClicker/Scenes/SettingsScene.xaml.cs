@@ -25,7 +25,7 @@ namespace IdleClicker
         {
             InitializeComponent();
             musicSlider.Value = (int)(AudioPlayer.Volume * 100.0f);
-            //soundSlider.Value = (int)(player.SoundVolume * 100.0f);
+            soundSlider.Value = (int)(AudioPlayer.QuickSoundVolume * 100.0f);
         }
 
         private void changeGrid(object sender, RoutedEventArgs e)
@@ -71,7 +71,7 @@ namespace IdleClicker
         {
             if (soundValueTextBlock != null)
             {
-                //player.SoundVolume = (float)(soundSlider.Value / 100);
+                AudioPlayer.QuickSoundVolume = (float)(soundSlider.Value / 100);
                 soundValueTextBlock.Text = (int)soundSlider.Value + "%";
             }
 

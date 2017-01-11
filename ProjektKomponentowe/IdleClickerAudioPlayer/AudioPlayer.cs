@@ -13,7 +13,8 @@ namespace IdleClicker
     {
         static List<WavePlayer> MusicClips = new List<WavePlayer>();
         static List<string> songsPaths = new List<string>();
-        static WaveStream sound;
+        static WaveStream sound = null;
+        static float soundVolume = 1.0f;
         static bool played = false;
         private static DirectSoundOut audioOutput = new DirectSoundOut();
         private static DirectSoundOut audioOutputQuickSound = new DirectSoundOut();
@@ -33,6 +34,17 @@ namespace IdleClicker
                 {
                     item.Channel.Volume = value;
                 }
+            }
+        }
+        public static float QuickSoundVolume
+        {
+            get
+            {
+                return soundVolume;
+            }
+            set
+            {
+                soundVolume = value;
             }
         }
 
@@ -91,7 +103,7 @@ namespace IdleClicker
             var sound32 = new WaveChannel32(sound);
             sound32.PadWithZeroes = false;
             // set the volume of background file
-            sound32.Volume = 0.8f;
+            sound32.Volume = soundVolume;
             //add stream into the mixer
             mixer.AddInputStream(sound32);
             
