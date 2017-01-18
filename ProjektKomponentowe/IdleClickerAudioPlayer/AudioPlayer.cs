@@ -12,13 +12,14 @@ namespace IdleClicker
     public static class AudioPlayer
     {
         static List<WavePlayer> MusicClips = new List<WavePlayer>();
-        static List<string> songsPaths = new List<string>();
-        static WaveStream sound = null;
+        static WaveChannel32 soundWaveChannel = null;
+        static List<string> musicPaths = new List<string>();
+        static WaveStream soundStream = null;
         static float soundVolume = 1.0f;
-        static bool played = false;
-        private static DirectSoundOut audioOutput = new DirectSoundOut();
-        private static DirectSoundOut audioOutputQuickSound = new DirectSoundOut();
-        public static float Volume
+        static bool isPlayed = false;
+        private static DirectSoundOut musicOutput = new DirectSoundOut();
+        private static DirectSoundOut soundOutput = new DirectSoundOut();
+        public static float MusicVolume
         {
             get
             {
@@ -36,44 +37,44 @@ namespace IdleClicker
                 }
             }
         }
-        public static float QuickSoundVolume
+        public static float SoundVolume
         {
             get
             {
-                return soundVolume;
+                if (soundWaveChannel == null)
+                    return 1.0f;
+                return soundWaveChannel.Volume;
             }
             set
             {
-                soundVolume = value;
+                if(soundWaveChannel != null)
+                    soundWaveChannel.Volume = value;
             }
         }
 
 
-        public static void AddSong(string path)
+        public static void AddMusic(string path)
         {
-            if (!songsPaths.Contains(path)) { 
-                songsPaths.Add(path);
+            if (!musicPaths.Contains(path)) { 
+                musicPaths.Add(path);
             }
         }
-        public static void RemoveSong(string path)
+        public static void RemoveMusic(string path)
         {
-            songsPaths.Remove(path);
+            soundOutput.Stop();
+            musicPaths.Remove(path);
         }
-        public static void RemoveAllSongs()
+        public static void RemoveAllMusic()
         {
-            if(!played)
-                songsPaths.Clear();
-            else
-            {
-                StopMusic();
-                songsPaths.Clear();
-            }
+            soundOutput.Stop();
+            musicPaths.Clear();
+            MusicClips.Clear();
         }
         public static void PlayMusic()
         {
-            if (played) return;
+            if (isPlayed) return;
 
-            foreach (string path in songsPaths)
+            foreach (string path in musicPaths)
             {
                 if (path.EndsWith(".mp3"))
                 {
@@ -84,42 +85,46 @@ namespace IdleClicker
                     MusicClips.Add(new WavePlayer(path));
             }
             var mixer = new MixingWaveProvider32(MusicClips.Select(c => c.Channel));
-            audioOutput.Init(mixer);
+            musicOutput.Init(mixer);
 
-            played = true;
-            audioOutput.Play();
+            isPlayed = true;
+            musicOutput.Play();
 
         }
-        public static void PlayQuickSound(string path)
-        {
-            if (path.EndsWith(".mp3"))
-            {
-                sound = WaveFormatConversionStream.CreatePcmStream(new Mp3FileReader(path));
-            }
-            else
-                sound = new WaveFileReader(path);
+        public static void PlaySound(string path)
+        {       
+            soundStream = getWaveStream(path);
 
             var mixer = new MixingWaveProvider32();
-            var sound32 = new WaveChannel32(sound);
-            sound32.PadWithZeroes = false;
+            soundWaveChannel = new WaveChannel32(soundStream);
+            soundWaveChannel.PadWithZeroes = false;
             // set the volume of background file
-            sound32.Volume = soundVolume;
+            soundWaveChannel.Volume = soundVolume;
             //add stream into the mixer
-            mixer.AddInputStream(sound32);
+            mixer.AddInputStream(soundWaveChannel);
             
-            audioOutputQuickSound.Init(mixer);
+            soundOutput.Init(mixer);
 
-            audioOutputQuickSound.Play();
+            soundOutput.Play();
         }
+
+        private static WaveStream getWaveStream(string path)
+        {
+            if (path.EndsWith(".mp3"))
+                return WaveFormatConversionStream.CreatePcmStream(new Mp3FileReader(path));
+            else
+                return new WaveFileReader(path);
+        }
+
         public static void StopMusic()
         {
-            audioOutput.Stop();
-            played = false;
+            musicOutput.Stop();
+            isPlayed = false;
         }
         public static void PauseMusic()
         {
-            audioOutput.Pause();
-            played = false;
+            musicOutput.Pause();
+            isPlayed = false;
         }
         
     }
