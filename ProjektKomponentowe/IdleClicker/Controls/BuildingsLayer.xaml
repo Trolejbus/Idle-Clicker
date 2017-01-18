@@ -8,5 +8,5 @@
              d:DesignHeight="768" d:DesignWidth="1024" Margin="0,0,0,0">
     <Grid x:Name="buildingsContainer">
 
-        </Grid>
+    </Grid>
 </UserControl>

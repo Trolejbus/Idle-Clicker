@@ -22,7 +22,7 @@ namespace IdleClicker
     {
         Building building;
         Brush defaultTextBrush = new SolidColorBrush(Color.FromRgb(228, 181, 123));
-        Brush grayItemBrush = new SolidColorBrush(Color.FromRgb(169, 153, 153));
+        Brush grayItemBrush = new SolidColorBrush(Color.FromRgb(139, 0, 0));
         Brush defaultItemBrush = new SolidColorBrush(Color.FromRgb(73, 36, 18));
 
         public BuildingItem(Building building)
@@ -52,12 +52,14 @@ namespace IdleClicker
         public void UpdateRequirements(int Level)
         {
             this.BuildingLevelValue.Text = Level.ToString();
+            bool ifCompleted = true;
+
             for (int i = 0; i < building.Requirements.Count; i++)
             {
                 if (!building.Requirements[i].CheckIfCompleted())
                 {
-                    BuildingItemMainGrid.Background = grayItemBrush;
-                    BuildingItemMainGrid.Cursor = Cursors.No; // AK: Nie wiem czy nie za chamsko
+                    ifCompleted = false;
+                    //BuildingItemMainGrid.Cursor = Cursors.Arrow; // AK: Nie wiem czy nie za chamsko
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
                         ((ResourceInfo)LogicalTreeHelper.FindLogicalNode(this, "w" + i)).ResourceCountTB.Text = building.Requirements[i].RequireValue.ToString();
@@ -71,7 +73,7 @@ namespace IdleClicker
                 }
                 else
                 {
-                    BuildingItemMainGrid.Background = defaultItemBrush;
+                    
                     BuildingItemMainGrid.Cursor = Cursors.Hand;
                     if ((building.Requirements[i].requiredObject.RequireType & RequireType.BuildingOrMaterial) != 0)
                     {
@@ -85,6 +87,12 @@ namespace IdleClicker
                     }
                 }
             }
+
+            if (ifCompleted)
+                BuildingItemMainGrid.Background = defaultItemBrush;
+            else
+                BuildingItemMainGrid.Background = grayItemBrush;
+
         }
 
         private void UserControl_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
