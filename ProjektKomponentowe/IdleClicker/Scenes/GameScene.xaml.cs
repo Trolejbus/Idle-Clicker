@@ -26,7 +26,13 @@ namespace IdleClicker
             InitializeComponent();
             MainPanel.MenuButton.Click += (o, i) => { menuPanel.Visibility = menuPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
             buildButton.Click += (o, i) => { buildPanel.Visibility = buildPanel.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed; };
-            menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene()); };
+            menuPanel.exitButton.Click += (o, i) => {
+                AudioPlayer.StopMusic();
+                AudioPlayer.RemoveAllMusic();
+                AudioPlayer.AddMusic("Resources/Music/main_menu_slaby_end.mp3");
+                AudioPlayer.PlayMusic();
+                sceneController.LoadScene(new MainMenuScene());
+            };
             //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
             GameEngine.Enabled = true;
@@ -178,11 +184,10 @@ namespace IdleClicker
             buildingsLayer.UpdateBuildingsOnLayer(listOfBuildings);
 
 
-            // AK: odtwarzacz
-            //if(!AudioPlayer.IsPlaying)
-            //AudioPlayer.AddSong("Resources/Music/bratanki.mp3");
-            //AudioPlayer.AddSong("Resources/Music/test1.wav");
-            //AudioPlayer.AddSong("Resources/Music/test2.wav");
+            AudioPlayer.StopMusic();
+            AudioPlayer.RemoveAllMusic();
+            AudioPlayer.AddMusic("Resources/Music/wyspa_soundtrack.mp3");
+            AudioPlayer.AddMusic("Resources/Music/ptaki.mp3");
             AudioPlayer.PlayMusic();
         }
 
