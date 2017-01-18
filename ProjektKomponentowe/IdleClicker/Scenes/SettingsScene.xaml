@@ -7,15 +7,64 @@
              xmlns:common="clr-namespace:IdleClickerCommon;assembly=IdleClickerCommon"
              mc:Ignorable="d">
     <UserControl.Resources>
+
+        <SolidColorBrush x:Key="BrownBrush" Color="#FF492412"/>
+        <SolidColorBrush x:Key="SolidBorderBrush" Color="#888" />
+        <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+        <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+        <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+        <SolidColorBrush x:Key="ForeColor" Color="#FF492412" />
+        <!--
+        FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="20" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground=""
+        -->
+        <Style TargetType="{x:Type TabItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Grid>
+                            <Border 
+                                Name="Border"
+                                Margin="0,5,10,0" 
+                                Padding="20,0,20,0"
+                                Background="{StaticResource BrownBrush}"
+                                BorderBrush="{StaticResource SolidBorderBrush}"     
+                                 >
+                                <ContentPresenter x:Name="ContentSite"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    ContentSource="Header"
+                                    Margin="12,2,12,2"
+                                    RecognizesAccessKey="True"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Panel.ZIndex" Value="100"/>
+                                <Setter Property="Background" Value="#FF8A4A27"/>
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True" SourceName="Border">
+                                <Setter TargetName="Border" Property="Background" Value="#FF8A4A27" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                    
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Storyboard x:Key="OnLoaded1">
             <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid1">
                 <EasingThicknessKeyFrame KeyTime="0:0:1" Value="157.5,0,165.5,0"/>
             </ThicknessAnimationUsingKeyFrames>
-            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="grid2">
+            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Margin)" Storyboard.TargetName="tabControl">
                 <EasingThicknessKeyFrame KeyTime="0" Value="-280,90,368,63.25"/>
                 <EasingThicknessKeyFrame KeyTime="0:0:1" Value="0,90,0,63.25"/>
             </ThicknessAnimationUsingKeyFrames>
-            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="grid2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="tabControl">
                 <EasingDoubleKeyFrame KeyTime="0:0:0" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
@@ -33,38 +82,36 @@
         <Grid x:Name="grid1" Background="#FFE4B57B" Height="40" VerticalAlignment="Top" HorizontalAlignment="Center" Width="317" Margin="157.5,-40,165.5,0">
             <Label x:Name="label" Content="OPCJE" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="20" Height="35.333" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF492412"/>
         </Grid>
-        <Grid x:Name="grid2" Margin="-92,90,188,60" HorizontalAlignment="Center" Width="544">
-            <StackPanel Margin="0.5,0.5,0,-0.5" Height="290" d:LayoutOverrides="Width" Width="272" HorizontalAlignment="Left">
-                <common:CustomButton x:Name="btnSound" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="DŹWIĘK" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0" Click="changeGrid"/>
-                <common:CustomButton x:Name="btnGraphic" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="GRAFIKA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
-                <common:CustomButton x:Name="btnGame" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="GRA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
-                <common:CustomButton x:Name="btnUpdate" Width="Auto" Height="50" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="30" Content="AKTUALIZACJA" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,10,0,0" Click="changeGrid"/>
-            </StackPanel>
-            <Grid x:Name="gridSound" Margin="0,0.5,-1,-0.5" Background="#FF8A4A27" Height="290" HorizontalAlignment="Right" Width="272" Visibility="Hidden">
-                <TextBlock x:Name="textBlock" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B"><Run Text="Głośność muzyki"/><LineBreak/><Run/></TextBlock>
-                <TextBlock x:Name="textBlock_Copy" Margin="0,94.973,0,0" TextWrapping="Wrap" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" TextAlignment="Center" Height="28.92" VerticalAlignment="Top" Foreground="#FFE4B57B"><Run Text="Głośność dźwięku"/><LineBreak/><Run/></TextBlock>
-                <Slider x:Name="musicSlider" Margin="40,39.973,40,0" VerticalAlignment="Top" Width="200" Foreground="#00E5E5E5" Value="50" Background="Transparent" Maximum="100" ValueChanged="musicSlider_ValueChanged"/>
-                <Slider x:Name="soundSlider" Margin="40,123.893,40,0" VerticalAlignment="Top" Width="200" Value="50" Maximum="100" ValueChanged="soundSlider_ValueChanged"/>
-                <TextBlock x:Name="musicValueTextBlock" Margin="0,57.973,0,0" TextWrapping="Wrap" Text="50%" VerticalAlignment="Top" d:LayoutOverrides="Width" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B"/>
-                <TextBlock x:Name="soundValueTextBlock" Margin="0,141.893,0,135.807" TextWrapping="Wrap" Text="50%" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B" d:LayoutOverrides="Width, Height"/>
-            </Grid>
-            <Grid x:Name="gridGraphic" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272" Background="#FF8A4A27" Height="290" Visibility="Hidden">
-                <TextBlock x:Name="textBlock1" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Rozdzielczość"/>
-                <RadioButton x:Name="radioRes640480" Content="" Margin="62.5,61.946,0,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="13.5" Height="17.96" GroupName="resolution"/>
-                <RadioButton x:Name="radioRes1024768" Content="" Margin="136,61.946,122.5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="17.96" GroupName="resolution"/>
-                <RadioButton x:Name="radioRes12801024" Content="" Margin="0,61.946,63.5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right" Width="13.5" Height="17.96" GroupName="resolution"/>
-                <TextBlock x:Name="textBlock1_Copy" Margin="34.5,42.973,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="640x480" d:LayoutOverrides="VerticalAlignment, Width" Width="70" HorizontalAlignment="Left"/>
-                <TextBlock x:Name="textBlock1_Copy1" Margin="104.5,42.973,105.5,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="1024x768" Width="70" d:LayoutOverrides="VerticalAlignment"/>
-                <TextBlock x:Name="textBlock1_Copy2" Margin="0,42.973,35.5,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="18.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="1280x1024" Width="70" HorizontalAlignment="Right" d:LayoutOverrides="VerticalAlignment, Width"/>
-                <common:CustomButton x:Name="btnApplyGraphicChanges" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="20" Width="95" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Content="Zastosuj"/>
-            </Grid>
-            <Grid x:Name="gridGame" Margin="0,0.5,-1,-0.5" Background="#FF8A4A27" Height="290" Width="272" HorizontalAlignment="Right" d:LayoutOverrides="Width" Visibility="Hidden">
-                <TextBlock x:Name="textBlock2" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Nazwa użytkownika"/>
-                <TextBox x:Name="textBox" Height="23" Margin="76,44.973,76,0" TextWrapping="Wrap" Text="Użytkownik" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" TextAlignment="Center" BorderBrush="{x:Null}" Background="#FFE4B57B" Foreground="#FF492412"/>
-                <common:CustomButton Width="95" Height="20" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" FontSize="12" Content="Zmień"></common:CustomButton>
-            </Grid>
-            <local:UpdatePanel x:Name="gridUpdate" HorizontalAlignment="Right" Margin="0,0.5,-1,-0.5" Width="272"  Height="290" Visibility="Visible"></local:UpdatePanel>
-        </Grid>
         <common:CustomButton x:Name="mainButton" HorizontalAlignment="Left" Margin="-130,0,0,20" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" Content="POWRÓT" FontSize="16" Click="mainButton_Click"></common:CustomButton>
+        <TabControl x:Name="tabControl" Width="544" TabStripPlacement="Left" HorizontalAlignment="Center" VerticalAlignment="Center" Height="313" Background="Transparent">
+            <TabItem Header="Dźwięk" Background="#FF492412" Foreground="#FFE4B57B" FontSize="30" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar">
+                <Grid Background="#FF8A4A27" Margin="0,0,0,0" >
+                    <TextBlock x:Name="textBlock" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B"><Run Text="Głośność muzyki"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="textBlock_Copy" Margin="0,94.973,0,0" TextWrapping="Wrap" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" TextAlignment="Center" Height="28.92" VerticalAlignment="Top" Foreground="#FFE4B57B"><Run Text="Głośność dźwięku"/><LineBreak/><Run/></TextBlock>
+                    <Slider x:Name="musicSlider" VerticalAlignment="Top" Width="200" Foreground="#00E5E5E5" Value="50" Background="Transparent" Maximum="100" ValueChanged="musicSlider_ValueChanged" HorizontalAlignment="Center" Margin="30,40,27,0"/>
+                    <Slider x:Name="soundSlider" VerticalAlignment="Top" Width="200" Value="50" Maximum="100" ValueChanged="soundSlider_ValueChanged" Margin="30,124,27,0" HorizontalAlignment="Center"/>
+                    <TextBlock x:Name="musicValueTextBlock" Margin="0,57.973,0,0" TextWrapping="Wrap" Text="50%" VerticalAlignment="Top" d:LayoutOverrides="Width" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B"/>
+                    <TextBlock x:Name="soundValueTextBlock" Margin="0,141.893,0,135.807" TextWrapping="Wrap" Text="50%" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B" d:LayoutOverrides="Width, Height"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="GRAFIKA" Background="#FF492412" Foreground="#FFE4B57B" FontSize="30" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar">
+                <Grid Margin="0,0,0,0" Background="#FF8A4A27">
+                    <RadioButton x:Name="radioRes12801024" Foreground="#FFE4B57B" Content="640 x 480" Width="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GroupName="resolution" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="57,52,51,0"/>
+                    <RadioButton x:Name="radioRes1024768" Foreground="#FFE4B57B" Content="1024 x 768" Width="Auto" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" GroupName="resolution"  HorizontalAlignment="Center" Margin="57,156,45,0"/>
+                    <RadioButton x:Name="radioRes640480" Foreground="#FFE4B57B" Content="1280 x 1024" Width="Auto" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="Auto" GroupName="resolution" HorizontalAlignment="Center" Margin="51,104,35,0"/>
+                    <common:CustomButton x:Name="btnApplyGrapnges" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="20" Width="95" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Content="Zastosuj"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="GRA" Background="#FF492412" Foreground="#FFE4B57B" FontSize="30" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar">
+                <Grid Margin="0,0,0,0" Background="#FF8A4A27">
+                    <TextBlock x:Name="textBlock2" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="18" d:LayoutOverrides="VerticalAlignment" Height="29.973" TextAlignment="Center" Foreground="#FFE4B57B" Text="Nazwa użytkownika"/>
+                    <TextBox x:Name="textBox" Width="180" Height="Auto" Margin="0,45,0,0" FontSize="12" TextWrapping="Wrap" Text="Użytkownik" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" TextAlignment="Center" BorderBrush="{x:Null}" Background="#FFE4B57B" Foreground="#FF492412" HorizontalAlignment="Center"/>
+                    <common:CustomButton Width="95" Height="20" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" d:LayoutOverrides="Width, Height" FontSize="12" Content="Zmień"></common:CustomButton>
+                </Grid>
+            </TabItem>
+            <TabItem Header="AKTUALIZACJA" Background="#FF492412" Foreground="#FFE4B57B" FontSize="30" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar">
+                <local:UpdatePanel Margin="0,0,0,0"/>
+            </TabItem>
+        </TabControl>
     </Grid>
 </local:Scene>
