@@ -71,6 +71,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Web\CheckIfUpToDate.cs" />
     <Compile Include="Web\CustomFileCopier.cs" />
     <Compile Include="Web\DownloadInstaller.cs" />
     <Compile Include="Web\InstallUpdateModule.cs" />

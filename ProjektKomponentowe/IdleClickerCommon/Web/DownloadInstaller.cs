@@ -9,9 +9,11 @@ namespace IdleClickerCommon
     public class DownloadInstaller : IUpdaterAction
     {
         public event OnEndUpdateActionDelegate OnEndUpdateAction;
+        public event OnStartUpdateActionDelegate OnStartUpdateAction;
+
         public event OnProgressDelegate OnProgress1;
         public event OnProgressDelegate OnProgress2;
-        public event OnStartUpdateActionDelegate OnStartUpdateAction;
+        
 
         public UpdaterActionSetting GetSettings()
         {

@@ -137,6 +137,9 @@
     <Compile Include="Controls\ResourceInfo.xaml.cs">
       <DependentUpon>ResourceInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Loader\GameResource.cs" />
+    <Compile Include="Loader\Loader.cs" />
+    <Compile Include="Loader\ResourceList.cs" />
     <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,9 @@
     <Compile Include="Commons\SortLinkedList.cs" />
     <Compile Include="Scenes\IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scenes\LoaderScene.xaml.cs">
+      <DependentUpon>LoaderScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scenes\MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
@@ -258,6 +264,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Scenes\LoaderScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scenes\MainMenuScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -334,9 +344,13 @@
     <None Include="Resources\image02.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Music\test1.wav" />
-    <Content Include="Resources\Music\test2.wav" />
-    <Content Include="Resources\Music\test3.wav" />
+    <Content Include="Resources\Music\main_menu_slaby_end.mp3" />
+    <Content Include="Resources\Music\ognisko.mp3" />
+    <Content Include="Resources\Music\ptaki.mp3" />
+    <Content Include="Resources\Music\rybak.mp3" />
+    <Content Include="Resources\Music\tartak.mp3" />
+    <Content Include="Resources\Music\wyspa_soundtrack.mp3" />
+    <None Include="Resources\UpdaterName.png" />
     <Resource Include="Resources\VillageBackground.png" />
     <Resource Include="Resources\Images\food.png" />
     <Resource Include="Resources\Images\gold.png" />
@@ -355,7 +369,6 @@
     <Resource Include="Resources\Buildings\Tent.png" />
     <Resource Include="Resources\Buildings\Warehouse.png" />
     <Resource Include="Resources\Buildings\Woodshed.png" />
-    <Content Include="Resources\Music\bratanki.mp3" />
     <Content Include="Resources\Music\click_sound.wav" />
     <Resource Include="Resources\Fonts\OFL.txt" />
     <Resource Include="Resources\Images\main_menu_image.png" />

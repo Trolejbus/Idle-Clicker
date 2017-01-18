@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 namespace IdleClicker
 {
-    class Loader
+    /*class Loader
     {
 
         public static bool Loading { get; private set; }
@@ -35,6 +35,6 @@ namespace IdleClicker
                 }
             }
             System.Windows.Forms.MessageBox.Show(xml);
-        }*/
-    }
+        }
+    }*/
 }
