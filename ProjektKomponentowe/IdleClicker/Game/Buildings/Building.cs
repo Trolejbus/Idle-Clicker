@@ -22,6 +22,7 @@ namespace IdleClicker
         public List<Requirement> Requirements { get; }
         public BuildingType BuildingType { get; private set; }
         public List<BuildingInfo> BuildingInfos;
+        //public string SoundUrl { get; private set; }
 
 
         //public ImageSource IconSource { get; private set; }
@@ -41,6 +42,7 @@ namespace IdleClicker
             MaxLevel = maxLevel;
             BuildingType = buildingType;
             BuildingInfos = new List<BuildingInfo>();
+            //SoundUrl = soundURL;
         }
 
 

@@ -22,7 +22,8 @@ namespace IdleClicker
     {        
         public MainWindow()
         {
-            InitializeComponent();    
+            InitializeComponent();
+            this.KeyDown += MainWindow_KeyDown;   
         }
 
         /// <summary>
@@ -34,6 +35,32 @@ namespace IdleClicker
         {
             //AudioPlayer.StopMusic();
             //AudioPlayer.StopSound();
+        }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+
+                    UIElement ui = null;
+                    //((GameScene)sceneController.CurrentScene).canvas.Children.Add(btn);
+                    foreach (var item in ((GameScene)sceneController.CurrentScene).canvas.Children)
+                    {
+                        if (item.GetType() == typeof(TownHallPanel))
+                        {
+                            ui = (TownHallPanel)item;
+                        }
+                    }
+
+                    if (ui != null)
+                    { 
+                        ((GameScene)sceneController.CurrentScene).canvas.Children.Remove(ui);
+                    }
+                    
+                }
+            }
         }
     }
 }

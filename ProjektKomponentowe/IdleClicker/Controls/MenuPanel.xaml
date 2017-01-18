@@ -8,10 +8,10 @@
              mc:Ignorable="d" Width="150" Height="Auto">
     <Grid Margin="0,0" Background="#6E2617" Height="Auto">
         <StackPanel Margin="5,0,5,10" Background="#00000000" Height="Auto">
-            <common:CustomButton Content="Statystyki wioski" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <common:CustomButton Content="Dźwięk" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <common:CustomButton Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <common:CustomButton Content="Wczytaj grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="StatisticsButton" Content="Statystyki wioski" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="SoundButton"  Content="Dźwięk" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="saveGameButton" Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="loadGameButton" Content="Wczytaj grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
             <common:CustomButton x:Name="exitButton" Content="Wyjdź" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
 
         </StackPanel>

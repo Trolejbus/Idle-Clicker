@@ -36,7 +36,8 @@ namespace IdleClicker
                 sceneController.LoadScene(new MainMenuScene());
             };
             menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene()); };
-
+            menuPanel.SoundButton.Click += (o, i) => { canvas.Children.Add(new SoundPanel()); };
+            menuPanel.loadGameButton.Click += (o, i) => { canvas.Children.Add(new LoadGamePanel()); };
 
             //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
 
