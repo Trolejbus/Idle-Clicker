@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,23 +25,23 @@ namespace IdleClicker
     {
         public UpdatePanel()
         {
-            /*Program.OnVersionChange += Program_OnVersionChange;
-            Program.OnNewestVersionChange += Program_OnNewestVersionChange;
-            Program.OnChangeLogsChange += Program_OnChangeLogsChange;
-            Program.OnUpdateToVersionChange += Program_OnUpdateToVersionChange;
-
-
-            UpdateModule.OnStartUpdateAction += UpdateModule_OnStartUpdateAction;
-            UpdateModule.OnEndUpdateAction += UpdateModule_OnEndUpdateAction;
-            UpdateModule.OnStatusTextChanged += UpdateModule_OnStatusTextChanged;
-            
-
             InitializeComponent();
-            Program_OnNewestVersionChange(Program.NewestVersion);
-            Program_OnVersionChange(Program.Version);*/
+
+            IdleClickerCommon.Program.OnVersionChange += Program_OnVersionChange;
+            IdleClickerCommon.Program.OnNewestVersionChange += Program_OnNewestVersionChange;
+            IdleClickerCommon.Program.OnChangeLogsChange += Program_OnChangeLogsChange;
+            IdleClickerCommon.Program.OnUpdateToVersionChange += Program_OnUpdateToVersionChange;
+
+            IdleClickerCommon.UpdateModule.OnStatusTextChanged += UpdateModule_OnStatusTextChanged;
+            
+            Program_OnNewestVersionChange(IdleClickerCommon.Program.NewestVersion);
+            Program_OnVersionChange(IdleClickerCommon.Program.Version);
+
+            if (IdleClickerCommon.Program.NewestVersion != null && IdleClickerCommon.Program.Version != null)
+                DownloadButton.Visibility = IdleClickerCommon.Program.NewestVersion.CompareTo(IdleClickerCommon.Program.Version) > 0 ? Visibility.Visible : Visibility.Hidden;
         }
 
-        /*private void Program_OnUpdateToVersionChange(ProgramVersion newVersion)
+        private void Program_OnUpdateToVersionChange(IdleClickerCommon.ProgramVersion newVersion)
         {
             if (!CheckAccess())
             {
@@ -50,7 +51,7 @@ namespace IdleClicker
 
             updateToButton.Visibility = Visibility.Visible;
             updateToButton.Content = "Zaktualizuj do " + newVersion;
-        }*/
+        }
 
         private void Program_OnChangeLogsChange(string changeLogs)
         {
@@ -97,7 +98,7 @@ namespace IdleClicker
             updateProgressBar.IsIndeterminate = true;
         }
 
-        /*private void Program_OnNewestVersionChange(ProgramVersion newestVersion)
+        private void Program_OnNewestVersionChange(IdleClickerCommon.ProgramVersion newestVersion)
         {
             if (!CheckAccess())
             {
@@ -106,11 +107,13 @@ namespace IdleClicker
             }
 
             string newestVersionValue = newestVersion == null ? "Nie sprawdzono" : newestVersion.ToString();
+            if(newestVersion != null && IdleClickerCommon.Program.Version != null)
+                DownloadButton.Visibility = newestVersion.CompareTo(IdleClickerCommon.Program.Version) > 0 ? Visibility.Visible : Visibility.Hidden; 
 
             NewestVersionTextBlock.Text = "Aktualna wersja: " + newestVersionValue;
         }
 
-        private void Program_OnVersionChange(ProgramVersion version)
+        private void Program_OnVersionChange(IdleClickerCommon.ProgramVersion version)
         {
             if (!CheckAccess())
             {
@@ -119,20 +122,18 @@ namespace IdleClicker
             }
 
             VersionTextBlock.Text = "Wersja programu: " + version;
-        }*/
+        }
 
         private async void mainButton_Click(object sender, RoutedEventArgs e)
         {
-            /*Task checkIfUpToDateTask = new Task( () => UpdateModule.CheckIfUpToDate());
+            Task checkIfUpToDateTask = new Task( () => IdleClickerCommon.UpdateModule.CheckIfUpToDate());
             checkIfUpToDateTask.Start();
-            await checkIfUpToDateTask;*/
+            await checkIfUpToDateTask;
         }
 
-        private async void mainButton_Click_1(object sender, RoutedEventArgs e)
+        private void mainButton_Click_1(object sender, RoutedEventArgs e)
         {
-            /*Task upToDateTask = new Task(() => UpdateModule.UpToDate());
-            upToDateTask.Start();
-            await upToDateTask;*/
+            Process.Start(System.IO.Path.GetDirectoryName(Application.ResourceAssembly.Location) + @"\IdleClicker Updater.exe","-a");
         }
     }
 }

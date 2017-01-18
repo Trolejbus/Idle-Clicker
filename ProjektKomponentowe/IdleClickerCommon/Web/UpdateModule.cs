@@ -12,10 +12,12 @@ using System.Net;
 namespace IdleClickerCommon
 {
     public delegate void OnStatusTextChangedDelegate(string newStatusText, bool isError);
+   
 
     public static class UpdateModule
     {
         private static string statusText;
+
 
         public static event OnStatusTextChangedDelegate OnStatusTextChanged;
         
@@ -60,18 +62,14 @@ namespace IdleClickerCommon
 
         public static bool CheckIfInstalled()
         {
-            string path = Properties.Settings.Default.GamePath;
+            string path = Program.GamePath;
             bool check = CheckIfGameInPath(path);
             if(!check)
             {
                 path = Program.ApplicationExecutablePath;
                 check = CheckIfGameInPath(path);
-            }
-
-            if(check && Properties.Settings.Default.GamePath != path)
-            {
-                Properties.Settings.Default.GamePath = path;
-                Properties.Settings.Default.Save();
+                if (check)
+                    Program.GamePath = path;     
             }
 
             return check;
@@ -260,6 +258,7 @@ namespace IdleClickerCommon
                 WebClient webClient;
                 webClient = new WebClient();
                 string getStringTask = webClient.DownloadString("http://www.IdleClicker.hexcore.pl/FilesInfo/ChangeLogs.php");
+                Program.ChangeLogs = getStringTask;
                 //Task<string> getStringTask = webClient.GetStringAsync("http://localhost/IdleClicker/FilesInfo/ChangeLogs.php");
 
                 return getStringTask;

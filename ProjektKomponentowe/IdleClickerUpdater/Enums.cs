@@ -20,4 +20,9 @@ namespace IdleClickerUpdater
         DownloadInstaller = 4,
         EndInstalation = 5
     };
+
+    public enum UpdateState
+    {
+        CheckIfUpToDate = 1
+    };
 }

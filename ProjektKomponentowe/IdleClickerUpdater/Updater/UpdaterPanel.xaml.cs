@@ -40,6 +40,7 @@ namespace IdleClickerUpdater
             }
             else
             {
+                StartAction(new CheckIfUpToDate());
                 SetStartMode(UpdaterMode.Update);
             }
 
@@ -61,7 +62,7 @@ namespace IdleClickerUpdater
         {
             if(mode == UpdaterMode.Instalation)
             {
-                StartMode();
+                InstalationMode();
             }
             else if(mode == UpdaterMode.Update)
             {
@@ -69,7 +70,7 @@ namespace IdleClickerUpdater
             }
         }
 
-        private void StartMode(InstalationState step = InstalationState.Welcome)
+        private void InstalationMode(InstalationState step = InstalationState.Welcome)
         {
             HideAll();
 
@@ -98,9 +99,20 @@ namespace IdleClickerUpdater
             }
         }
 
-        private void UpdateMode()
+        private void UpdateMode(UpdateState step = UpdateState.CheckIfUpToDate)
         {
             HideAll();
+
+            switch (step)
+            {
+                case UpdateState.CheckIfUpToDate:
+                    ProgressHeaderTextBox.Text = "Sprawdzanie czy aktualne";
+                    ProgressStatusTextBox.Text = "";
+                    ProgressPanel.Visibility = Visibility.Visible;
+                    break;
+                default:
+                    break;
+            }
         }
 
 
@@ -117,7 +129,7 @@ namespace IdleClickerUpdater
 
         private void customButton_Click(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.SelectPath);
+            InstalationMode(InstalationState.SelectPath);
         }
 
         private void image_MouseDown(object sender, MouseButtonEventArgs e)
@@ -138,27 +150,27 @@ namespace IdleClickerUpdater
 
         private void customButton2_Copy_Click(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.Welcome);
+            InstalationMode(InstalationState.Welcome);
         }
 
         private void customButton2_Click(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.SelectPath);
+            InstalationMode(InstalationState.SelectPath);
         }
 
         private void customButton2_Copy1_Click(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.SelectPath);
+            InstalationMode(InstalationState.SelectPath);
         }
 
         private void customButton2_Click_1(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.Options);
+            InstalationMode(InstalationState.Options);
         }
 
         private void customButton1_Click(object sender, RoutedEventArgs e)
         {
-            StartMode(InstalationState.DownloadInstaller);
+            InstalationMode(InstalationState.DownloadInstaller);
             StartAction(new DownloadInstaller());
         }
 
@@ -188,7 +200,7 @@ namespace IdleClickerUpdater
                 return;
             }
 
-            StartMode(InstalationState.EndInstalation);
+            InstalationMode(InstalationState.EndInstalation);
         }
 
         /*InstallUpdateModule ium = new InstallUpdateModule();
