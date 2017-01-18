@@ -137,6 +137,9 @@
     <Compile Include="Controls\ResourceInfo.xaml.cs">
       <DependentUpon>ResourceInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Loader\GameResource.cs" />
+    <Compile Include="Loader\Loader.cs" />
+    <Compile Include="Loader\ResourceList.cs" />
     <Compile Include="Scenes\AuthorsScene.xaml.cs">
       <DependentUpon>AuthorsScene.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,9 @@
     <Compile Include="Commons\SortLinkedList.cs" />
     <Compile Include="Scenes\IntroScene.xaml.cs">
       <DependentUpon>IntroScene.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Scenes\LoaderScene.xaml.cs">
+      <DependentUpon>LoaderScene.xaml</DependentUpon>
     </Compile>
     <Compile Include="Scenes\MainMenuScene.xaml.cs">
       <DependentUpon>MainMenuScene.xaml</DependentUpon>
@@ -258,6 +264,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Scenes\LoaderScene.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Scenes\MainMenuScene.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -337,6 +347,7 @@
     <Content Include="Resources\Music\test1.wav" />
     <Content Include="Resources\Music\test2.wav" />
     <Content Include="Resources\Music\test3.wav" />
+    <None Include="Resources\UpdaterName.png" />
     <Resource Include="Resources\VillageBackground.png" />
     <Resource Include="Resources\Images\food.png" />
     <Resource Include="Resources\Images\gold.png" />

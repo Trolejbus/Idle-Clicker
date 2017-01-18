@@ -9,15 +9,25 @@
              d:DesignHeight="290" d:DesignWidth="272"
              Background="#FF8A4A27">
     <Grid x:Name="gridUpdate">
-        <TextBlock x:Name="NewestVersionTextBlock" Margin="10,59,-10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B" Text="Najnowsza wersja: Nie sprawdzono"/>
         <TextBlock x:Name="textBlock4" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="25" Height="40" TextAlignment="Center" Foreground="#FFE4B57B"><Run Text="Aktualizacja"/></TextBlock>
-        <common:CustomButton Height="20" FontSize="12" Content="Sprawdź aktualizacje" Margin="10,0,0,48" VerticalAlignment="Bottom" Click="mainButton_Click" HorizontalAlignment="Left" Width="121"/>
+
+        <TextBlock x:Name="NewestVersionTextBlock" Margin="10,59,-10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B" Text="Najnowsza wersja: Nie sprawdzono"/>
+        <TextBlock x:Name="VersionTextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B" Text="Wersja programu: 1.0" Margin="10,38,0,0" HorizontalAlignment="Left" Width="121"/>
+
         <TextBlock x:Name="textBlock3_Copy1" Margin="10,80,10,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="12" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B"><Run Text="Zmiany:"/></TextBlock>
         <ProgressBar x:Name="updateProgressBar" Height="10" Margin="10,0,10,10" VerticalAlignment="Bottom" IsIndeterminate="False"/>
-        <common:CustomButton Width="130" Height="20" FontSize="12" Content="Pobierz aktualizacje" HorizontalAlignment="Right" Margin="0,0,11,48" VerticalAlignment="Bottom" Click="mainButton_Click_1"/>
-        <TextBlock x:Name="updateState" Margin="10,0,11,20" TextWrapping="Wrap" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B" Text="" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="VersionTextBlock" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" Height="Auto" TextAlignment="Left" Foreground="#FFE4B57B" Text="Wersja programu: 1.0" Margin="10,38,0,0" HorizontalAlignment="Left" Width="121"/>
-        <TextBox x:Name="changeLogTextBox" Background="#FFE4B57B" Margin="10,100,10,70" TextWrapping="Wrap" IsReadOnly="True"/>
+
+        <Grid Height="20" Margin="10,10,10,48" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="50*"/>
+            </Grid.ColumnDefinitions>
+            <common:CustomButton Height="20" FontSize="12" Content="Sprawdź aktualizacje" Click="mainButton_Click" Width="Auto" Margin="0,0,1,0" VerticalAlignment="Top"/>
+            <common:CustomButton x:Name="DownloadButton" Width="Auto" Height="Auto" FontSize="12" Content="Pobierz Aktualizacje" Margin="1,0,0,0" Click="mainButton_Click_1" Grid.Column="2"/>
+        </Grid>
+
+        <TextBlock x:Name="updateState" Margin="10,0,11,20" TextWrapping="Wrap" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar" FontSize="10" TextAlignment="Center" Foreground="#FFE4B57B" VerticalAlignment="Bottom" />
+        <TextBox x:Name="changeLogTextBox" Background="#FFE4B57B" FontSize="10" Margin="10,100,10,70" TextWrapping="Wrap" IsReadOnly="True"/>
         <common:CustomButton x:Name="updateToButton" Content="Zaktualizuj do " HorizontalAlignment="Left" Margin="131,38,0,0" VerticalAlignment="Top" Width="130" Visibility="Hidden"/>
     </Grid>
 </UserControl>

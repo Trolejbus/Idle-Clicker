@@ -6,42 +6,27 @@ using System.Threading.Tasks;
 
 namespace IdleClickerCommon
 {
-    public class DownloadInstaller : IUpdaterAction
+    class CheckIfUpToDate : IUpdaterAction
     {
         public event OnEndUpdateActionDelegate OnEndUpdateAction;
-        public event OnStartUpdateActionDelegate OnStartUpdateAction;
-
         public event OnProgressDelegate OnProgress1;
         public event OnProgressDelegate OnProgress2;
-        
+        public event OnStartUpdateActionDelegate OnStartUpdateAction;
 
         public UpdaterActionSetting GetSettings()
         {
             return new UpdaterActionSetting()
             {
                 Progress1IsIndeterminate = true,
-                Progress1Visible = true,
+                Progress1Visible = false,
+                Progress2IsIndeterminate = false,
                 Progress2Visible = false
             };
         }
 
         public void Start(string destination)
         {
-            try
-            {
-                if (OnStartUpdateAction != null)
-                    OnStartUpdateAction();
-                UpdateModule.DownloadInstallFile(destination);
-            }
-            catch(Exception e)
-            {
-
-            }
-            finally
-            {
-                if (OnEndUpdateAction != null)
-                    OnEndUpdateAction();
-            }
+            throw new NotImplementedException();
         }
     }
 }

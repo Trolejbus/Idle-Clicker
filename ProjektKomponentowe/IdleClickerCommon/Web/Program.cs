@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,6 +17,18 @@ namespace IdleClickerCommon
         private static ProgramVersion updateToVersion;
         private static ProgramVersion newestVersion;
         private static string changeLogs;
+
+        public static string GamePath
+        {
+            get
+            {
+                return Registry.GetValue(@"HKEY_CURRENT_USER\SOFTWARE\MedaIdleClicker", "GamePath", "").ToString();
+            }
+            set
+            {
+                Registry.SetValue(@"HKEY_CURRENT_USER\SOFTWARE\MedaIdleClicker", "GamePath", value);
+            }
+        }
 
         private static string webSite = @"http://www.IdleClicker.hexcore.pl";
         //private static string webSite = @"http://localhost/IdleClicker";

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace IdleClickerCommon.Properties {
+namespace IdleClicker.Properties {
     using System;
     
     
@@ -57,6 +57,16 @@ namespace IdleClickerCommon.Properties {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdaterName {
+            get {
+                object obj = ResourceManager.GetObject("UpdaterName", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
