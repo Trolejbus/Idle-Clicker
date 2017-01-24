@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" Width="250" Height="150">
     <Grid Width="250" Height="150">
-        <TextBox x:Name="textBox" Height="23" Margin="0" TextWrapping="Wrap" Text="Tu wpisz komendę" VerticalAlignment="Bottom" Background="#FFE4B57B" Foreground="#FF492412" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
+        <TextBox x:Name="textBox" Height="23" Margin="0" TextWrapping="Wrap" VerticalAlignment="Bottom" Background="#FFE4B57B" Foreground="#FF492412" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
         <ListBox x:Name="listBox" Margin="0" Width="250" Height="127" VerticalAlignment="Top" Background="#FF8A4A27" Foreground="#FF492412" FontFamily="/IdleClicker;component/Resources/Fonts/#Eczar"/>
     </Grid>
 </UserControl>

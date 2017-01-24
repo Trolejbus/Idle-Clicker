@@ -14,14 +14,14 @@
                 <ImageBrush ImageSource="/IdleClicker;component/Resources/Images/VillageBackground.png"/>
             </Grid.Background>
             <local:BuildingsLayer x:Name="buildingsLayer"/>
-            <local:Night Width="Auto" Height="Auto" Grid.ColumnSpan="2" IsHitTestVisible="False"></local:Night>
+            <local:Night Width="Auto" Height="Auto" Grid.ColumnSpan="2" IsHitTestVisible="False" ></local:Night>
 
             <Canvas x:Name="canvas" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-            <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
-            <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>
-            <local:Console x:Name="console" Canvas.Left="0" Canvas.Bottom="0"></local:Console>
-            <local:BuildingsPanel x:Name="buildPanel" Canvas.Left="0" Canvas.Top="75" Visibility="Collapsed"></local:BuildingsPanel>
-            <local:SoundPanel />
+                <local:SimpleMoveableControl HorizontalAlignment="Left" Height="143" Margin="0,0,0,0" VerticalAlignment="Top" Width="143"/>
+                <local:MenuPanel x:Name="menuPanel" Canvas.Right="0" Canvas.Top="0" Visibility="Collapsed" Panel.ZIndex="1000"></local:MenuPanel>
+                <local:Console x:Name="console" Canvas.Left="0" Canvas.Bottom="0" Visibility="Hidden"></local:Console>
+                <local:BuildingsPanel x:Name="buildPanel" Canvas.Left="0" Canvas.Top="75" Visibility="Collapsed"></local:BuildingsPanel>
+                <local:SoundPanel />
             </Canvas>
             <local:BuildingButton x:Name="buildButton" Margin="0,0,26,26" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Column="1"/>
             <!--<local:ArcPanel HorizontalAlignment="Right" Height="100" Margin="0,0,48,79" VerticalAlignment="Bottom" Width="100"/>

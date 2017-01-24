@@ -61,6 +61,42 @@ namespace IdleClicker
                     
                 }
             }
+            if (e.Key == Key.F4 )
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+                    if (((GameScene)sceneController.CurrentScene).console.Visibility == Visibility.Hidden)
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.Visibility = Visibility.Hidden;
+                    }
+                }
+            }
+
+            if (e.Key == Key.Enter)
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+                    if (((GameScene)sceneController.CurrentScene).console.Visibility == Visibility.Visible)
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.listBox.Items.Add(((GameScene)sceneController.CurrentScene).console.textBox.Text);
+                        string command = ((GameScene)sceneController.CurrentScene).console.textBox.Text;
+                        ((GameScene)sceneController.CurrentScene).console.textBox.Text = "";
+                        var splittedCommand = command.Split(' ');
+
+                        if (splittedCommand[0] == "sv_timeinterval")
+                        {
+                            GameEngine.GameTimer.Interval = Convert.ToInt32(splittedCommand[1]);
+                        }
+
+                    }
+                }
+            }
+
+
         }
     }
 }

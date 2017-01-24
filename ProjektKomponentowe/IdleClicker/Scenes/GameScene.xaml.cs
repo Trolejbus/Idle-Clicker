@@ -202,5 +202,11 @@ namespace IdleClicker
             base.Close();
         }
 
+        private void buttonEnter_Click(object sender, RoutedEventArgs e)
+        {
+            this.console.listBox.Items.Add(this.console.textBox.Text);
+            this.console.textBox.Text = "";
+
+        }
     }
 }
