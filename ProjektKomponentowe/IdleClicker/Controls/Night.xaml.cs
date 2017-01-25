@@ -41,6 +41,8 @@ namespace IdleClicker
                     this.nightEffectGrid.Opacity -= 0.04;
                 }
             }
+
+            GameEngine.GameTimer.NightState = this.nightEffectGrid.Opacity;
         }
     }
 }

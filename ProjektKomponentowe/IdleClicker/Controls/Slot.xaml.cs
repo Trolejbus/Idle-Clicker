@@ -24,6 +24,15 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        public void AssignSlot(Game game)
+        {
+            slotName.Text = game.VillageType;
+            slotDate.Text = game.CreatedDate.ToString("hh:mm:ss dd.MM.yyyy");
+            slotPoints.Text = "Punkty: " + game.Points;
+
+        }
+
         private void SlotMouseEnter(object sender, MouseEventArgs e)
         {
             Slot slot = sender as Slot;

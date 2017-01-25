@@ -26,6 +26,7 @@ namespace IdleClicker
             InitializeComponent();
             this.building = building;
             this.building.OnChangeLevel += UpdateState;
+            Visibility = (building.Level > 0) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public void SetPosition(int x, int y)

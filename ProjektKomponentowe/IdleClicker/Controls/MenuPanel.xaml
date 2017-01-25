@@ -10,9 +10,9 @@
         <StackPanel Margin="5,0,5,10" Background="#00000000" Height="Auto">
             <common:CustomButton Content="Statystyki wioski" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
             <common:CustomButton Content="Dźwięk" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <common:CustomButton Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton Content="Zapisz grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1" Click="CustomButton_Click"/>
             <common:CustomButton Content="Wczytaj grę" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
-            <common:CustomButton x:Name="exitButton" Content="Wyjdź" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1"/>
+            <common:CustomButton x:Name="exitButton" Content="Wyjdź" Margin="0,5,0,0" HorizontalContentAlignment="Right" Padding="1,1,5,1" Click="exitButton_Click"/>
 
         </StackPanel>
 

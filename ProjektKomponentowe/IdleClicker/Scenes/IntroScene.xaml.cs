@@ -26,6 +26,7 @@ namespace IdleClicker
         public IntroScene()
         {
             InitializeComponent();
+            
             mediaElement.Source = new Uri(Config.ApplicationExecutablePath + @"\data\Intro.avi");
             mediaElement.MediaEnded += MediaElement_MediaEnded;
         }

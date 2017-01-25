@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="Web\CheckIfUpToDate.cs" />
     <Compile Include="Web\CustomFileCopier.cs" />
+    <Compile Include="Web\DownloadUpdate.cs" />
     <Compile Include="Web\DownloadInstaller.cs" />
     <Compile Include="Web\InstallUpdateModule.cs" />
     <Compile Include="Web\IUpdaterAction.cs" />

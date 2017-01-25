@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using IdleClickerCommon;
 using Microsoft.Win32;
 using System.IO;
+using System.Timers;
+using System.Diagnostics;
 
 namespace IdleClickerUpdater
 {
@@ -28,6 +30,10 @@ namespace IdleClickerUpdater
         string downloadInitialPath = Program.ApplicationExecutablePath;
         string installProgram = @"Idle Clicker Install.exe";
         string downloadPath;
+        UpdaterMode mode;
+        Timer timer = new Timer();
+        InstalationState InstalationStep;
+        UpdateState UpdateStep;
 
         public UpdaterPanel()
         {
@@ -39,12 +45,22 @@ namespace IdleClickerUpdater
                 SetStartMode(UpdaterMode.Instalation);
             }
             else
-            {
-                StartAction(new CheckIfUpToDate());
+            {               
                 SetStartMode(UpdaterMode.Update);
             }
 
             downloadPath = downloadInitialPath;
+            timer.Interval = 1000;
+            timer.Elapsed += Timer_Elapsed;
+        }
+
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (!UpdateModule.CheckIfGameRunning())
+            {
+                UpdateMode(UpdateState.DownloadUpdate);
+                timer.Enabled = false;
+            }
         }
 
         private void UpdateModule_OnStatusTextChanged(string newStatusText, bool isError)
@@ -60,7 +76,9 @@ namespace IdleClickerUpdater
 
         private void SetStartMode(UpdaterMode mode)
         {
-            if(mode == UpdaterMode.Instalation)
+            this.mode = mode;
+
+            if (mode == UpdaterMode.Instalation)
             {
                 InstalationMode();
             }
@@ -73,6 +91,7 @@ namespace IdleClickerUpdater
         private void InstalationMode(InstalationState step = InstalationState.Welcome)
         {
             HideAll();
+            InstalationStep = step;
 
             switch (step)
             {
@@ -101,14 +120,39 @@ namespace IdleClickerUpdater
 
         private void UpdateMode(UpdateState step = UpdateState.CheckIfUpToDate)
         {
-            HideAll();
+            UpdateStep = step;
+
+            if (!CheckAccess())
+            {
+                Dispatcher.Invoke(() => UpdateMode(step));
+                return;
+            }
 
             switch (step)
             {
                 case UpdateState.CheckIfUpToDate:
+                    HideAll();
+                    StartAction(new CheckIfUpToDate());
                     ProgressHeaderTextBox.Text = "Sprawdzanie czy aktualne";
                     ProgressStatusTextBox.Text = "";
                     ProgressPanel.Visibility = Visibility.Visible;
+                    break;
+                case UpdateState.UpdateNotAvailable:
+                    HideAll();
+                    UpdatePanel1.Visibility = Visibility.Visible;
+                    break;
+                case UpdateState.CheckIfRunning:
+                    HideAll();
+                    UpdatePanel2.Visibility = Visibility.Visible;
+                    timer.Enabled = true;
+                    break;
+                case UpdateState.DownloadUpdate:
+                    HideAll();
+                    ProgressPanel.Visibility = Visibility.Visible;
+                    StartAction(new DownloadUpdate());
+                    break;
+                case UpdateState.UpdateEnd:
+                    HideAll();
                     break;
                 default:
                     break;
@@ -118,6 +162,12 @@ namespace IdleClickerUpdater
 
         private void HideAll()
         {
+            if (!CheckAccess())
+            {
+                Dispatcher.Invoke(() => HideAll());
+                return;
+            }
+
             foreach (FrameworkElement item in grid.Children)
             {
                 if(item.Tag is String && ((String)item.Tag) == "ToHide")
@@ -200,7 +250,33 @@ namespace IdleClickerUpdater
                 return;
             }
 
-            InstalationMode(InstalationState.EndInstalation);
+            if (mode == UpdaterMode.Instalation)
+            {
+                InstalationMode(InstalationState.EndInstalation);
+            }
+            else if(mode == UpdaterMode.Update)
+            {
+                if (UpdateState.CheckIfUpToDate == UpdateStep)
+                {
+                    if (Program.NewestVersion.CompareTo(Program.Version) > 0)
+                    {
+                        if (UpdateModule.CheckIfGameRunning())
+                        {
+                            UpdateMode(UpdateState.CheckIfRunning);
+                        }
+                        else
+                        {
+                            UpdateMode(UpdateState.DownloadUpdate);
+                        }
+                    }
+                    else
+                        UpdateMode(UpdateState.UpdateNotAvailable);
+                }
+                else if (UpdateState.DownloadUpdate == UpdateStep)
+                {
+                    UpdateMode(UpdateState.UpdateEnd);
+                }
+            }
         }
 
         /*InstallUpdateModule ium = new InstallUpdateModule();
@@ -240,6 +316,12 @@ namespace IdleClickerUpdater
         private void customButton3_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start(downloadPath + @"\IdleClicker Installer.exe");
+            Application.Current.Shutdown();
+        }
+
+        private void customButton4_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(Program.GamePath + @"\IdleClicker.exe");
             Application.Current.Shutdown();
         }
     }

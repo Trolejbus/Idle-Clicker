@@ -24,5 +24,19 @@ namespace IdleClicker
         {
             InitializeComponent();
         }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            AudioPlayer.StopMusic();
+            AudioPlayer.RemoveAllMusic();
+            AudioPlayer.AddMusic("Resources/Music/main_menu_slaby_end.mp3");
+            AudioPlayer.PlayMusic();
+            ((MainWindow)Application.Current.MainWindow).sceneController.LoadScene(new MainMenuScene());
+        }
+
+        private void CustomButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameEngine.Game.Save();
+        }
     }
 }

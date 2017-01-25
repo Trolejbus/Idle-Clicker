@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Xml;
 
 namespace IdleClicker
 {
@@ -43,6 +44,21 @@ namespace IdleClicker
             BuildingInfos = new List<BuildingInfo>();
         }
 
+        public void ToXml(XmlWriter w)
+        {
+            w.WriteStartElement("Building");
+            w.WriteAttributeString("Key", Key);
+            w.WriteAttributeString("Level", Level.ToString());
+            w.WriteEndElement();
+        }
+
+        public void FromXml(XmlNode root)
+        {
+            for (int i = 0; i < Convert.ToInt32(root.Attributes["Level"].Value); i++)
+            {
+                Build(true);
+            }
+        }
 
         public void AddBuildingInfo(string key, string label, string value)
         {
@@ -125,10 +141,11 @@ namespace IdleClicker
             return IconSource;
         }
 
-        public bool Build()
+        public bool Build(bool forceBuild = false)
         {
             if (MaxLevel != -1 && Level >= MaxLevel) return false;
 
+            if(!forceBuild)
             foreach (Requirement item in Requirements)
             {
                 if (!item.CheckIfCompleted()) return false;
@@ -137,13 +154,17 @@ namespace IdleClicker
             Level++;
             for (int i = 0; i < Requirements.Count; i++)
             {
-                if (Requirements[i].requiredObject is IReducible)
-                    ((IReducible)Requirements[i].requiredObject).ReduceMaterial(Requirements[i].RequireValue);
+                if (!forceBuild)
+                {
+                    if (Requirements[i].requiredObject is IReducible)
+                        ((IReducible)Requirements[i].requiredObject).ReduceMaterial(Requirements[i].RequireValue);
+                }
 
                 Requirements[i].UpdateToLevel(Level, Requirements[i].RequireValue);
             }
             
-            OnChangeLevel(Level);
+            if(OnChangeLevel != null)
+                OnChangeLevel(Level);
             bonusList.Execute(Level);
             return true;
         }

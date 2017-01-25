@@ -23,14 +23,43 @@ namespace IdleClicker
         public SlotScene()
         {
             InitializeComponent();
+            GameLoader.LoadGames();
+
+            foreach (Game item in GameLoader.games)
+            {
+                CreateSlotPanel(item);
+            }
         }
 
         private void mainButton_Click(object sender, RoutedEventArgs e)
         {
+            Game game = new Game();
+            GameLoader.games.Add(game);
+            CreateSlotPanel(game);
+        }
+
+        private void CreateSlotPanel(Game game)
+        {
             Slot newSlot = new IdleClicker.Slot();
             newSlot.Margin = new Thickness(0, 10, 0, 0);
+            newSlot.AssignSlot(game);
+            newSlot.Tag = game;
+            newSlot.MouseLeftButtonUp += NewSlot_MouseLeftButtonUp;
             stackPanel.Children.Insert(stackPanel.Children.Count - 1, newSlot);
             scrollviewer.ScrollToEnd();
+        }
+
+        private void NewSlot_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            GameEngine.Game = (Game)((Control)sender).Tag;
+            GameEngine.GameTimer.GameDate = GameEngine.Game.GameDate;
+            GameScene gameScene = new GameScene();      
+            sceneController.LoadScene(gameScene);
+        }
+
+        private void CustomButton_Click(object sender, RoutedEventArgs e)
+        {
+            sceneController.LoadScene(new MainMenuScene());
         }
     }
 }

@@ -23,6 +23,10 @@ namespace IdleClickerUpdater
 
     public enum UpdateState
     {
-        CheckIfUpToDate = 1
+        CheckIfUpToDate = 1,
+        DownloadUpdate = 2,
+        CheckIfRunning = 3,
+        UpdateNotAvailable = 4,
+        UpdateEnd = 5
     };
 }

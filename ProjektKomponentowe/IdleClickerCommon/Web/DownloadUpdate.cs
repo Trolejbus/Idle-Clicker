@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace IdleClickerCommon
 {
-    public class CheckIfUpToDate : IUpdaterAction
+    public class DownloadUpdate : IUpdaterAction
     {
         public event OnEndUpdateActionDelegate OnEndUpdateAction;
-        public event OnProgressDelegate OnProgress1;
-        public event OnProgressDelegate OnProgress2;
         public event OnStartUpdateActionDelegate OnStartUpdateAction;
 
+        public event OnProgressDelegate OnProgress1;
+        public event OnProgressDelegate OnProgress2;
+        
         public UpdaterActionSetting GetSettings()
         {
             return new UpdaterActionSetting()
             {
-                Progress1IsIndeterminate = false,
-                Progress1Visible = false,
-                Progress2IsIndeterminate = true,
-                Progress2Visible = true
+                Progress1IsIndeterminate = true,
+                Progress1Visible = true,
+                Progress2Visible = false
             };
         }
 
@@ -30,9 +30,9 @@ namespace IdleClickerCommon
             {
                 if (OnStartUpdateAction != null)
                     OnStartUpdateAction();
-                UpdateModule.CheckIfUpToDate();
+                UpdateModule.UpToDate();
             }
-            catch (Exception e)
+            catch(Exception e)
             {
 
             }

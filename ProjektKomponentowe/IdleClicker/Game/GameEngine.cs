@@ -26,6 +26,8 @@ namespace IdleClicker
 
         public static ListOfMaterials listOfMaterials;
 
+        public static Game Game { get; set; }
+
         /// <summary>
         /// Konstruktor klasy
         /// </summary>

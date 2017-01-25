@@ -11,7 +11,7 @@ namespace IdleClicker
     {
         protected DispatcherTimer gameTimer = new DispatcherTimer();
         bool enabled;
-        public DateTime GameDate { get; private set; }
+        public DateTime GameDate { get; set; }
         int counterToIncreaseOpacity = 0;
 
         /// <summary>
@@ -20,9 +20,11 @@ namespace IdleClicker
         public event OnTickDelegate OnTick;
         public event ChangeOnNightDelegate CheckOnNight;
 
+        public double NightState { get; set; }
+
         public GameTimer()
         {
-            GameDate = new DateTime(1, 1, 1, 8, 0, 0);
+            NightState = 0;
             gameTimer.Tick += GameTimer_Tick;
             gameTimer.Tick += CheckTimeOfDay;
         }

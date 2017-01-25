@@ -43,7 +43,7 @@
             <IdleClickerCommon:CustomButton x:Name="customButton2_Copy1" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="Poprzedni krok" Click="customButton2_Copy1_Click"/>
         </Grid>
 
-        <Grid x:Name="ProgressPanel" Tag="ToHide" Margin="0,0,10,10" HorizontalAlignment="Right" Width="500" Height="150" VerticalAlignment="Bottom">
+        <Grid x:Name="ProgressPanel" Tag="ToHide" Margin="0,0,10,10" HorizontalAlignment="Right" Width="500" Height="150" VerticalAlignment="Bottom" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
             </Grid.Background>
@@ -53,7 +53,7 @@
             <TextBlock x:Name="ProgressStatusTextBox" FontSize="12" Margin="10,61,110,0" TextWrapping="Wrap" Text="Stan...
 " Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
         </Grid>
-        <Grid x:Name="InstalationPanel4" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+        <Grid x:Name="InstalationPanel4" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
             </Grid.Background>
@@ -61,6 +61,23 @@
             <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Pobrano instalator!" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
             <IdleClickerCommon:CustomButton x:Name="customButton3" HorizontalAlignment="Right" Margin="0,106,10,10" Height="Auto" Content="Uruchom" Click="customButton3_Click"/>
             <IdleClickerCommon:CustomButton x:Name="customButton2_Copy2" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="Zakończ" Click="customButton2_Copy2_Click"/>
+        </Grid>
+        <Grid x:Name="UpdatePanel1" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Masz najnowszą wersję gry!" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="24"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton4" HorizontalAlignment="Right" Margin="0,106,10,10" Height="Auto" Content="Uruchom grę" Click="customButton4_Click"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton4_Copy2" HorizontalAlignment="Right" Margin="0,106,260,10" Height="Auto" Content="_Zakończ" Click="customButton2_Copy2_Click"/>
+        </Grid>
+        <Grid x:Name="UpdatePanel2" Tag="ToHide" HorizontalAlignment="Center" Height="150" VerticalAlignment="Center" Width="400">
+            <Grid.Background>
+                <ImageBrush ImageSource="/IdleClickerUpd;component/Resources/UpdaterPanel.png"/>
+            </Grid.Background>
+            <TextBlock FontFamily="/IdleClickerCommon;component/Resources/#Eczar" FontSize="20" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Witaj Panie!" Foreground="#FFE4B57B" VerticalAlignment="Top" Width="380" TextAlignment="Center" TextDecorations="none" />
+            <TextBlock FontSize="12" Margin="10,42,10,0" TextWrapping="Wrap" Text="Gra jest uruchomiona. Aby zaktualizować grę musisz ją wyłączyć. Program automatycznie zaktualizuje się po wyłączeniu gry!" Foreground="#FFE4B57B" VerticalAlignment="Top" FontFamily="/IdleClickerCommon;component/Resources/#Eczar" Height="45"/>
+            <IdleClickerCommon:CustomButton x:Name="customButton5_Copy2" HorizontalAlignment="Center" Margin="0,0,0,10" Height="34" Content="_Zakończ" Click="customButton2_Copy2_Click" VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
 </UserControl>

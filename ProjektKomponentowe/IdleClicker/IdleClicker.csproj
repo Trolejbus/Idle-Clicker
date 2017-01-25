@@ -67,7 +67,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Config\Loader.cs" />
+    <Compile Include="Config\GameLoader.cs" />
+    <Compile Include="Config\VillageRanks.cs" />
     <Compile Include="Controls\BuildingControl.xaml.cs">
       <DependentUpon>BuildingControl.xaml</DependentUpon>
     </Compile>
@@ -123,6 +124,7 @@
     <Compile Include="Game\Buildings\Building.cs" />
     <Compile Include="Commons\Enums\Enums.cs" />
     <Compile Include="Game\Buildings\BuildingInfo.cs" />
+    <Compile Include="Game\Game.cs" />
     <Compile Include="Interfaces\IGameTimer.cs" />
     <Compile Include="Interfaces\IProductable.cs" />
     <Compile Include="Interfaces\IReducible.cs" />

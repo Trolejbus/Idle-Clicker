@@ -8,6 +8,7 @@ using System.Threading;
 using System.Drawing;
 using System.IO;
 using System.Net;
+using System.Diagnostics;
 
 namespace IdleClickerCommon
 {
@@ -29,14 +30,115 @@ namespace IdleClickerCommon
             }
             private set
             {
+                statusText = value;
                 OnStatusTextChanged(value, isError);
-                statusText = StatusText;
             }
         }
 
         public static bool CheckIfGameInPath(string path)
         {
             return (File.Exists(path + @"\IdleClicker.exe"));
+        }
+
+        public static bool CheckIfGameRunning()
+        {
+            Process[] pname = Process.GetProcessesByName("IdleClicker");
+            return (pname.Length > 0);
+        }
+
+        public delegate void OnProgressDelegate(double progress);
+
+        private static int allFiles = 0;
+        private static int filesCopied = 0;
+
+        public static bool Install()
+        {
+            try
+            {
+                allFiles = CountFiles();
+                CreateDirs();
+                CopyFiles();
+                return true;
+            }
+            catch (Exception e)
+            {
+                //MessageBox.Show(e.Message);
+                 return false;
+            }
+        }
+
+        public static event OnProgressDelegate Progress;
+        public static event OnProgressDelegate FileProgress;
+
+        private static void CreateDirs()
+        {
+            CreateDirs(Program.GamePath + @"\Update", Program.GamePath);
+        }
+
+        private static void CreateDirs(string updateDirs, string gameDirs)
+        {
+            DirectoryInfo updateDir = new DirectoryInfo(updateDirs);
+
+            foreach (DirectoryInfo item in updateDir.GetDirectories())
+            {
+                string dir = gameDirs + @"\" + item;
+                Directory.CreateDirectory(dir);
+                CreateDirs(updateDirs + @"\" + item, dir);
+            }
+        }
+
+        private static int CountFiles()
+        {
+            return CountFiles(Program.GamePath + @"\Update");
+        }
+
+        private static int CountFiles(string dir)
+        {
+            DirectoryInfo updateDir = new DirectoryInfo(dir);
+
+            int allFiles = updateDir.GetFiles().Length;
+
+            foreach (DirectoryInfo item in updateDir.GetDirectories())
+            {
+                allFiles += CountFiles(dir + @"\" + item);
+            }
+            return allFiles;
+        }
+
+       private static void CopyFiles()
+       {
+            CopyFiles(Program.GamePath + @"\Update", Program.GamePath);
+        }
+
+        private static void CopyFiles(string updateDirs, string gameDirs)
+        {
+            DirectoryInfo updateDir = new DirectoryInfo(updateDirs);
+
+            foreach (FileInfo item in updateDir.GetFiles())
+            {
+                CustomFileCopier cfc = new CustomFileCopier(item.FullName, gameDirs + @"\" + item);
+                cfc.OnProgressChanged += (c) =>
+                {
+                    if (FileProgress != null)
+                        FileProgress(c);
+                };
+                cfc.OnCompleted += () =>
+                {
+                    if (FileProgress != null)
+                       FileProgress(100.0);
+                };
+                cfc.Copy();
+
+                filesCopied++;
+                Progress((double)filesCopied / (double)allFiles * 100.0);
+            }
+
+            foreach (DirectoryInfo item in updateDir.GetDirectories())
+            {
+                string dir = gameDirs + @"\" + item;
+                Directory.CreateDirectory(dir);
+                CreateDirs(updateDirs + @"\" + item, dir);
+            }
         }
 
         public static void DownloadInstallFile(string destination)
@@ -95,6 +197,8 @@ namespace IdleClickerCommon
                     List<FileToDownload> filesToDownload = GetFilesToDownload(versions);               
                     ClearUpdateFolder();
                     DownloadFile(filesToDownload, Program.ApplicationExecutablePath + @"/Update");
+                    StatusText = "Kopiowanie plików...";
+                    CopyFiles();
 
                     isError = false;
                     StatusText = "Pomyślnie zaktualizowano. Możesz teraz zainstalować...";

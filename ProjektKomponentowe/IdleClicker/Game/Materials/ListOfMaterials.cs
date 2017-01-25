@@ -12,7 +12,7 @@ namespace IdleClicker
     /// </summary>
     public class ListOfMaterials
     {
-        private List<Material> Materials;
+        public List<Material> Materials;
 
         public event NewMaterialHandler NewMaterial;
 
@@ -37,7 +37,8 @@ namespace IdleClicker
             }
             
             Materials.Add(material);
-            NewMaterial((Material)Materials[Materials.Count - 1]);
+            if(NewMaterial != null)
+                NewMaterial((Material)Materials[Materials.Count - 1]);
             return (Material)Materials[Materials.Count - 1];
         }
     }

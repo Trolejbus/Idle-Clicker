@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Media;
+using System.Xml;
 
 namespace IdleClicker
 {
@@ -244,7 +245,21 @@ namespace IdleClicker
         public void ReduceMaterial(double value)
         {
             currentAmount -= value;
-            onChangeMaterial(this);
+            if(onChangeMaterial != null)
+                onChangeMaterial(this);
+        }
+
+        public void FromXml(XmlNode root)
+        {
+            currentAmount = Convert.ToInt32(root.Attributes["Amount"].Value);
+        }
+
+        public void ToXml(XmlWriter w)
+        {
+            w.WriteStartElement("Building");
+            w.WriteAttributeString("Key", Key);
+            w.WriteAttributeString("Amount", currentAmount.ToString());
+            w.WriteEndElement();
         }
 
         public ImageSource GetIcon()
