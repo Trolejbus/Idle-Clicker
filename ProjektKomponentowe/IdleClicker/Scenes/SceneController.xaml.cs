@@ -21,7 +21,7 @@ namespace IdleClicker
     public partial class SceneController : UserControl
     {
         public Scene CurrentScene { get; set; }
-        private Scene InitialScene = new MainMenuScene(); 
+        private Scene InitialScene = new IntroScene(); 
 
         public SceneController()
         {

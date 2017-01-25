@@ -40,7 +40,7 @@ namespace IdleClicker
             Enabled = false;          
 
             // Określa wstępną częstotliwość zegara
-            GameTimer.Interval = 1000;
+            GameTimer.Interval = 1;
         }
 
         public static void SetListOfMaterials(ListOfMaterials list)

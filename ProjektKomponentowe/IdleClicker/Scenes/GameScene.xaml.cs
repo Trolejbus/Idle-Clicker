@@ -20,6 +20,8 @@ namespace IdleClicker
     /// <summary>
     /// Interaction logic for GameScene.xaml
     /// </summary>
+    /// 
+
     public partial class GameScene : Scene
     {
         public GameScene()
@@ -33,7 +35,11 @@ namespace IdleClicker
                 AudioPlayer.AddMusic("Resources/Music/main_menu_slaby_end.mp3");
                 AudioPlayer.PlayMusic();
                 sceneController.LoadScene(new MainMenuScene());
-            };*/
+            };
+            menuPanel.exitButton.Click += (o, i) => { sceneController.LoadScene(new MainMenuScene()); };
+            menuPanel.SoundButton.Click += (o, i) => { canvas.Children.Add(new SoundPanel()); };
+            menuPanel.loadGameButton.Click += (o, i) => { canvas.Children.Add(new LoadGamePanel()); };
+
             //  villageBackground.Source = new BitmapImage(new Uri("/IdleClicker;component/Resources/Images/VillageBackground.png", UriKind.Relative));
             
             GameEngine.Enabled = true;
@@ -63,6 +69,13 @@ namespace IdleClicker
         public override void Close()
         {
             base.Close();
+        }
+
+        private void buttonEnter_Click(object sender, RoutedEventArgs e)
+        {
+            this.console.listBox.Items.Add(this.console.textBox.Text);
+            this.console.textBox.Text = "";
+
         }
     }
 }

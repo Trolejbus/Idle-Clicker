@@ -56,7 +56,6 @@ namespace IdleClicker
             GameScene gameScene = (GameScene)mainWindow.sceneController.CurrentScene;
 
             TownHallPanel buildingWindow = new TownHallPanel(building.IconSource, Dictionary.dictionary[building.Key]);
-
             buildingWindow.AddNewParagraph("Podstawowe informacje", "Obecny level budynku:", building.Level.ToString(), "Maksymalny level budynku:", building.MaxLevel.ToString());
             buildingWindow.AddNewParagraph("Inne informacje");
 

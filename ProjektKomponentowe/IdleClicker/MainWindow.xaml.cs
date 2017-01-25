@@ -22,7 +22,8 @@ namespace IdleClicker
     {        
         public MainWindow()
         {
-            InitializeComponent();    
+            InitializeComponent();
+            this.KeyDown += MainWindow_KeyDown;   
         }
 
         /// <summary>
@@ -34,6 +35,68 @@ namespace IdleClicker
         {
             //AudioPlayer.StopMusic();
             //AudioPlayer.StopSound();
+        }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+
+                    UIElement ui = null;
+                    //((GameScene)sceneController.CurrentScene).canvas.Children.Add(btn);
+                    foreach (var item in ((GameScene)sceneController.CurrentScene).canvas.Children)
+                    {
+                        if (item.GetType() == typeof(TownHallPanel))
+                        {
+                            ui = (TownHallPanel)item;
+                        }
+                    }
+
+                    if (ui != null)
+                    { 
+                        ((GameScene)sceneController.CurrentScene).canvas.Children.Remove(ui);
+                    }
+                    
+                }
+            }
+            if (e.Key == Key.F4 )
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+                    if (((GameScene)sceneController.CurrentScene).console.Visibility == Visibility.Hidden)
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.Visibility = Visibility.Hidden;
+                    }
+                }
+            }
+
+            if (e.Key == Key.Enter)
+            {
+                if (sceneController.CurrentScene.GetType() == typeof(GameScene))
+                {
+                    if (((GameScene)sceneController.CurrentScene).console.Visibility == Visibility.Visible)
+                    {
+                        ((GameScene)sceneController.CurrentScene).console.listBox.Items.Add(((GameScene)sceneController.CurrentScene).console.textBox.Text);
+                        string command = ((GameScene)sceneController.CurrentScene).console.textBox.Text;
+                        ((GameScene)sceneController.CurrentScene).console.textBox.Text = "";
+                        var splittedCommand = command.Split(' ');
+
+                        if (splittedCommand[0] == "sv_timeinterval")
+                        {
+                            GameEngine.GameTimer.Interval = Convert.ToInt32(splittedCommand[1]);
+                        }
+
+                    }
+                }
+            }
+
+
         }
     }
 }

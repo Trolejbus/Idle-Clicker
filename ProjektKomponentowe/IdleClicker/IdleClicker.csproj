@@ -84,6 +84,9 @@
     <Compile Include="Controls\BuildingsPanel.xaml.cs">
       <DependentUpon>BuildingsPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Console.xaml.cs">
+      <DependentUpon>Console.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MovablePanels\LineForPanel.xaml.cs">
       <DependentUpon>LineForPanel.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\BuildingsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Console.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
